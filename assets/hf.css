@@ -1,0 +1,187 @@
+/* Hållfjället – startsidan i formgivarens uttryck.
+   Färger och typsnitt är desamma som på hallfjallet.se. */
+
+@font-face {
+  font-family: "Oregon LDO";
+  src: url("/assets/fonts/OregonLDO.woff") format("woff");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Suisse Neue";
+  src: url("/assets/fonts/SuisseNeue-Regular-WebS.woff") format("woff");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+:root {
+  --ljus: #fffdf9;       /* ljusaste ytan */
+  --papper: #edebde;     /* textavsnittens bakgrund */
+  --text: #434341;       /* all text */
+  --mork: #212326;
+  --rod: #c63622;        /* hover, som på hallfjallet.se */
+  --rubrik: "Oregon LDO", "Optima", "Candara", sans-serif;
+  --brod: "Suisse Neue", Georgia, serif;
+  --skarm: 100vh;
+}
+@supports (height: 100svh) { :root { --skarm: 100svh; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--ljus); color: var(--text);
+  font-family: var(--brod); font-size: 16px; line-height: 1.72; letter-spacing: .015em;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; transition: color .2s linear; }
+@media (hover: hover) { a:hover { color: var(--rod); } }
+:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
+.skip { position: absolute; left: -9999px; top: 0; }
+.skip:focus { left: 16px; top: 16px; z-index: 100; background: var(--ljus); padding: 8px 14px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Huvud: logga, BOKA och meny ---------- */
+.logga { position: absolute; top: 45px; left: 55px; z-index: 20; width: 126px; transition: filter 1s ease; }
+.logga img { width: 100%; height: auto; }
+.huvud {
+  position: fixed; top: 38px; right: 54px; z-index: 30;
+  display: flex; align-items: center; gap: 25px;
+  color: var(--text); transition: color 1s ease, filter 1s ease;
+}
+.huvud .boka { font-family: var(--rubrik); font-size: 16px; letter-spacing: .015em; text-transform: uppercase; color: inherit; }
+@media (hover: hover) { .huvud .boka:hover { color: var(--rod); } }
+.menyknapp { appearance: none; background: none; border: 0; padding: 4px; margin: -4px; color: inherit; cursor: pointer; line-height: 0; }
+.menyknapp svg { width: 20px; height: 20px; }
+/* Ljus logga och meny när det som ligger bakom är mörkt */
+.ljus-huvud .huvud { color: #edebde; filter: drop-shadow(0 0 8px rgba(0,0,0,.3)); }
+.ljus-logga .logga { filter: brightness(0) invert(.93) drop-shadow(0 0 10px rgba(0,0,0,.28)); }
+
+/* Menyn som täcker hela skärmen */
+.meny {
+  position: fixed; inset: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--papper) center / cover no-repeat;
+  opacity: 0; visibility: hidden; transition: opacity .5s ease, visibility 0s linear .5s;
+}
+.meny::before { content: ""; position: absolute; inset: 0; background: rgba(237, 235, 222, .8); }
+.meny.oppen { opacity: 1; visibility: visible; transition: opacity .5s ease, visibility 0s; }
+.meny ul { position: relative; list-style: none; margin: 0; padding: 0; text-align: center; }
+.meny li + li { margin-top: 32px; }
+.meny a { font-family: var(--rubrik); font-size: 20px; line-height: 24px; letter-spacing: .003em; text-transform: uppercase; color: var(--text); }
+@media (hover: hover) { .meny a:hover { color: var(--rod); } }
+.meny .sprak a { text-transform: none; }
+.stang { position: absolute; top: 40px; right: 50px; appearance: none; background: none; border: 0; padding: 6px; cursor: pointer; color: var(--mork); }
+.stang svg { width: 20px; height: 20px; display: block; }
+body.meny-oppen { overflow: hidden; }
+
+/* ---------- Bildspelet överst ---------- */
+.hero { position: relative; height: var(--skarm); min-height: 480px; overflow: hidden; background: #2a2723; }
+.bildspel img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: var(--pos-d, 50% 50%);
+  opacity: 0; transition: opacity 1.6s ease;
+}
+.bildspel img.synlig { opacity: 1; z-index: 2; }
+.bildspel img.under { opacity: 1; z-index: 1; transition: none; }
+
+/* ---------- Text- och bildavsnitt ---------- */
+.avsnitt {
+  min-height: var(--skarm); background: var(--papper);
+  display: flex; align-items: center; justify-content: center;
+  padding: 80px 30px;
+}
+.avsnitt .kol { width: 75%; max-width: 1040px; text-align: center; }
+h1, h2 {
+  font-family: var(--rubrik); font-weight: 400; text-transform: uppercase;
+  font-size: 36px; line-height: 1.2; letter-spacing: .0625em; margin: 0;
+  text-wrap: balance;
+}
+.text { margin-top: 20px; }
+.text p { margin: 0 0 20px; }
+.bild { position: relative; height: var(--skarm); min-height: 480px; overflow: hidden; background: #2a2723; }
+.bild img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos-d, 50% 50%); }
+
+/* Knapp med tunn ram, som "Gå till bokningssida" */
+.knapp {
+  display: inline-flex; align-items: center; gap: 12px;
+  margin: 10px 0 30px; padding: 13px 29px;
+  border: 1px solid var(--text); border-radius: 4px;
+  font-family: var(--brod); font-size: 16px; line-height: 1.2; color: var(--text);
+  background: transparent; cursor: pointer;
+  transition: color .2s linear, border-color .2s linear;
+}
+@media (hover: hover) { .knapp:hover { color: var(--rod); border-color: var(--rod); } }
+.knapp svg { width: 16px; height: 16px; flex: none; }
+.kontakt p { margin: 0 0 20px; }
+.koordinater { display: inline-flex; align-items: center; gap: 14px; }
+.koordinater svg { width: 24px; height: 24px; }
+.koordinater span { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+/* Nyhetsbrevet: ljust kort som på hallfjallet.se */
+.nyhetsbrev .kort {
+  background: var(--ljus); border-radius: 6px; max-width: 570px; margin: 0 auto;
+  padding: 30px 30px 40px; box-shadow: 0 10px 30px -12px rgba(33, 35, 38, .25);
+}
+.nyhetsbrev .kol { width: 100%; max-width: 570px; }
+.nyhetsbrev .text { margin-bottom: 10px; }
+
+/* ---------- Sidfot ---------- */
+.sidfot { background: var(--papper); text-align: center; padding: 60px 30px 24px; font-size: 16px; }
+.sidfot .fotlogga { width: 100px; height: auto; margin: 0 auto 30px; }
+.sidfot p { margin: 0 0 14px; }
+.sidfot a { white-space: nowrap; }
+.sidfot .prick { margin: 0 10px; }
+.sidfot .copy { font-size: 13px; margin-top: 18px; }
+
+/* Till toppen */
+.till-toppen {
+  position: fixed; right: 35px; bottom: 30px; z-index: 25;
+  width: 44px; height: 44px; display: grid; place-items: center;
+  background: var(--ljus); color: var(--text); border: 0; cursor: pointer;
+  opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility 0s linear .3s;
+}
+.till-toppen.synlig { opacity: 1; visibility: visible; transition: opacity .3s ease; }
+.till-toppen svg { width: 14px; height: 14px; }
+
+/* ---------- LÄS MER / VISA MINDRE (bara på mobil) ---------- */
+.las-mer .lm-more { height: 0; overflow: hidden; visibility: hidden; transition: height .8s cubic-bezier(.45, 0, .15, 1), visibility 0s linear .8s; }
+.las-mer.lm-open .lm-more { visibility: visible; transition: height .8s cubic-bezier(.45, 0, .15, 1), visibility 0s linear 0s; }
+.las-mer .lm-inner > * { opacity: 0; transform: translateY(.5em); transition: opacity .35s ease, transform .35s ease; }
+.las-mer.lm-open .lm-inner > * { opacity: 1; transform: none; transition: opacity 1s ease .25s, transform 1.1s cubic-bezier(.2, .6, .2, 1) .25s; }
+.las-mer.lm-open .lm-inner > :nth-child(2) { transition-delay: .4s; }
+.las-mer.lm-open .lm-inner > :nth-child(3) { transition-delay: .55s; }
+.las-mer.lm-open .lm-inner > :nth-child(n+4) { transition-delay: .7s; }
+.las-mer .lm-knapp-rad { margin: 0; text-align: center; }
+.las-mer .lm-knapp {
+  appearance: none; background: none; border: 0; border-radius: 0; margin: 0; padding: 8px 4px;
+  font-family: var(--rubrik); font-size: 16px; font-weight: 400; line-height: 1.2;
+  letter-spacing: .015em; text-transform: uppercase; color: var(--text); cursor: pointer;
+  transition: color .2s linear;
+}
+@media (hover: hover) { .las-mer .lm-knapp:hover { color: var(--rod); } }
+.las-mer .lm-etikett { display: inline-block; transition: opacity .2s ease; }
+.las-mer .lm-knapp.lm-byter .lm-etikett { opacity: 0; }
+@media (min-width: 801px) {
+  .las-mer.bara-mobil .lm-more { height: auto !important; visibility: visible !important; overflow: visible; }
+  .las-mer.bara-mobil .lm-inner > * { opacity: 1 !important; transform: none !important; }
+  .las-mer.bara-mobil .lm-knapp-rad { display: none; }
+}
+
+/* ---------- Mobil ---------- */
+@media (max-width: 800px) {
+  .logga { top: 30px; left: 30px; width: 76px; }
+  .huvud { top: 33px; right: 40px; }
+  .stang { top: 33px; right: 36px; }
+  .avsnitt { padding: 60px; }
+  .avsnitt .kol { width: 100%; }
+  h1, h2 { font-size: 24.26px; margin: 10px 0; }
+  .text { margin-top: 10px; }
+  .bildspel img, .bild img { object-position: var(--pos-m, 50% 50%); }
+  .nyhetsbrev.avsnitt { padding: 60px 20px; }
+  .till-toppen { right: 20px; bottom: 20px; }
+}
+@media (max-width: 380px) { .avsnitt { padding: 60px 40px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .bildspel img, .las-mer .lm-more, .las-mer .lm-inner > *, .meny, .logga, .huvud { transition: none !important; }
+}

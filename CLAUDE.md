@@ -29,12 +29,23 @@ If she wants to undo something, revert the change on a new branch and open a pul
 | Work with us | `en/work-with-us/` | `sv/jobba-hos-oss/` |
 | Contact | `en/contact/` | `sv/kontakt/` |
 
-- `assets/style.css`, `assets/site.js` — shared styling and script.
+- `assets/style.css`, `assets/site.js` — styling and script for the inner pages (old look, to be redesigned).
+- `assets/hf.css`, `assets/hf.js`, `assets/fonts/` — the designer's look from hallfjallet.se, used by the **home pages** (`sv/index.html`, `en/index.html`). Fonts are Oregon LDO (headings, menu, BOKA) and Suisse Neue (body); she owns the licences.
 - `assets/img/` — photos as `name-640.webp`, `name-1280.webp`, `name-1920.webp`, plus `og.jpg` (the share image).
+
+### The home pages (new look)
+
+The home pages copy the structure of the WordPress site: one long page with a slideshow at the top, then full-screen text sections, each followed by a full-screen photo. The menu (hamburger, top right) opens a full-screen overlay and jumps to the sections by id.
+
+- **Section ids** — Swedish: `hitta-hem-i-det-vilda`, `mat-dryck`, `bo-hos-oss`, `var-historia`, `hitta-hit`, `boka`, `newsletter`. English: `home-in-the-wild`, `food-beverage`, `stay-with-us`, `our-story`, `getting-here`, `reservation`, `newsletter`.
+- **Slideshow** — the `<img>` tags inside `.bildspel`, in order. The same 13 images, in the same order, in both languages and on phone and computer. Only the first has `src`; the rest have `data-src`/`data-srcset` and load just before they are shown. `--pos-d` / `--pos-m` set the crop on computer / phone. `data-ljus-d` / `data-ljus-m` = `1` when the logo and BOKA should be light on that image (dark image behind them), `0` when they should be dark. Timing is in `assets/hf.js` (first change after 2.5 s, then 4 s; 1.6 s fade in `hf.css`).
+- **Photos between sections** — `<div class="bild">` with the same `--pos-*` and `data-ljus-*` attributes.
+- **LÄS MER** — text blocks with the classes `las-mer bara-mobil` get a LÄS MER / VISA MINDRE button on phones only (800px and narrower). The text breaks at the paragraph closest to half. Add `data-las-mer-efter="2"` to force the break after paragraph 2.
+- The texts are copied word for word from hallfjallet.se. Do not edit them unless she asks.
 - `sitemap.xml`, `robots.txt`, `favicon.ico`, `apple-touch-icon.png`, `fall.webp` (background of the language picker).
 - `wrangler.jsonc` and `.assetsignore` — Cloudflare deploy settings. **Do not edit these** unless she asks for a deploy change. `.assetsignore` keeps repo files like this one out of the public site.
 
-The HTML files are the source of truth. There is no generator. The header, footer and booking button are repeated in every page, so a change to them must be made in **all 14 pages**. Search before you edit and check nothing was missed.
+The HTML files are the source of truth. There is no generator. The header, footer and booking button are repeated in every page, so a change to them must be made in **all 14 pages** (the two home pages have their own header, menu and footer markup in the new look). Search before you edit and check nothing was missed.
 
 ## Rules for every change
 
@@ -60,5 +71,8 @@ The HTML files are the source of truth. There is no generator. The header, foote
 - Awards and press: no awards are named yet. The home pages have an HTML comment marking where an awards strip goes.
 - The Instagram link was reused from the old page. Confirm it.
 - The summer chef opening has unclear dates. Confirm them.
-- The newsletter sign-up from the old WordPress site has not been rebuilt (needs a mail service).
+- The newsletter sign-up from the old WordPress site has not been rebuilt (needs a mail service). For now the "Följ våra berättelser" / "Follow our stories" button on the home pages opens an email to info@hallfjallet.se. Ask which newsletter service they use.
+- The inner pages (Aktiviteter på fjället, Jobba hos oss and the rest) still have the old look. Next step: rebuild them in the new look, with the activities and their detail pages as on hallfjallet.se.
+- The skier photo is used three times on the home page (slideshow and after Vår historia and Hitta hit), as on hallfjallet.se. Suggest other photos when she has more.
+- The winter mountain photo (`hero-fjallet-vinter`) only exists at 900px wide. Replace it when she sends a larger version.
 - The domain `www.hallfjallet.se` still points at the old WordPress site. Connecting it is a separate step done in Cloudflare by the owner, not something to do here.
