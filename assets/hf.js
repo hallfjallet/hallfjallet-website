@@ -8,8 +8,8 @@
   /* ---------- Bildspelet ---------- */
   var bilder = [].slice.call(document.querySelectorAll('.bildspel img'));
   var nu = 0;
-  var FORSTA = 2500;   // första bytet kommer tidigt, så att man ser att det är ett bildspel
-  var TEMPO = 4000;    // därefter 4 sekunder per bild (övertoningen är 1,6 s, se hf.css)
+  var FORSTA = 2000;   // första bytet kommer tidigt, så att man ser att det är ett bildspel
+  var TEMPO = 3500;    // därefter 3,5 sekunder per bild (övertoningen är 1,6 s, se hf.css)
 
   function ladda(img) {
     if (img && img.dataset.srcset) {
