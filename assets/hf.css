@@ -181,6 +181,8 @@ h1, h2 {
 .uppslag-text { display: flex; align-items: center; justify-content: center; padding: 70px 6vw; text-align: center; }
 .uppslag-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 28px; margin-top: 26px; }
 .uppslag-cta .knapp { margin: 0; }
+.uppslag-cta { flex-direction: column; gap: 8px; }
+.cta-info { margin: 0; max-width: 380px; font-size: 14px; line-height: 1.5; color: #7a786f; }
 .boka-lank { font-family: var(--rubrik); font-size: 16px; letter-spacing: .015em; text-transform: uppercase; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
 .uppslag-text .kol { max-width: 560px; }
 .uppslag-text h2 { font-size: 30px; }
