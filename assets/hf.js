@@ -44,7 +44,7 @@
 
   /* ---------- Logga och meny: ljusa på mörka bilder ---------- */
   var huvud = document.querySelector('.huvud');
-  var ytor = [].slice.call(document.querySelectorAll('.hero, .bild'));
+  var ytor = [].slice.call(document.querySelectorAll('.hero, .bild, .uppslag-bild'));
   function farg() {
     if (!huvud) return;
     var y = huvud.getBoundingClientRect().top + 10, ljus = false;
