@@ -199,6 +199,37 @@ h1, h2 {
   .sasong { padding: 50px 30px 40px; }
 }
 
+/* En enda, ren länk per upplevelse, i samma stil som BOKA */
+.forfragan-lank { font-family: var(--rubrik); font-size: 16px; letter-spacing: .015em; text-transform: uppercase; color: var(--text); }
+@media (hover: hover) { .forfragan-lank:hover { color: var(--rod); } }
+
+/* Förfrågan: ett rent formulär utan rutor */
+.forfragan { background: var(--papper); padding: 100px 30px 90px; text-align: center; }
+.forfragan .kol { max-width: 660px; margin: 0 auto; }
+.forfragan-ingress { margin: 20px auto 0; max-width: 560px; }
+.forfragan fieldset { border: 0; margin: 40px 0 0; padding: 0; min-width: 0; }
+.forfragan legend { width: 100%; padding: 0; margin-bottom: 16px; font-family: var(--rubrik); font-size: 14px; letter-spacing: .2em; text-transform: uppercase; }
+.forfragan .val { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; }
+.val-rad { position: relative; cursor: pointer; }
+.val-rad input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.val-rad span { color: #8a887f; border-bottom: 1px solid transparent; padding-bottom: 2px; transition: color .2s linear, border-color .2s linear; }
+.val-rad input:checked + span { color: var(--text); border-bottom-color: currentColor; }
+.val-rad input:focus-visible + span { outline: 1px solid currentColor; outline-offset: 4px; }
+.falt-rader { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 34px; margin-top: 40px; text-align: left; }
+.falt.bred { grid-column: 1 / -1; }
+.falt span { display: block; margin-bottom: 2px; font-family: var(--rubrik); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: #6b6a63; }
+.falt input, .falt textarea { width: 100%; box-sizing: border-box; padding: 6px 0; border: 0; border-bottom: 1px solid var(--text); border-radius: 0; background: transparent; color: var(--text); font: inherit; resize: vertical; }
+.falt input:focus, .falt textarea:focus { outline: none; border-bottom-color: var(--rod); }
+.skicka { appearance: none; background: none; border: 0; margin-top: 40px; padding: 8px 4px; cursor: pointer; font-family: var(--rubrik); font-size: 16px; letter-spacing: .015em; text-transform: uppercase; color: var(--text); }
+@media (hover: hover) { .skicka:hover { color: var(--rod); } }
+.forfragan-status { min-height: 1.6em; margin: 14px 0 0; }
+.forfragan-direkt { margin: 26px 0 0; font-size: 14px; color: #6b6a63; }
+.forfragan-direkt a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 800px) {
+  .forfragan { padding: 70px 30px 70px; }
+  .falt-rader { grid-template-columns: 1fr; }
+}
+
 /* ---------- Mobil ---------- */
 @media (max-width: 800px) {
   .logga { top: 30px; left: 30px; width: 76px; }

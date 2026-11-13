@@ -103,6 +103,44 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && meny.classList.contains('oppen')) sattMeny(false); });
   }
 
+  /* ---------- Förfrågan (aktivitetssidan) ---------- */
+  var form = document.querySelector('form[data-forfragan]');
+  [].forEach.call(document.querySelectorAll('.forfragan-lank'), function (a) {
+    a.addEventListener('click', function (e) {
+      if (!form) return;
+      e.preventDefault();
+      var val = form.querySelector('input[data-aktivitet="' + a.getAttribute('data-aktivitet') + '"]');
+      if (val) val.checked = true;
+      document.getElementById('forfragan').scrollIntoView({ behavior: lugn.matches ? 'auto' : 'smooth' });
+      setTimeout(function () { form.querySelector('input[name="namn"]').focus({ preventScroll: true }); }, lugn.matches ? 0 : 800);
+    });
+  });
+  if (form) form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var status = form.querySelector('.forfragan-status');
+    if (form.webbplats.value) return;                       // fälla för skräppost
+    var namn = form.namn.value.trim(), epost = form.epost.value.trim();
+    if (!namn || !epost || !form.epost.checkValidity()) { status.textContent = form.dataset.saknas; return; }
+    var val = [].map.call(form.querySelectorAll('input[name="upplevelse"]:checked'), function (i) { return i.value; });
+    var amne = form.dataset.amne + (val.join(', ') || 'Hållfjället');
+    var rader = [val.join(', '), form.datum.value, form.antal.value, form.meddelande.value];
+    var nyckel = form.dataset.nyckel;
+    if (!nyckel) {
+      // Ingen formulärtjänst kopplad än: öppna ett färdigskrivet mejl som reserv
+      var text = namn + ' (' + epost + ')\n\n' + rader.filter(Boolean).join('\n');
+      location.href = 'mailto:info@hallfjallet.se?subject=' + encodeURIComponent(amne) + '&body=' + encodeURIComponent(text);
+      return;
+    }
+    var knapp = form.querySelector('.skicka'); knapp.disabled = true;
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ access_key: nyckel, subject: amne, from_name: namn, email: epost, replyto: epost,
+        'Upplevelser': val.join(', '), 'Datum': form.datum.value, 'Antal personer': form.antal.value, 'Meddelande': form.meddelande.value })
+    }).then(function (r) { return r.json(); }).then(function (d) {
+      if (d && d.success) { form.reset(); status.textContent = form.dataset.tack; } else { status.textContent = form.dataset.fel; }
+    }).catch(function () { status.textContent = form.dataset.fel; }).then(function () { knapp.disabled = false; });
+  });
+
   /* ---------- LÄS MER / VISA MINDRE ---------- */
   var TEXT = { sv: ['Läs mer', 'Visa mindre'], en: ['Read more', 'Show less'] };
   var nr = 0;
