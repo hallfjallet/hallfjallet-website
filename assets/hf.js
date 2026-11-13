@@ -18,7 +18,7 @@
       img.removeAttribute('data-srcset');
     }
   }
-  function bildAr(img, nyckel) { return img && img.getAttribute('data-ljus-' + nyckel) === '1'; }
+  function bildAr(img, nyckel) { return !!img && img.getAttribute('data-ljus-' + nyckel) === '1'; }
   function aktuellLjus() { return bildAr(bilder[nu], smal.matches ? 'm' : 'd'); }
 
   function visa(i) {
@@ -55,7 +55,7 @@
       }
     });
     rot.classList.toggle('ljus-huvud', ljus);
-    rot.classList.toggle('ljus-logga', aktuellLjus()); // loggan följer bildspelet, i samma färg som menyn
+    rot.classList.toggle('ljus-logga', !!aktuellLjus()); // loggan följer bildspelet, i samma färg som menyn
     if (toppen) toppen.classList.toggle('synlig', window.scrollY > window.innerHeight);
   }
   var vantar = false;
