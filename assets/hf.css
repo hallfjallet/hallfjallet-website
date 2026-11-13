@@ -173,12 +173,15 @@ h1, h2 {
 .sasong { background: var(--papper); text-align: center; padding: 60px 30px 50px; }
 .sasong span { display: inline-flex; align-items: center; gap: 22px; font-family: var(--rubrik); font-size: 15px; letter-spacing: .32em; text-transform: uppercase; color: var(--text); }
 .sasong span::before, .sasong span::after { content: ""; width: 56px; border-top: 1px solid currentColor; opacity: .5; }
-.uppslag { display: grid; grid-template-columns: 11fr 9fr; min-height: 92vh; background: var(--papper); }
+.uppslag { display: grid; grid-template-columns: 11fr 9fr; min-height: min(78vh, 760px); background: var(--papper); }
 .uppslag + .uppslag { border-top: 0; }
 .uppslag.vand .uppslag-bild { order: 2; }
-.uppslag-bild { position: relative; overflow: hidden; background: #2a2723; min-height: 92vh; }
+.uppslag-bild { position: relative; overflow: hidden; background: #2a2723; min-height: min(78vh, 760px); }
 .uppslag-bild img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--pos-d, 50% 50%); }
-.uppslag-text { display: flex; align-items: center; justify-content: center; padding: 90px 6vw; text-align: center; }
+.uppslag-text { display: flex; align-items: center; justify-content: center; padding: 70px 6vw; text-align: center; }
+.uppslag-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 28px; margin-top: 26px; }
+.uppslag-cta .knapp { margin: 0; }
+.boka-lank { font-family: var(--rubrik); font-size: 16px; letter-spacing: .015em; text-transform: uppercase; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
 .uppslag-text .kol { max-width: 560px; }
 .uppslag-text h2 { font-size: 30px; }
 .notis { background: var(--papper); text-align: center; padding: 90px 30px 70px; }
@@ -189,9 +192,9 @@ h1, h2 {
   .avsnitt.intro { padding: 70px 40px 40px; }
   .uppslag { grid-template-columns: 1fr; min-height: 0; }
   .uppslag.vand .uppslag-bild { order: 0; }
-  .uppslag-bild { min-height: 0; aspect-ratio: 4 / 5; }
+  .uppslag-bild { min-height: 0; aspect-ratio: 5 / 4; }
   .uppslag-bild img { object-position: var(--pos-m, 50% 50%); }
-  .uppslag-text { padding: 46px 40px 76px; }
+  .uppslag-text { padding: 40px 30px 60px; }
   .uppslag-text h2 { font-size: 24.26px; }
   .sasong { padding: 50px 30px 40px; }
 }
