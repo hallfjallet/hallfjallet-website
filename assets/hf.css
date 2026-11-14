@@ -56,8 +56,8 @@ a { color: inherit; text-decoration: none; transition: color .2s linear; }
 .menyknapp { appearance: none; background: none; border: 0; padding: 4px; margin: -4px; color: inherit; cursor: pointer; line-height: 0; }
 .menyknapp svg { width: 20px; height: 20px; }
 /* Ljus logga och meny när det som ligger bakom är mörkt */
-.ljus-huvud .huvud { color: #d8d4c8; filter: drop-shadow(0 0 8px rgba(0,0,0,.25)); }
-.ljus-logga .logga { filter: brightness(0) invert(.84) sepia(.12) drop-shadow(0 0 10px rgba(0,0,0,.22)); }
+.ljus-huvud .huvud { color: #cfccc4; filter: drop-shadow(0 0 8px rgba(0,0,0,.25)); }
+.ljus-logga .logga { filter: brightness(0) invert(.8) sepia(.08) drop-shadow(0 0 10px rgba(0,0,0,.22)); }
 
 /* Menyn som täcker hela skärmen */
 .meny {
@@ -93,12 +93,13 @@ body.meny-oppen { overflow: hidden; }
   color: var(--text); transition: opacity 1.8s ease, color 1s ease; }
 .hero-text.borta { opacity: 0 !important; animation: none; }
 .hero-text.borta .hero-pil { pointer-events: none; }
-.hero-rubrik { opacity: 0; filter: blur(6px); letter-spacing: .2em; transform: translateY(8px);
-  animation: hero-in 2.2s cubic-bezier(.2, .6, .2, 1) .3s forwards; }
-.hero-pil { opacity: 0; animation: hero-pil-in 1.4s ease 1.8s forwards; }
-@keyframes hero-in { to { opacity: .82; filter: blur(0); letter-spacing: .16em; transform: none; } }
+.hero-rubrik { opacity: 0; filter: blur(14px); letter-spacing: .32em; transform: translateY(-14px) scale(1.04);
+  animation: hero-in 3.4s cubic-bezier(.16, .7, .2, 1) .4s forwards; }
+.hero-pil { opacity: 0; animation: hero-pil-in 1.6s ease 2.6s forwards; }
+/* Rubriken sjunker in: ur oskärpa, ner på plats medan bokstäverna drar ihop sig */
+@keyframes hero-in { 40% { opacity: .55; } to { opacity: .9; filter: blur(0); letter-spacing: .16em; transform: none; } }
 @keyframes hero-pil-in { to { opacity: 1; } }
-.ljus-logga .hero-text { color: #e2ded2; }
+.ljus-logga .hero-text { color: #cfccc4; }
 .ljus-logga .hero-rubrik { text-shadow: 0 0 18px rgba(20,18,15,.55), 0 0 42px rgba(20,18,15,.35); }
 .hero-text::before { content: ""; position: absolute; left: 50%; top: 50%; width: min(760px, 110vw); height: 220px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(20,18,15,.28), rgba(20,18,15,0)); opacity: 0; animation: hero-pil-in 2.4s ease .6s forwards; pointer-events: none; }
 :root:not(.ljus-logga) .hero-text::before { display: none; }
