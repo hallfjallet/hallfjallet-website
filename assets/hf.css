@@ -181,7 +181,14 @@ h1, h2 {
 .nyhetsbrev::before { content: ""; position: absolute; inset: 0; background: url(/assets/img/lake-mist-1920.webp) 50% 60% / cover no-repeat; opacity: .38; }
 .nyhetsbrev::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,27,25,.45) 0%, rgba(28,27,25,.12) 45%, rgba(28,27,25,0) 70%); }
 .nyhetsbrev .kol { position: relative; z-index: 1; max-width: 520px; }
-.nyhetsbrev .kort { background: rgba(237, 235, 222, .92); }
+/* Ingen ruta (hennes val): ljusgrå text direkt på bilden, med en mjuk mörk skugga bakom så att den är tydlig */
+.nyhetsbrev .kort { position: relative; background: none; box-shadow: none; color: var(--gra); }
+.nyhetsbrev .kort::before { content: ""; position: absolute; inset: -70px -110px; z-index: -1; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(20,18,15,.66), rgba(20,18,15,.3) 60%, rgba(20,18,15,0)); }
+.nyhetsbrev .kort h2, .nyhetsbrev .kort p { color: var(--gra); text-shadow: 0 0 14px rgba(20,18,15,.75), 0 0 2px rgba(20,18,15,.5); }
+.nyhetsbrev .kort .text p { font-size: 17px; }
+.nyhetsbrev .knapp { color: var(--gra); border-color: var(--gra); }
+@media (hover: hover) { .nyhetsbrev .knapp:hover { color: var(--text); background: var(--gra); } }
 
 /* ---------- Sidfot ---------- */
 .sidfot { background: var(--papper); text-align: center; padding: 60px 30px 24px; font-size: 16px; }
