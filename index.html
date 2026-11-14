@@ -1,39 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hållfjället – Mountain Hotel &amp; Restaurant · Fjällhotell &amp; restaurang</title>
-<meta name="description" content="Hållfjället is a small mountain hotel and restaurant above Ottsjö in Åre, Sweden. / Ett litet fjällhotell och en restaurang ovanför Ottsjö i Åre.">
-<meta name="theme-color" content="#2b3639">
+<title>Hållfjället – Fjällhotell & restaurang · Mountain hotel & restaurant</title>
+<meta name="description" content="Hållfjället är ett litet fjällhotell och en restaurang i väglöst land ovanför Ottsjö i Åre. / A small mountain hotel and restaurant in roadless country above Ottsjö, Åre, Sweden.">
+<meta name="theme-color" content="#edebde">
 <link rel="canonical" href="https://www.hallfjallet.se/">
-<link rel="alternate" hreflang="en" href="https://www.hallfjallet.se/en/">
 <link rel="alternate" hreflang="sv" href="https://www.hallfjallet.se/sv/">
+<link rel="alternate" hreflang="en" href="https://www.hallfjallet.se/en/">
 <link rel="alternate" hreflang="x-default" href="https://www.hallfjallet.se/en/">
 <meta property="og:title" content="Hållfjället">
-<meta property="og:description" content="Mountain hotel &amp; restaurant in Ottsjö, Åre, Sweden.">
+<meta property="og:description" content="Fjällhotell och restaurang ovanför Ottsjö, Åre. / Mountain hotel and restaurant above Ottsjö, Åre.">
 <meta property="og:image" content="https://www.hallfjallet.se/assets/img/og.jpg">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
 <script>
+  // Svenska eller engelska efter webbläsarens språk.
+  // Gamla engelska länkar till hallfjallet.se/#avsnitt behåller sitt avsnitt.
   (function () {
     try {
+      var h = location.hash;
       var l = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
-      location.replace(/^sv/i.test(l) ? '/sv/' : '/en/');
+      location.replace((h ? '/en/' : (/^sv/i.test(l) ? '/sv/' : '/en/')) + h);
     } catch (e) {}
   })();
 </script>
+<link rel="stylesheet" href="/assets/hf.css">
 </head>
-<body class="splash">
-<main class="splash-inner">
-  <p class="eyebrow">Welcome to · Välkommen till</p>
-  <h1>Hållfjället</h1>
-  <p class="lead">Mountain hotel &amp; restaurant in Ottsjö, Åre<br>Fjällhotell &amp; restaurang i Ottsjö, Åre</p>
-  <p class="hero-actions"><a class="btn btn-solid" href="/en/" hreflang="en" lang="en">English</a> <a class="btn btn-ghost" href="/sv/" hreflang="sv" lang="sv">Svenska</a></p>
+<body class="sida-enkel">
+<main class="enkel">
+  <img class="enkel-bild" src="/assets/img/hero-sallskapsrum-1280.webp" srcset="/assets/img/hero-sallskapsrum-640.webp 640w, /assets/img/hero-sallskapsrum-1280.webp 1280w, /assets/img/hero-sallskapsrum-1920.webp 1920w" sizes="100vw" alt="">
+  <div class="enkel-text">
+    <span class="enkel-logga"><img src="/assets/img/hallfjallet-logo.png" alt="Hållfjället" width="291" height="213"></span>
+    <p class="enkel-lankar"><a href="/sv/" hreflang="sv" lang="sv">Svenska</a><span aria-hidden="true">·</span><a href="/en/" hreflang="en" lang="en">English</a></p>
+  </div>
 </main>
 </body>
 </html>

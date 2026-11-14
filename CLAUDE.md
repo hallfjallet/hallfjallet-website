@@ -16,7 +16,6 @@ If she wants to undo something, revert the change on a new branch and open a pul
 
 ## Site structure
 
-- `index.html` — language picker at the root. It redirects to `/sv/` or `/en/` by browser language.
 - `en/<page>/index.html` and `sv/<page>/index.html` — 7 pages per language, always in pairs:
 
 | Page | English folder | Swedish folder |
@@ -44,6 +43,9 @@ The home pages copy the structure of the WordPress site: one long page with a sl
 - **LÄS MER** — text blocks with the classes `las-mer bara-mobil` get a LÄS MER / VISA MINDRE button on phones only (800px and narrower). The text breaks at the paragraph closest to half. Add `data-las-mer-efter="2"` to force the break after paragraph 2.
 - The texts are copied word for word from hallfjallet.se. Do not edit them unless she asks.
 - `sitemap.xml`, `robots.txt`, `favicon.ico`, `apple-touch-icon.png`, `fall.webp` (background of the language picker).
+- `_redirects` — old WordPress addresses (English pages at the root, Swedish under /sv/, the activity detail pages, the WP sitemaps) sent with 301 to the matching place on the new site. Add a line here when an address changes.
+- `404.html` — the "Här tog stigen slut" page, shown for unknown addresses (`not_found_handling: "404-page"` in `wrangler.jsonc`).
+- `index.html` — the language picker, in the new look. It sends visitors to /sv/ or /en/ by browser language; an old English link with a #section goes to /en/ with the same section.
 - `wrangler.jsonc` and `.assetsignore` — Cloudflare deploy settings. **Do not edit these** unless she asks for a deploy change. `.assetsignore` keeps repo files like this one out of the public site.
 
 The HTML files are the source of truth. There is no generator. The header, footer and booking button are repeated in every page, so a change to them must be made in **all 14 pages** (the two home pages have their own header, menu and footer markup in the new look). Search before you edit and check nothing was missed.
@@ -74,7 +76,7 @@ The HTML files are the source of truth. There is no generator. The header, foote
 - The summer chef opening has unclear dates. Confirm them.
 - The newsletter sign-up from the old WordPress site has not been rebuilt (needs a mail service). For now the "Följ våra berättelser" / "Follow our stories" button on the home pages opens an email to info@hallfjallet.se. Ask which newsletter service they use.
 - Jobba hos oss / Work with us is rebuilt in the new look (`<article class="jobb">` per opening, built like the activities page). Summer chef opening: the year differs on hallfjallet.se (2028 in Swedish, 2027/2026 in English), shown as a visible TODO until she confirms. The chef application email shows anders@ but linked to jens@ on hallfjallet.se; the new page uses anders@ until she confirms.
-- The old inner pages (bo-och-ata, var-historia, hitta-hit, kontakt and their English pairs) are now small redirect pages to the matching home-page section, and are out of the sitemap. The site is effectively: home, activities, work with us. hallfjallet.se also has a detail page per activity; on the new site the full text is on the activities page instead (LÄS MER on phones). Old detail-page addresses need redirects when the domain moves.
+- The old inner pages (bo-och-ata, var-historia, hitta-hit, kontakt and their English pairs) are now small redirect pages to the matching home-page section, and are out of the sitemap. The site is effectively: home, activities, work with us. hallfjallet.se also has a detail page per activity; on the new site the full text is on the activities page instead (LÄS MER on phones). Old detail-page addresses redirect via `_redirects`.
 - The skier photo is used twice on the home page (in the slideshow and after Vår historia). Avoid the same person in two pictures in a row. She wants the flower bouquet as the last photo before the footer.
 - The winter mountain photo (`hero-fjallet-vinter`) only exists at 900px wide. Replace it when she sends a larger version.
 - The domain `www.hallfjallet.se` still points at the old WordPress site. Connecting it is a separate step done in Cloudflare by the owner, not something to do here.
