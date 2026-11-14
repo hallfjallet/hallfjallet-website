@@ -29,12 +29,23 @@ If she wants to undo something, revert the change on a new branch and open a pul
 | Work with us | `en/work-with-us/` | `sv/jobba-hos-oss/` |
 | Contact | `en/contact/` | `sv/kontakt/` |
 
-- `assets/style.css`, `assets/site.js` — shared styling and script.
+- `assets/style.css`, `assets/site.js` — styling and script for the inner pages (old look, to be redesigned).
+- `assets/hf.css`, `assets/hf.js`, `assets/fonts/` — the designer's look from hallfjallet.se, used by the **home pages** (`sv/index.html`, `en/index.html`). Fonts are Oregon LDO (headings, menu, BOKA) and Suisse Neue (body); she owns the licences.
 - `assets/img/` — photos as `name-640.webp`, `name-1280.webp`, `name-1920.webp`, plus `og.jpg` (the share image).
+
+### The home pages (new look)
+
+The home pages copy the structure of the WordPress site: one long page with a slideshow at the top, then full-screen text sections, each followed by a full-screen photo. The menu (hamburger, top right) opens a full-screen overlay and jumps to the sections by id.
+
+- **Section ids** — Swedish: `hitta-hem-i-det-vilda`, `mat-dryck`, `bo-hos-oss`, `var-historia`, `hitta-hit`, `boka`, `newsletter`. English: `home-in-the-wild`, `food-beverage`, `stay-with-us`, `our-story`, `getting-here`, `reservation`, `newsletter`.
+- **Slideshow** — the `<img>` tags inside `.bildspel`, in order. The same 13 images, in the same order, in both languages and on phone and computer. Only the first has `src`; the rest have `data-src`/`data-srcset` and load just before they are shown. `--pos-d` / `--pos-m` set the crop on computer / phone. `data-ljus-d` / `data-ljus-m` = `1` when the logo and BOKA should be light on that image (dark image behind them), `0` when they should be dark. Timing is in `assets/hf.js` (first change after 2 s, then 3.5 s; 1.6 s fade in `hf.css`). Order agreed with her: the frozen lake first, then the martini, then the winter mountain with the lodge, so the winter pictures are spread out.
+- **Photos between sections** — `<div class="bild">` with the same `--pos-*` and `data-ljus-*` attributes.
+- **LÄS MER** — text blocks with the classes `las-mer bara-mobil` get a LÄS MER / VISA MINDRE button on phones only (800px and narrower). The text breaks at the paragraph closest to half. Add `data-las-mer-efter="2"` to force the break after paragraph 2.
+- The texts are copied word for word from hallfjallet.se. Do not edit them unless she asks.
 - `sitemap.xml`, `robots.txt`, `favicon.ico`, `apple-touch-icon.png`, `fall.webp` (background of the language picker).
 - `wrangler.jsonc` and `.assetsignore` — Cloudflare deploy settings. **Do not edit these** unless she asks for a deploy change. `.assetsignore` keeps repo files like this one out of the public site.
 
-The HTML files are the source of truth. There is no generator. The header, footer and booking button are repeated in every page, so a change to them must be made in **all 14 pages**. Search before you edit and check nothing was missed.
+The HTML files are the source of truth. There is no generator. The header, footer and booking button are repeated in every page, so a change to them must be made in **all 14 pages** (the two home pages have their own header, menu and footer markup in the new look). Search before you edit and check nothing was missed.
 
 ## Rules for every change
 
@@ -43,7 +54,7 @@ The HTML files are the source of truth. There is no generator. The header, foote
 - **Booking** goes to the Bookvisit page: `https://online.bookvisit.com/package?channelid=b6e866a4-7126-457c-83b1-7e566d886ac0` with `langid=2` (English) and `langid=1` (Swedish). Search for `bookvisit` to find every use.
 - **Contact details** (`info@hallfjallet.se`, `+46 647 690 466`, the map link and coordinates, Instagram) appear in the footer of every page, on the contact pages and in the structured data (JSON-LD) on the home pages. Update all of them together.
 - **Opening times** (open Thursday–Sunday, check-in Thursday–Saturday, check-out Sunday, open August–October and from January) appear on the home pages, the contact pages and in the footer.
-- **Events** are on the What's on pages. Each event is an `<article class="event">` block. Copy an existing block to add one. Finished events get the extra class `past`, and the label changes to "Past event" / "Tidigare evenemang". Do the same in both languages.
+- **Activities** ("Dagar på fjället" / "Activities in the Mountains") are on `sv/nu-pa-hallfjallet/` and `en/whats-on/`, in the new look. They are grouped under a season heading (`<div class="sasong">` Vinter / Sommar). Each activity is an `<article class="uppslag">`: a large photo beside the text, with every other one mirrored (`vand`). Copy a block to add one, in both languages. The texts are word for word from hallfjallet.se; each activity shows its first paragraph with LÄS MER (`data-las-mer-efter="1"`, on all screens) and one plain link, "Boka – lägg till i er vistelse" / "Book – add it to your stay", styled like BOKA, to Bookvisit. The experiences are set up in Bookvisit as add-ons (Tillvalsprodukter, e.g. "Önskemål om hundspann", priced 0 kr), so the request arrives with the booking. An enquiry form (Web3Forms) was built and then removed at her request; she has a Web3Forms account if it is needed later. Prices are always on request because every experience is tailored; that is said once at the bottom (`.notis`). Hunting sits under Sommar because it falls in the summer season (August–October); confirm with her if that changes.
 - **Jobs** are on the Work with us pages. Each opening is an `<article class="job">` block with the email address to apply to. Remove an opening in both languages when it is filled.
 - **Photos:** resize to widths 640, 1280 and 1920 pixels (never larger than the original), save each as WebP at about quality 76, and name them `name-640.webp` and so on. Use Python with Pillow for this. Add descriptive alt text in both languages. Do not commit large originals.
 - **New page:** create the page in both languages, add it to the nav and footer on every page, add it to `sitemap.xml`, and add the `hreflang` links in the head to point at its counterpart.
@@ -60,5 +71,8 @@ The HTML files are the source of truth. There is no generator. The header, foote
 - Awards and press: no awards are named yet. The home pages have an HTML comment marking where an awards strip goes.
 - The Instagram link was reused from the old page. Confirm it.
 - The summer chef opening has unclear dates. Confirm them.
-- The newsletter sign-up from the old WordPress site has not been rebuilt (needs a mail service).
+- The newsletter sign-up from the old WordPress site has not been rebuilt (needs a mail service). For now the "Följ våra berättelser" / "Follow our stories" button on the home pages opens an email to info@hallfjallet.se. Ask which newsletter service they use.
+- The activities pages are rebuilt. Jobba hos oss / Work with us and the remaining inner pages still have the old look. hallfjallet.se also has a detail page per activity; on the new site the full text is on the activities page instead (LÄS MER on phones). Old detail-page addresses need redirects when the domain moves.
+- The skier photo is used twice on the home page (in the slideshow and after Vår historia). Avoid the same person in two pictures in a row. She wants the flower bouquet as the last photo before the footer.
+- The winter mountain photo (`hero-fjallet-vinter`) only exists at 900px wide. Replace it when she sends a larger version.
 - The domain `www.hallfjallet.se` still points at the old WordPress site. Connecting it is a separate step done in Cloudflare by the owner, not something to do here.
