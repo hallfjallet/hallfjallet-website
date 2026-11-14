@@ -87,7 +87,7 @@
   var meny = document.getElementById('meny');
   var oppna = document.querySelector('.menyknapp');
   var stang = meny && meny.querySelector('.stang');
-  function sattMeny(oppen) {
+  function sattMeny(oppen, tangent) {
     if (!meny) return;
     if (oppen && meny.dataset.bild) {
       var bredd = window.innerWidth * (window.devicePixelRatio || 1);
@@ -102,15 +102,16 @@
     meny.inert = !oppen;
     oppna.setAttribute('aria-expanded', String(oppen));
     document.body.classList.toggle('meny-oppen', oppen);
-    if (oppen) { var forsta = meny.querySelector('a'); if (forsta) forsta.focus({ preventScroll: true }); }
-    else oppna.focus({ preventScroll: true });
+    // Markören flyttas bara för den som använder tangentbord; på mobil blir det annars en ruta runt första raden
+    if (oppen) { var forsta = meny.querySelector('a'); if (forsta && tangent) forsta.focus({ preventScroll: true }); }
+    else if (tangent) oppna.focus({ preventScroll: true });
   }
   if (meny && oppna) {
     meny.inert = true;
-    oppna.addEventListener('click', function () { sattMeny(true); });
-    stang.addEventListener('click', function () { sattMeny(false); });
+    oppna.addEventListener('click', function (e) { sattMeny(true, e.detail === 0); });
+    stang.addEventListener('click', function (e) { sattMeny(false, e.detail === 0); });
     meny.addEventListener('click', function (e) { if (e.target.closest('a')) sattMeny(false); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && meny.classList.contains('oppen')) sattMeny(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && meny.classList.contains('oppen')) sattMeny(false, true); });
   }
 
   /* ---------- Förfrågan (aktivitetssidan) ---------- */
