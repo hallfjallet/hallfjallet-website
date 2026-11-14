@@ -63,7 +63,9 @@
       }
     });
     rot.classList.toggle('ljus-huvud', ljus);
-    rot.classList.toggle('ljus-logga', !!aktuellLjus()); // loggan följer bildspelet, i samma färg som menyn
+    // Loggan följer bildspelet; på sidor utan bildspel följer den bilden högst upp. Samma ton som menyn.
+    var forsta = ytor[0], loggaLjus = bilder.length ? aktuellLjus() : !!forsta && forsta.getAttribute('data-ljus-' + (smal.matches ? 'm' : 'd')) === '1';
+    rot.classList.toggle('ljus-logga', loggaLjus);
     if (toppen) toppen.classList.toggle('synlig', window.scrollY > window.innerHeight);
   }
   var vantar = false;
