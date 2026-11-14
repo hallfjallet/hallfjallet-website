@@ -158,7 +158,7 @@ h1, h2 {
   border: 1px solid var(--text); border-radius: 4px;
   font-family: var(--brod); font-size: 16px; line-height: 1.2; color: var(--text);
   background: transparent; cursor: pointer;
-  transition: color .3s ease, background-color .3s ease;
+  transition: color .3s ease, background-color .3s ease, opacity .3s ease;
 }
 @media (hover: hover) { .knapp:hover { color: var(--papper); background: var(--text); } }
 .knapp svg { width: 16px; height: 16px; flex: none; }
@@ -187,8 +187,8 @@ h1, h2 {
   background: radial-gradient(closest-side, rgba(20,18,15,.66), rgba(20,18,15,.3) 60%, rgba(20,18,15,0)); }
 .nyhetsbrev .kort h2, .nyhetsbrev .kort p { color: var(--gra); text-shadow: 0 0 14px rgba(20,18,15,.75), 0 0 2px rgba(20,18,15,.5); }
 .nyhetsbrev .kort .text p { font-size: 17px; }
-.nyhetsbrev .knapp { color: var(--gra); border-color: var(--gra); }
-@media (hover: hover) { .nyhetsbrev .knapp:hover { color: var(--text); background: var(--gra); } }
+.nyhetsbrev .knapp { color: var(--gra); border: 0; padding: 8px 4px; text-shadow: 0 0 14px rgba(20,18,15,.75); }
+@media (hover: hover) { .nyhetsbrev .knapp:hover { color: var(--gra); background: none; opacity: .65; } }
 
 /* ---------- Sidfot ---------- */
 .sidfot { background: var(--papper); text-align: center; padding: 60px 30px 24px; font-size: 16px; }
