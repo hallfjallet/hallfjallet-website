@@ -175,8 +175,8 @@ h1, h2 {
 .nyhetsbrev .kol { width: 100%; max-width: 570px; }
 .nyhetsbrev .text { margin-bottom: 10px; }
 /* Bakom kortet: dubbelexponering av sällskapsrummet och den dimmiga sjön (hennes val, D1).
-   Kortet ligger till höger på datorn så att bordet, schackspelet och boken syns, och fönstret tonas ner uppifrån. */
-.nyhetsbrev { position: relative; justify-content: flex-end; padding-right: 7vw;
+   Kortet ligger centrerat högst upp, över fönstret, så att bordet, schackspelet och boken syns under det. */
+.nyhetsbrev { position: relative; justify-content: center; align-items: flex-start; padding-top: 120px;
   background: #2a2723 url(/assets/img/hero-sallskapsrum-1920.webp) 18% 92% / cover no-repeat; }
 .nyhetsbrev::before { content: ""; position: absolute; inset: 0; background: url(/assets/img/lake-mist-1920.webp) 50% 60% / cover no-repeat; opacity: .38; }
 .nyhetsbrev::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,27,25,.45) 0%, rgba(28,27,25,.12) 45%, rgba(28,27,25,0) 70%); }
