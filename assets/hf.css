@@ -123,7 +123,10 @@ body.meny-oppen { overflow: hidden; }
 .ljus-logga .hero-text { color: var(--gra); }
 .ljus-logga .hero-rubrik { text-shadow: 0 0 18px rgba(20,18,15,.55), 0 0 42px rgba(20,18,15,.35); }
 .hero-text::before { content: ""; position: absolute; left: 50%; top: calc(50% + 9vh + 18px); width: min(760px, 110vw); height: 320px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(20,18,15,.36), rgba(20,18,15,0)); opacity: 0; animation: hero-pil-in 2.4s ease .6s forwards; pointer-events: none; }
-:root:not(.ljus-logga) .hero-text::before { display: none; }
+/* Mörkgrå rubrik på ljusa bilder: ett ljust, mjukt sken bakom i stället för skugga */
+:root:not(.ljus-logga) .hero-text::before { background: radial-gradient(closest-side, rgba(237,235,222,.38), rgba(237,235,222,0)); }
+:root:not(.ljus-logga) .hero-rubrik { text-shadow: 0 0 16px rgba(237,235,222,.75), 0 0 40px rgba(237,235,222,.5); }
+:root:not(.ljus-logga) .sprak-under { text-shadow: 0 0 12px rgba(237,235,222,.8); }
 .hero-rubrik { margin: 0; font-family: var(--rubrik); font-size: clamp(19px, 2.2vw, 32px); line-height: 1.25; -webkit-font-smoothing: antialiased; text-transform: uppercase; text-align: center; padding: 0 30px; text-wrap: balance; }
 .hero-pil { position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); color: inherit; pointer-events: auto; padding: 10px; }
 .hero-pil svg { width: 34px; height: 34px; display: block; animation: hero-pil 2.4s ease-in-out 2s infinite; }
