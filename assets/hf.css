@@ -37,6 +37,9 @@ img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; transition: color .2s linear; }
 @media (hover: hover) { a:hover { color: var(--rod); } }
 :focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
+/* Ingen ruta och ingen grå markering vid tryck eller klick, varken på mobil eller dator; rutan visas bara för den som använder tangentbord */
+:focus:not(:focus-visible) { outline: none; }
+a, button, summary, label { -webkit-tap-highlight-color: transparent; }
 .skip { position: absolute; left: -9999px; top: 0; }
 .skip:focus { left: 16px; top: 16px; z-index: 100; background: var(--ljus); padding: 8px 14px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -88,8 +91,7 @@ a { color: inherit; text-decoration: none; transition: color .2s linear; }
 .stang svg { width: 20px; height: 20px; display: block; }
 body.meny-oppen { overflow: hidden; }
 /* Ingen ruta runt länkar och knappar vid tryck eller klick, bara vid tangentbord */
-.meny a:focus:not(:focus-visible), .stang:focus:not(:focus-visible), .menyknapp:focus:not(:focus-visible) { outline: none; }
-.meny a, .stang, .menyknapp { -webkit-tap-highlight-color: transparent; }
+
 
 /* ---------- Bildspelet överst ---------- */
 .hero { position: relative; height: var(--skarm); min-height: 480px; overflow: hidden; background: #2a2723; }
@@ -121,12 +123,9 @@ body.meny-oppen { overflow: hidden; }
 .ljus-logga .sprak-under { text-shadow: 0 0 14px rgba(20,18,15,.6); }
 .hero-text.borta .sprak-under { pointer-events: none; }
 .ljus-logga .hero-text { color: var(--gra); }
-.ljus-logga .hero-rubrik { text-shadow: 0 0 18px rgba(20,18,15,.55), 0 0 42px rgba(20,18,15,.35); }
-.hero-text::before { content: ""; position: absolute; left: 50%; top: calc(50% + 9vh + 18px); width: min(760px, 110vw); height: 320px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(20,18,15,.36), rgba(20,18,15,0)); opacity: 0; animation: hero-pil-in 2.4s ease .6s forwards; pointer-events: none; }
-/* Mörkgrå rubrik på ljusa bilder: ett ljust, mjukt sken bakom i stället för skugga */
-:root:not(.ljus-logga) .hero-text::before { background: radial-gradient(closest-side, rgba(237,235,222,.38), rgba(237,235,222,0)); }
-:root:not(.ljus-logga) .hero-rubrik { text-shadow: 0 0 16px rgba(237,235,222,.75), 0 0 40px rgba(237,235,222,.5); }
-:root:not(.ljus-logga) .sprak-under { text-shadow: 0 0 12px rgba(237,235,222,.8); }
+.ljus-logga .hero-rubrik { text-shadow: 0 0 18px rgba(20,18,15,.7), 0 0 42px rgba(20,18,15,.45); }
+.hero-text::before { content: ""; position: absolute; left: 50%; top: calc(50% + 9vh + 18px); width: min(760px, 110vw); height: 320px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(20,18,15,.52), rgba(20,18,15,0)); opacity: 0; animation: hero-pil-in 2.4s ease .6s forwards; pointer-events: none; }
+:root:not(.ljus-logga) .hero-text::before { display: none; }
 .hero-rubrik { margin: 0; font-family: var(--rubrik); font-size: clamp(19px, 2.2vw, 32px); line-height: 1.25; -webkit-font-smoothing: antialiased; text-transform: uppercase; text-align: center; padding: 0 30px; text-wrap: balance; }
 .hero-pil { position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); color: inherit; pointer-events: auto; padding: 10px; }
 .hero-pil svg { width: 34px; height: 34px; display: block; animation: hero-pil 2.4s ease-in-out 2s infinite; }
@@ -299,7 +298,7 @@ h1, h2 {
 .enkel-bild { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .enkel::after { content: ""; position: absolute; inset: 0; background: rgba(237, 235, 222, .72); }
 .enkel-text { position: relative; z-index: 1; text-align: center; padding: 40px 30px; max-width: 560px; }
-.enkel-logga { display: inline-block; width: 120px; margin-bottom: 34px; }
+.enkel-logga, .enkel h1.enkel-logga { display: inline-block; width: 120px; margin: 0 0 34px; line-height: 0; }
 .enkel-logga img { width: 100%; height: auto; }
 .enkel h1 { font-size: clamp(22px, 3vw, 34px); margin-bottom: 14px; }
 .enkel p { margin: 0 0 12px; }
