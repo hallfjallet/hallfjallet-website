@@ -87,6 +87,9 @@ a { color: inherit; text-decoration: none; transition: color .2s linear; }
 .stang { position: absolute; top: 40px; right: 50px; appearance: none; background: none; border: 0; padding: 6px; cursor: pointer; color: var(--gra); }
 .stang svg { width: 20px; height: 20px; display: block; }
 body.meny-oppen { overflow: hidden; }
+/* Ingen ruta runt länkar och knappar vid tryck eller klick, bara vid tangentbord */
+.meny a:focus:not(:focus-visible), .stang:focus:not(:focus-visible), .menyknapp:focus:not(:focus-visible) { outline: none; }
+.meny a, .stang, .menyknapp { -webkit-tap-highlight-color: transparent; }
 
 /* ---------- Bildspelet överst ---------- */
 .hero { position: relative; height: var(--skarm); min-height: 480px; overflow: hidden; background: #2a2723; }
