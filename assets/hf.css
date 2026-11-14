@@ -232,6 +232,18 @@ h1, h2 {
   .falt-rader { grid-template-columns: 1fr; }
 }
 
+/* ---------- Jobba hos oss ---------- */
+.jobblista { background: var(--papper); padding: 10px 30px 100px; }
+.jobb { max-width: 640px; margin: 0 auto; padding: 56px 0; text-align: center; border-top: 1px solid rgba(67,67,65,.25); }
+.jobb:first-child { border-top: 0; padding-top: 20px; }
+.jobb h3 { font-family: var(--rubrik); font-weight: 400; font-size: 26px; line-height: 1.25; letter-spacing: .05em; text-transform: uppercase; margin: 0 0 8px; }
+.jobb-period { font-family: var(--rubrik); font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: #6b6a63; }
+.jobb .text ul { list-style: none; padding: 0; margin: 0 0 20px; }
+.jobb .text li + li { margin-top: 4px; }
+.jobb-sok { margin: 26px 0 0; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.jobb-dela { max-width: 640px; margin: 20px auto 0; text-align: center; color: #6b6a63; font-size: 15px; }
+@media (max-width: 800px) { .sasong span { text-align: center; } .sasong span::before, .sasong span::after { display: none; } .jobb h3 { font-size: 21px; } .jobb { padding: 44px 0; } .jobblista { padding: 0 30px 70px; } }
+
 /* ---------- Mobil ---------- */
 @media (max-width: 800px) {
   .logga { top: 30px; left: 30px; width: 76px; }
