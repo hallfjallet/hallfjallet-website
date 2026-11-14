@@ -44,7 +44,7 @@ The home pages copy the structure of the WordPress site: one long page with a sl
 - **Photos between sections** — `<div class="bild">` with the same `--pos-*` and `data-ljus-*` attributes.
 - **LÄS MER** — text blocks with the classes `las-mer bara-mobil` get a LÄS MER / VISA MINDRE button on phones only (800px and narrower). The text breaks at the paragraph closest to half. Add `data-las-mer-efter="2"` to force the break after paragraph 2.
 - The texts are copied word for word from hallfjallet.se. Do not edit them unless she asks.
-- `sitemap.xml`, `robots.txt`, `favicon.ico`, `apple-touch-icon.png`, `fall.webp` (background of the language picker).
+- `sitemap.xml`, `robots.txt`, `favicon.ico`, `apple-touch-icon.png`, `ikon-hf-16/32/192.png` (the curly Hf monogram; links carry `?v=2` so browsers drop the old cached H — bump it if the icon changes again), `fall.webp` (background of the language picker).
 - `_redirects` — old WordPress addresses (English pages at the root, Swedish under /sv/, the activity detail pages, the WP sitemaps) sent with 301 to the matching place on the new site. Add a line here when an address changes.
 - `404.html` — the "Här tog stigen slut" page, shown for unknown addresses (`not_found_handling: "404-page"` in `wrangler.jsonc`).
 - `index.html` — the language picker, in the new look. It sends visitors to /sv/ or /en/ by browser language; an old English link with a #section goes to /en/ with the same section.
