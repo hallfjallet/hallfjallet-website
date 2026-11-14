@@ -50,6 +50,9 @@ a { color: inherit; text-decoration: none; transition: color .2s linear; }
 }
 .huvud .boka { font-family: var(--rubrik); font-size: 16px; letter-spacing: .015em; text-transform: uppercase; color: inherit; }
 @media (hover: hover) { .huvud .boka:hover { color: var(--rod); } }
+/* Språkval bredvid BOKA: bara det andra språket, lite mindre och lättare */
+.huvud .sprakval { font-family: var(--rubrik); font-size: 14px; letter-spacing: .12em; color: inherit; opacity: .72; transition: opacity .3s ease; }
+@media (hover: hover) { .huvud .sprakval:hover { opacity: 1; } }
 .menyknapp { appearance: none; background: none; border: 0; padding: 4px; margin: -4px; color: inherit; cursor: pointer; line-height: 0; }
 .menyknapp svg { width: 20px; height: 20px; }
 /* Ljus logga och meny när det som ligger bakom är mörkt */
@@ -60,17 +63,18 @@ a { color: inherit; text-decoration: none; transition: color .2s linear; }
 .meny {
   position: fixed; inset: 0; z-index: 50;
   display: flex; align-items: center; justify-content: center;
-  background: var(--papper) center / cover no-repeat;
-  opacity: 0; visibility: hidden; transition: opacity .5s ease, visibility 0s linear .5s;
+  background: #1c1b19 center 40% / cover no-repeat;
+  opacity: 0; visibility: hidden; transition: opacity .6s ease, visibility 0s linear .6s;
 }
-.meny::before { content: ""; position: absolute; inset: 0; background: rgba(237, 235, 222, .8); }
-.meny.oppen { opacity: 1; visibility: visible; transition: opacity .5s ease, visibility 0s; }
+/* Bilden syns tydligt bakom; en mjuk mörk ton gör texten läsbar */
+.meny::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(20,19,17,.4) 0%, rgba(20,19,17,.12) 75%); }
+.meny.oppen { opacity: 1; visibility: visible; transition: opacity .6s ease, visibility 0s; }
 .meny ul { position: relative; list-style: none; margin: 0; padding: 0; text-align: center; }
 .meny li + li { margin-top: 32px; }
-.meny a { font-family: var(--rubrik); font-size: 20px; line-height: 24px; letter-spacing: .003em; text-transform: uppercase; color: var(--text); }
-@media (hover: hover) { .meny a:hover { color: var(--rod); } }
+.meny a { font-family: var(--rubrik); font-size: 20px; line-height: 24px; letter-spacing: .06em; text-transform: uppercase; color: #ece8dc; text-shadow: 0 0 18px rgba(0,0,0,.45); transition: opacity .3s ease; }
+@media (hover: hover) { .meny ul:hover a { opacity: .6; } .meny ul a:hover { opacity: 1; } }
 .meny .sprak a { text-transform: none; }
-.stang { position: absolute; top: 40px; right: 50px; appearance: none; background: none; border: 0; padding: 6px; cursor: pointer; color: var(--mork); }
+.stang { position: absolute; top: 40px; right: 50px; appearance: none; background: none; border: 0; padding: 6px; cursor: pointer; color: #ece8dc; }
 .stang svg { width: 20px; height: 20px; display: block; }
 body.meny-oppen { overflow: hidden; }
 
@@ -281,7 +285,7 @@ h1, h2 {
 /* ---------- Mobil ---------- */
 @media (max-width: 800px) {
   .logga { top: 30px; left: 30px; width: 76px; }
-  .huvud { top: 33px; right: 40px; }
+  .huvud { top: 33px; right: 40px; gap: 20px; }
   .stang { top: 33px; right: 36px; }
   .avsnitt { padding: 60px; }
   .avsnitt .kol { width: 100%; }
