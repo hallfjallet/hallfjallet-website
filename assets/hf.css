@@ -111,13 +111,13 @@ body.meny-oppen { overflow: hidden; }
 .hero-text.borta { opacity: 0 !important; animation: none; }
 .hero-text.borta .hero-pil { pointer-events: none; }
 .hero-rubrik { opacity: 0; filter: blur(14px); letter-spacing: .32em; transform: translateY(-14px) scale(1.04);
-  animation: hero-in 2.8s cubic-bezier(.16, .7, .2, 1) .3s forwards; }
-.hero-pil { opacity: 0; animation: hero-pil-in 1.6s ease 2.6s forwards; }
+  animation: hero-in 2.3s cubic-bezier(.16, .7, .2, 1) .2s forwards; }
+.hero-pil { opacity: 0; animation: hero-pil-in 1.6s ease 2.2s forwards; }
 /* Rubriken sjunker in: ur oskärpa, ner på plats medan bokstäverna drar ihop sig */
 @keyframes hero-in { 40% { opacity: .55; } to { opacity: 1; filter: blur(0); letter-spacing: .16em; transform: none; } }
 @keyframes hero-pil-in { to { opacity: 1; } }
 /* Svenska · English under rubriken på startsidan; det språk man är på är understruket */
-.sprak-under { margin: 22px 0 0; font-family: var(--rubrik); font-size: 13px; letter-spacing: .16em; text-transform: uppercase; pointer-events: auto; opacity: 0; animation: hero-pil-in 1.6s ease 2s forwards; }
+.sprak-under { margin: 22px 0 0; font-family: var(--rubrik); font-size: 13px; letter-spacing: .16em; text-transform: uppercase; pointer-events: auto; opacity: 0; animation: hero-pil-in 1.6s ease 1.7s forwards; }
 .sprak-under a { color: inherit; transition: opacity .3s ease; }
 @media (hover: hover) { .sprak-under a:hover { opacity: .65; } }
 .sprak-under b { font-weight: normal; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
@@ -150,6 +150,10 @@ h1, h2 {
 .text p { margin: 0 0 20px; }
 .bild { position: relative; height: var(--skarm); min-height: 480px; overflow: hidden; background: #2a2723; }
 .bild img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos-d, 50% 50%); }
+/* Två höga bilder bredvid varandra på datorn, som ett uppslag; på mobilen bara den första */
+.bild.dubbel { display: flex; }
+.bild.dubbel img { width: 50%; }
+@media (max-width: 800px) { .bild.dubbel img { width: 100%; } .bild.dubbel .bara-dator { display: none; } }
 
 /* Knapp med tunn ram, som "Gå till bokningssida" */
 .knapp {
