@@ -34,9 +34,9 @@ body {
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
 img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; transition: color .2s linear; }
+a { color: inherit; text-decoration: none; }
 /* Inget rött vid hovring: länkar tonas lätt i stället */
-a { transition: opacity .3s ease; }
+a { transition: color .2s linear, opacity .3s ease; }
 @media (hover: hover) { a:hover { opacity: .6; } .logga:hover, .huvud a:hover, .meny a:hover, a.knapp:hover { opacity: 1; } }
 :focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
 /* Ingen ruta och ingen grå markering vid tryck eller klick, varken på mobil eller dator; rutan visas bara för den som använder tangentbord */
@@ -47,7 +47,7 @@ a, button, summary, label { -webkit-tap-highlight-color: transparent; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* ---------- Huvud: logga, BOKA och meny ---------- */
-.logga { position: absolute; top: 45px; left: 55px; z-index: 20; width: 126px; color: #41413f; transition: color 1s ease, filter 1s ease; }
+.logga { position: absolute; top: 45px; left: 55px; z-index: 20; width: 126px; color: var(--text); transition: color 1s ease, filter 1s ease; }
 /* Loggan ritas i textfärg (via en mask), så att den får exakt samma ton som BOKA och menyn */
 .logga::before { content: ""; position: absolute; inset: 0; background: currentColor;
   -webkit-mask: url(/assets/img/hallfjallet-logo.png) 0 0 / 100% 100% no-repeat; mask: url(/assets/img/hallfjallet-logo.png) 0 0 / 100% 100% no-repeat; }
@@ -59,9 +59,9 @@ a, button, summary, label { -webkit-tap-highlight-color: transparent; }
 }
 .huvud .boka { font-family: var(--rubrik); font-size: 16px; letter-spacing: .015em; text-transform: uppercase; color: inherit; }
 /* BOKA och språkvalet byter till motsatt ton när man pekar eller trycker: mörkt blir ljusgrått, ljusgrått blir mörkt */
-@media (hover: hover) { .huvud .boka:hover, .huvud .sprakval:hover { color: var(--gra); } .ljus-huvud .huvud .boka:hover, .ljus-huvud .huvud .sprakval:hover { color: var(--text); } }
+@media (hover: hover) { .huvud .boka:hover, .huvud .sprakval:hover { color: var(--gra); transition-duration: .3s; } .ljus-huvud .huvud .boka:hover, .ljus-huvud .huvud .sprakval:hover { color: var(--text); } }
 .huvud .boka:active, .huvud .sprakval:active { color: var(--gra); } .ljus-huvud .huvud .boka:active, .ljus-huvud .huvud .sprakval:active { color: var(--text); }
-.huvud .boka, .huvud .sprakval { transition: color .35s ease; }
+.huvud .boka, .huvud .sprakval { transition: color 1s ease; }  /* samma takt som loggan och menyknappen när tonen skiftar */
 /* Språkval bredvid BOKA: bara det andra språket, lite mindre och lättare */
 .huvud .sprakval { font-family: var(--rubrik); font-size: 16px; letter-spacing: .015em; color: inherit; }
 
@@ -112,12 +112,12 @@ body.meny-oppen { overflow: hidden; }
 .hero-text.borta .hero-pil { pointer-events: none; }
 .hero-rubrik { opacity: 0; filter: blur(14px); letter-spacing: .32em; transform: translateY(-14px) scale(1.04);
   animation: hero-in 2.3s cubic-bezier(.16, .7, .2, 1) .2s forwards; }
-.hero-pil { opacity: 0; animation: hero-pil-in 1.6s ease 2.2s forwards; }
+.hero-pil { opacity: 0; animation: hero-pil-in 1.4s ease 1.6s forwards; }
 /* Rubriken sjunker in: ur oskärpa, ner på plats medan bokstäverna drar ihop sig */
 @keyframes hero-in { 40% { opacity: .55; } to { opacity: 1; filter: blur(0); letter-spacing: .16em; transform: none; } }
 @keyframes hero-pil-in { to { opacity: 1; } }
 /* Svenska · English under rubriken på startsidan; det språk man är på är understruket */
-.sprak-under { margin: 22px 0 0; font-family: var(--rubrik); font-size: 13px; letter-spacing: .16em; text-transform: uppercase; pointer-events: auto; opacity: 0; animation: hero-pil-in 1.6s ease 1.7s forwards; }
+.sprak-under { margin: 22px 0 0; font-family: var(--rubrik); font-size: 13px; letter-spacing: .16em; text-transform: uppercase; pointer-events: auto; opacity: 0; animation: hero-pil-in 1.4s ease 1.6s forwards; }  /* språkvalet och pilen kommer samtidigt, när rubriken landar */
 .sprak-under a { color: inherit; transition: opacity .3s ease; }
 @media (hover: hover) { .sprak-under a:hover { opacity: .65; } }
 .sprak-under b { font-weight: normal; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
