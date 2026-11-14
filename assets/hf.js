@@ -37,6 +37,14 @@
     if (img.complete && img.naturalWidth) { visa(i); return setTimeout(nasta, TEMPO); }
     img.addEventListener('load', function () { visa(i); setTimeout(nasta, TEMPO); }, { once: true });
   }
+  /* Rubriken och pilen syns under de två första bilderna och tonar bort när den tredje kommer, eller när man börjar scrolla */
+  var heroText = document.querySelector('.hero-text');
+  function gomHero() { if (heroText) heroText.classList.add('borta'); }
+  if (heroText) {
+    setTimeout(gomHero, FORSTA + TEMPO - 200);
+    window.addEventListener('scroll', function () { if (window.scrollY > 40) gomHero(); }, { passive: true });
+  }
+
   if (bilder.length > 1) {
     ladda(bilder[1]);
     if (!lugn.matches) setTimeout(nasta, FORSTA);
@@ -85,6 +93,8 @@
       var bredd = window.innerWidth * (window.devicePixelRatio || 1);
       var storlek = bredd > 1280 ? 1920 : bredd > 640 ? 1280 : 640;
       meny.style.backgroundImage = 'url(' + meny.dataset.bild.replace('{w}', storlek) + ')';
+      // Dubbelexponering: fjällskogen skimrar igenom cocktailbilden
+      if (meny.dataset.skog) meny.style.setProperty('--skog', 'url(' + meny.dataset.skog.replace('{s}', bredd > 640 ? 900 : 640) + ')');
       meny.removeAttribute('data-bild');
     }
     meny.classList.toggle('oppen', oppen);

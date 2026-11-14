@@ -50,27 +50,35 @@ a { color: inherit; text-decoration: none; transition: color .2s linear; }
 }
 .huvud .boka { font-family: var(--rubrik); font-size: 16px; letter-spacing: .015em; text-transform: uppercase; color: inherit; }
 @media (hover: hover) { .huvud .boka:hover { color: var(--rod); } }
+/* Språkval bredvid BOKA: bara det andra språket, lite mindre och lättare */
+.huvud .sprakval { font-family: var(--rubrik); font-size: 14px; letter-spacing: .12em; color: inherit; opacity: .72; transition: opacity .3s ease; }
+@media (hover: hover) { .huvud .sprakval:hover { opacity: 1; } }
 .menyknapp { appearance: none; background: none; border: 0; padding: 4px; margin: -4px; color: inherit; cursor: pointer; line-height: 0; }
 .menyknapp svg { width: 20px; height: 20px; }
 /* Ljus logga och meny när det som ligger bakom är mörkt */
-.ljus-huvud .huvud { color: #edebde; filter: drop-shadow(0 0 8px rgba(0,0,0,.3)); }
-.ljus-logga .logga { filter: brightness(0) invert(.93) drop-shadow(0 0 10px rgba(0,0,0,.28)); }
+.ljus-huvud .huvud { color: #cfccc4; filter: drop-shadow(0 0 8px rgba(0,0,0,.25)); }
+.ljus-logga .logga { filter: brightness(0) invert(.8) sepia(.08) drop-shadow(0 0 10px rgba(0,0,0,.22)); }
 
 /* Menyn som täcker hela skärmen */
 .meny {
   position: fixed; inset: 0; z-index: 50;
   display: flex; align-items: center; justify-content: center;
-  background: var(--papper) center / cover no-repeat;
-  opacity: 0; visibility: hidden; transition: opacity .5s ease, visibility 0s linear .5s;
+  background: #1c1b19 50% 62% / cover no-repeat;
+  opacity: 0; visibility: hidden; transition: opacity .6s ease, visibility 0s linear .6s;
 }
-.meny::before { content: ""; position: absolute; inset: 0; background: rgba(237, 235, 222, .8); }
-.meny.oppen { opacity: 1; visibility: visible; transition: opacity .5s ease, visibility 0s; }
+/* Dubbelexponering: vinterfjällets skog lagd över cocktailen, som en övertoning i bildspelet som fick stanna */
+.meny::before { content: ""; position: absolute; inset: 0; background: var(--skog, none) 50% 50% / cover no-repeat; opacity: .27; }
+/* En mjuk mörk ton i mitten gör texten läsbar */
+.meny::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(20,19,17,.4) 0%, rgba(20,19,17,.12) 75%); }
+.meny ul, .stang { z-index: 1; }
+@media (max-width: 800px) { .meny { background-position: 50% 50%; } .meny::before { background-position: 45% 50%; } }
+.meny.oppen { opacity: 1; visibility: visible; transition: opacity .6s ease, visibility 0s; }
 .meny ul { position: relative; list-style: none; margin: 0; padding: 0; text-align: center; }
 .meny li + li { margin-top: 32px; }
-.meny a { font-family: var(--rubrik); font-size: 20px; line-height: 24px; letter-spacing: .003em; text-transform: uppercase; color: var(--text); }
-@media (hover: hover) { .meny a:hover { color: var(--rod); } }
+.meny a { font-family: var(--rubrik); font-size: 20px; line-height: 24px; letter-spacing: .06em; text-transform: uppercase; color: #ece8dc; text-shadow: 0 0 18px rgba(0,0,0,.45); transition: opacity .3s ease; }
+@media (hover: hover) { .meny ul:hover a { opacity: .6; } .meny ul a:hover { opacity: 1; } }
 .meny .sprak a { text-transform: none; }
-.stang { position: absolute; top: 40px; right: 50px; appearance: none; background: none; border: 0; padding: 6px; cursor: pointer; color: var(--mork); }
+.stang { position: absolute; top: 40px; right: 50px; appearance: none; background: none; border: 0; padding: 6px; cursor: pointer; color: #ece8dc; }
 .stang svg { width: 20px; height: 20px; display: block; }
 body.meny-oppen { overflow: hidden; }
 
@@ -83,6 +91,27 @@ body.meny-oppen { overflow: hidden; }
 }
 .bildspel img.synlig { opacity: 1; z-index: 2; }
 .bildspel img.under { opacity: 1; z-index: 1; transition: none; }
+
+/* Rubrik och pil över bildspelet: syns när man kommer in, tonar sedan bort */
+.hero-text { position: absolute; inset: 0; z-index: 5; display: flex; padding-top: 18vh; /* lite under mitten, så att rubriken vilar på sjön */ flex-direction: column; align-items: center; justify-content: center; pointer-events: none;
+  color: var(--text); transition: opacity 1.8s ease, color 1s ease; }
+.hero-text.borta { opacity: 0 !important; animation: none; }
+.hero-text.borta .hero-pil { pointer-events: none; }
+.hero-rubrik { opacity: 0; filter: blur(14px); letter-spacing: .32em; transform: translateY(-14px) scale(1.04);
+  animation: hero-in 3.4s cubic-bezier(.16, .7, .2, 1) .4s forwards; }
+.hero-pil { opacity: 0; animation: hero-pil-in 1.6s ease 2.6s forwards; }
+/* Rubriken sjunker in: ur oskärpa, ner på plats medan bokstäverna drar ihop sig */
+@keyframes hero-in { 40% { opacity: .55; } to { opacity: .9; filter: blur(0); letter-spacing: .16em; transform: none; } }
+@keyframes hero-pil-in { to { opacity: 1; } }
+.ljus-logga .hero-text { color: #cfccc4; }
+.ljus-logga .hero-rubrik { text-shadow: 0 0 18px rgba(20,18,15,.55), 0 0 42px rgba(20,18,15,.35); }
+.hero-text::before { content: ""; position: absolute; left: 50%; top: 50%; width: min(760px, 110vw); height: 220px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(20,18,15,.36), rgba(20,18,15,0)); opacity: 0; animation: hero-pil-in 2.4s ease .6s forwards; pointer-events: none; }
+:root:not(.ljus-logga) .hero-text::before { display: none; }
+.hero-rubrik { margin: 0; font-family: var(--rubrik); font-size: clamp(19px, 2.2vw, 32px); line-height: 1.25; -webkit-font-smoothing: antialiased; text-transform: uppercase; text-align: center; padding: 0 30px; text-wrap: balance; }
+.hero-pil { position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); color: inherit; pointer-events: auto; padding: 10px; }
+.hero-pil svg { width: 34px; height: 34px; display: block; animation: hero-pil 2.4s ease-in-out 2s infinite; }
+@keyframes hero-pil { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+@media (prefers-reduced-motion: reduce) { .hero-rubrik, .hero-pil { animation: none; opacity: 1; filter: none; transform: none; letter-spacing: .16em; } .hero-pil svg { animation: none; } }
 
 /* ---------- Text- och bildavsnitt ---------- */
 .avsnitt {
@@ -232,10 +261,36 @@ h1, h2 {
   .falt-rader { grid-template-columns: 1fr; }
 }
 
+/* ---------- Jobba hos oss ---------- */
+.jobblista { background: var(--papper); padding: 10px 30px 100px; }
+.jobb { max-width: 640px; margin: 0 auto; padding: 56px 0; text-align: center; border-top: 1px solid rgba(67,67,65,.25); }
+.jobb:first-child { border-top: 0; padding-top: 20px; }
+.jobb h3 { font-family: var(--rubrik); font-weight: 400; font-size: 26px; line-height: 1.25; letter-spacing: .05em; text-transform: uppercase; margin: 0 0 8px; }
+.jobb-period { font-family: var(--rubrik); font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: #6b6a63; }
+.jobb .text ul { list-style: none; padding: 0; margin: 0 0 20px; }
+.jobb .text li + li { margin-top: 4px; }
+.jobb-sok { margin: 26px 0 0; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.jobb-dela { max-width: 640px; margin: 20px auto 0; text-align: center; color: #6b6a63; font-size: 15px; }
+@media (max-width: 800px) { .sasong span { text-align: center; } .sasong span::before, .sasong span::after { display: none; } .jobb h3 { font-size: 21px; } .jobb { padding: 44px 0; } .jobblista { padding: 0 30px 70px; } }
+
+/* ---------- Enkla helsidor: språkval och felsida ---------- */
+.sida-enkel { background: var(--papper); }
+.enkel { position: relative; min-height: var(--skarm); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.enkel-bild { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.enkel::after { content: ""; position: absolute; inset: 0; background: rgba(237, 235, 222, .72); }
+.enkel-text { position: relative; z-index: 1; text-align: center; padding: 40px 30px; max-width: 560px; }
+.enkel-logga { display: inline-block; width: 120px; margin-bottom: 34px; }
+.enkel-logga img { width: 100%; height: auto; }
+.enkel h1 { font-size: clamp(22px, 3vw, 34px); margin-bottom: 14px; }
+.enkel p { margin: 0 0 12px; }
+.enkel-lankar { display: flex; justify-content: center; gap: 18px; margin-top: 20px !important; font-family: var(--rubrik); font-size: 16px; letter-spacing: .1em; text-transform: uppercase; }
+.enkel-en { margin-top: 30px !important; font-size: 14px; color: #6b6a63; }
+.enkel-en a { text-decoration: underline; text-underline-offset: 3px; }
+
 /* ---------- Mobil ---------- */
 @media (max-width: 800px) {
   .logga { top: 30px; left: 30px; width: 76px; }
-  .huvud { top: 33px; right: 40px; }
+  .huvud { top: 33px; right: 40px; gap: 20px; }
   .stang { top: 33px; right: 36px; }
   .avsnitt { padding: 60px; }
   .avsnitt .kol { width: 100%; }

@@ -1,0 +1,41 @@
+# Gamla adresser från WordPress-sidan (hallfjallet.se) skickas till rätt plats på den nya sidan.
+# Engelska sidor låg tidigare direkt på hallfjallet.se, svenska under /sv/.
+
+# Engelska
+/whats-on-at-hallfjallet/          /en/whats-on/                  301
+/whats-on-at-hallfjallet           /en/whats-on/                  301
+/work-with-us/                     /en/work-with-us/              301
+/work-with-us                      /en/work-with-us/              301
+/through-winter-by-dog-sled/       /en/whats-on/#dog-sled         301
+/through-winter-by-dog-sled        /en/whats-on/#dog-sled         301
+/snowmobile-transfers/             /en/whats-on/#snowmobile       301
+/snowmobile-transfers              /en/whats-on/#snowmobile       301
+/ice-fishing-in-the-mountains/     /en/whats-on/#ice-fishing      301
+/ice-fishing-in-the-mountains      /en/whats-on/#ice-fishing      301
+/skiing-to-hallfjallet/            /en/whats-on/#skiing           301
+/skiing-to-hallfjallet             /en/whats-on/#skiing           301
+/hunting-beyond-the-roads/         /en/whats-on/#hunting          301
+/hunting-beyond-the-roads          /en/whats-on/#hunting          301
+/category/at-hallfjallet/          /en/whats-on/                  301
+/category/at-hallfjallet           /en/whats-on/                  301
+
+# Svenska
+/sv/pimpelfiske-pa-fjallet/        /sv/nu-pa-hallfjallet/#pimpelfiske      301
+/sv/pimpelfiske-pa-fjallet         /sv/nu-pa-hallfjallet/#pimpelfiske      301
+/sv/skotertur-till-hallfjallet/    /sv/nu-pa-hallfjallet/#skotertransport  301
+/sv/skotertur-till-hallfjallet     /sv/nu-pa-hallfjallet/#skotertransport  301
+/sv/hundspann-pa-fjallet/          /sv/nu-pa-hallfjallet/#hundspann        301
+/sv/hundspann-pa-fjallet           /sv/nu-pa-hallfjallet/#hundspann        301
+/sv/pa-skidor-till-hallfjallet/    /sv/nu-pa-hallfjallet/#pa-skidor        301
+/sv/pa-skidor-till-hallfjallet     /sv/nu-pa-hallfjallet/#pa-skidor        301
+/sv/jakt-pa-fjallet/               /sv/nu-pa-hallfjallet/#jakt             301
+/sv/jakt-pa-fjallet                /sv/nu-pa-hallfjallet/#jakt             301
+/sv/category/aktiviteter-pa-hallfjallet/  /sv/nu-pa-hallfjallet/          301
+/sv/category/aktiviteter-pa-hallfjallet   /sv/nu-pa-hallfjallet/          301
+
+# WordPress-sidkartor
+/sitemap_index.xml                 /sitemap.xml                   301
+/page-sitemap.xml                  /sitemap.xml                   301
+/post-sitemap.xml                  /sitemap.xml                   301
+/category-sitemap.xml              /sitemap.xml                   301
+/wp-sitemap.xml                    /sitemap.xml                   301

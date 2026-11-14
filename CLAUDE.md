@@ -16,7 +16,6 @@ If she wants to undo something, revert the change on a new branch and open a pul
 
 ## Site structure
 
-- `index.html` — language picker at the root. It redirects to `/sv/` or `/en/` by browser language.
 - `en/<page>/index.html` and `sv/<page>/index.html` — 7 pages per language, always in pairs:
 
 | Page | English folder | Swedish folder |
@@ -39,10 +38,16 @@ The home pages copy the structure of the WordPress site: one long page with a sl
 
 - **Section ids** — Swedish: `hitta-hem-i-det-vilda`, `mat-dryck`, `bo-hos-oss`, `var-historia`, `hitta-hit`, `boka`, `newsletter`. English: `home-in-the-wild`, `food-beverage`, `stay-with-us`, `our-story`, `getting-here`, `reservation`, `newsletter`.
 - **Slideshow** — the `<img>` tags inside `.bildspel`, in order. The same 13 images, in the same order, in both languages and on phone and computer. Only the first has `src`; the rest have `data-src`/`data-srcset` and load just before they are shown. `--pos-d` / `--pos-m` set the crop on computer / phone. `data-ljus-d` / `data-ljus-m` = `1` when the logo and BOKA should be light on that image (dark image behind them), `0` when they should be dark. Timing is in `assets/hf.js` (first change after 2 s, then 3.5 s; 1.6 s fade in `hf.css`). Order agreed with her: the frozen lake first, then the martini, then the winter mountain with the lodge, so the winter pictures are spread out.
+- **Title on the slideshow** — `.hero-text` shows "Hitta hem i det vilda" / "Home in the wild" and a small arrow to the first section when the page opens, then stays for the first two slides (fading as the third arrives) or until the visitor scrolls (`assets/hf.js`). Agreed with her: no extra line under the title.
+- **Menu background** — a double exposure she loved: `hero-martini` (`data-bild` on `.meny`) with `hero-fjallet-vinter` (`data-skog`) at 27 % opacity on top (`.meny::before` in `hf.css`), loaded by `hf.js` when the menu first opens. Same attributes on all six new-look pages. She may want this combination again for Berättelser från fjället.
+- **Language switch** — `.sprakval` (EN / SV) next to BOKA links to the counterpart page.
 - **Photos between sections** — `<div class="bild">` with the same `--pos-*` and `data-ljus-*` attributes.
 - **LÄS MER** — text blocks with the classes `las-mer bara-mobil` get a LÄS MER / VISA MINDRE button on phones only (800px and narrower). The text breaks at the paragraph closest to half. Add `data-las-mer-efter="2"` to force the break after paragraph 2.
 - The texts are copied word for word from hallfjallet.se. Do not edit them unless she asks.
-- `sitemap.xml`, `robots.txt`, `favicon.ico`, `apple-touch-icon.png`, `fall.webp` (background of the language picker).
+- `sitemap.xml`, `robots.txt`, `favicon.ico`, `apple-touch-icon.png`, `ikon-hf-16/32/192.png` (the curly Hf monogram; links carry `?v=2` so browsers drop the old cached H — bump it if the icon changes again), `fall.webp` (background of the language picker).
+- `_redirects` — old WordPress addresses (English pages at the root, Swedish under /sv/, the activity detail pages, the WP sitemaps) sent with 301 to the matching place on the new site. Add a line here when an address changes.
+- `404.html` — the "Här tog stigen slut" page, shown for unknown addresses (`not_found_handling: "404-page"` in `wrangler.jsonc`).
+- `index.html` — the language picker, in the new look. It sends visitors to /sv/ or /en/ by browser language; an old English link with a #section goes to /en/ with the same section.
 - `wrangler.jsonc` and `.assetsignore` — Cloudflare deploy settings. **Do not edit these** unless she asks for a deploy change. `.assetsignore` keeps repo files like this one out of the public site.
 
 The HTML files are the source of truth. There is no generator. The header, footer and booking button are repeated in every page, so a change to them must be made in **all 14 pages** (the two home pages have their own header, menu and footer markup in the new look). Search before you edit and check nothing was missed.
@@ -70,9 +75,9 @@ The HTML files are the source of truth. There is no generator. The header, foote
 
 - Awards and press: no awards are named yet. The home pages have an HTML comment marking where an awards strip goes.
 - The Instagram link was reused from the old page. Confirm it.
-- The summer chef opening has unclear dates. Confirm them.
 - The newsletter sign-up from the old WordPress site has not been rebuilt (needs a mail service). For now the "Följ våra berättelser" / "Follow our stories" button on the home pages opens an email to info@hallfjallet.se. Ask which newsletter service they use.
-- The activities pages are rebuilt. Jobba hos oss / Work with us and the remaining inner pages still have the old look. hallfjallet.se also has a detail page per activity; on the new site the full text is on the activities page instead (LÄS MER on phones). Old detail-page addresses need redirects when the domain moves.
+- Jobba hos oss / Work with us is rebuilt in the new look (`<article class="jobb">` per opening, built like the activities page). Summer chef opening is 2028 in both languages, and applications go to anders@hallfjallet.se (both confirmed by her).
+- The old inner pages (bo-och-ata, var-historia, hitta-hit, kontakt and their English pairs) are now small redirect pages to the matching home-page section, and are out of the sitemap. The site is effectively: home, activities, work with us. hallfjallet.se also has a detail page per activity; on the new site the full text is on the activities page instead (LÄS MER on phones). Old detail-page addresses redirect via `_redirects`.
 - The skier photo is used twice on the home page (in the slideshow and after Vår historia). Avoid the same person in two pictures in a row. She wants the flower bouquet as the last photo before the footer.
 - The winter mountain photo (`hero-fjallet-vinter`) only exists at 900px wide. Replace it when she sends a larger version.
 - The domain `www.hallfjallet.se` still points at the old WordPress site. Connecting it is a separate step done in Cloudflare by the owner, not something to do here.
