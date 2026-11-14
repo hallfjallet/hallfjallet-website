@@ -41,7 +41,7 @@
   var heroText = document.querySelector('.hero-text');
   function gomHero() { if (heroText) heroText.classList.add('borta'); }
   if (heroText) {
-    setTimeout(gomHero, 7500);
+    setTimeout(gomHero, 9000);
     window.addEventListener('scroll', function () { if (window.scrollY > 40) gomHero(); }, { passive: true });
   }
 

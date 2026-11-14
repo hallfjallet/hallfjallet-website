@@ -86,17 +86,23 @@ body.meny-oppen { overflow: hidden; }
 
 /* Rubrik och pil över bildspelet: syns när man kommer in, tonar sedan bort */
 .hero-text { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none;
-  color: var(--text); opacity: 0; animation: hero-in 1.6s ease .4s forwards; transition: opacity 1.6s ease, color 1s ease; }
+  color: var(--text); transition: opacity 1.8s ease, color 1s ease; }
 .hero-text.borta { opacity: 0 !important; animation: none; }
 .hero-text.borta .hero-pil { pointer-events: none; }
-@keyframes hero-in { to { opacity: 1; } }
+.hero-rubrik { opacity: 0; filter: blur(6px); letter-spacing: .2em; transform: translateY(8px);
+  animation: hero-in 2.8s cubic-bezier(.2, .6, .2, 1) .6s forwards; }
+.hero-pil { opacity: 0; animation: hero-pil-in 1.6s ease 2.6s forwards; }
+@keyframes hero-in { to { opacity: 1; filter: blur(0); letter-spacing: .1em; transform: none; } }
+@keyframes hero-pil-in { to { opacity: 1; } }
 .ljus-logga .hero-text { color: #f3f1e6; }
-.ljus-logga .hero-rubrik { text-shadow: 0 0 22px rgba(0,0,0,.35); }
-.hero-rubrik { margin: 0; font-family: var(--rubrik); font-size: clamp(30px, 4.4vw, 60px); line-height: 1.15; letter-spacing: .08em; text-transform: uppercase; text-align: center; padding: 0 30px; text-wrap: balance; }
+.ljus-logga .hero-rubrik { text-shadow: 0 0 18px rgba(20,18,15,.55), 0 0 42px rgba(20,18,15,.35); }
+.hero-text::before { content: ""; position: absolute; left: 50%; top: 50%; width: min(760px, 110vw); height: 220px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(20,18,15,.28), rgba(20,18,15,0)); opacity: 0; animation: hero-pil-in 2.4s ease .6s forwards; pointer-events: none; }
+:root:not(.ljus-logga) .hero-text::before { display: none; }
+.hero-rubrik { margin: 0; font-family: var(--rubrik); font-size: clamp(22px, 2.6vw, 38px); line-height: 1.2; text-transform: uppercase; text-align: center; padding: 0 30px; text-wrap: balance; }
 .hero-pil { position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); color: inherit; pointer-events: auto; padding: 10px; }
 .hero-pil svg { width: 34px; height: 34px; display: block; animation: hero-pil 2.4s ease-in-out 2s infinite; }
 @keyframes hero-pil { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
-@media (prefers-reduced-motion: reduce) { .hero-text { animation: none; opacity: 1; } .hero-pil svg { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .hero-rubrik, .hero-pil { animation: none; opacity: 1; filter: none; transform: none; letter-spacing: .1em; } .hero-pil svg { animation: none; } }
 
 /* ---------- Text- och bildavsnitt ---------- */
 .avsnitt {
