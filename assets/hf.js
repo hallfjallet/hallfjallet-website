@@ -37,11 +37,11 @@
     if (img.complete && img.naturalWidth) { visa(i); return setTimeout(nasta, TEMPO); }
     img.addEventListener('load', function () { visa(i); setTimeout(nasta, TEMPO); }, { once: true });
   }
-  /* Rubriken och pilen syns under de två första bilderna och tonar bort när den tredje kommer, eller när man börjar scrolla */
+  /* Rubriken och pilen syns under de tre första bilderna och tonar bort när den fjärde kommer, eller när man börjar scrolla */
   var heroText = document.querySelector('.hero-text');
   function gomHero() { if (heroText) heroText.classList.add('borta'); }
   if (heroText) {
-    setTimeout(gomHero, FORSTA + TEMPO - 200);
+    setTimeout(gomHero, FORSTA + 2 * TEMPO - 200); // tonar bort när den fjärde bilden kommer
     window.addEventListener('scroll', function () { if (window.scrollY > 40) gomHero(); }, { passive: true });
   }
 
