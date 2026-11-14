@@ -52,7 +52,7 @@
 
   /* ---------- Logga och meny: ljusa på mörka bilder ---------- */
   var huvud = document.querySelector('.huvud');
-  var ytor = [].slice.call(document.querySelectorAll('.hero, .bild, .uppslag-bild'));
+  var ytor = [].slice.call(document.querySelectorAll('.hero, .bild, .uppslag-bild, .nyhetsbrev'));
   function farg() {
     if (!huvud) return;
     var y = huvud.getBoundingClientRect().top + 10, ljus = false;
