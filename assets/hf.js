@@ -93,6 +93,8 @@
       var bredd = window.innerWidth * (window.devicePixelRatio || 1);
       var storlek = bredd > 1280 ? 1920 : bredd > 640 ? 1280 : 640;
       meny.style.backgroundImage = 'url(' + meny.dataset.bild.replace('{w}', storlek) + ')';
+      // Dubbelexponering: fjällskogen skimrar igenom cocktailbilden
+      if (meny.dataset.skog) meny.style.setProperty('--skog', 'url(' + meny.dataset.skog.replace('{s}', bredd > 640 ? 900 : 640) + ')');
       meny.removeAttribute('data-bild');
     }
     meny.classList.toggle('oppen', oppen);
