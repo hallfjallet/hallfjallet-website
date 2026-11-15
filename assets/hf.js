@@ -40,15 +40,21 @@
   /* Rubriken och pilen syns under de tre första bilderna och tonar bort när den fjärde kommer, eller när man börjar scrolla */
   var heroText = document.querySelector('.hero-text');
   function gomHero() { if (heroText) heroText.classList.add('borta'); }
-  if (heroText) {
-    setTimeout(gomHero, FORSTA + 2 * TEMPO - 200); // tonar bort när den fjärde bilden kommer
-    window.addEventListener('scroll', function () { if (window.scrollY > 40) gomHero(); }, { passive: true });
-  }
+  if (heroText) window.addEventListener('scroll', function () { if (window.scrollY > 40) gomHero(); }, { passive: true });
 
-  if (bilder.length > 1) {
-    ladda(bilder[1]);
-    if (!lugn.matches) setTimeout(nasta, FORSTA);
+  // Allt i bildspelet startar först när första bilden syns, så att rubriken inte tonas in över en tom yta
+  var hero = document.querySelector('.hero'), startad = false;
+  function starta() {
+    if (startad) return; startad = true;
+    if (hero) hero.classList.add('redo');
+    if (heroText) setTimeout(gomHero, FORSTA + 2 * TEMPO - 200); // tonar bort när den fjärde bilden kommer
+    if (bilder.length > 1) {
+      ladda(bilder[1]);
+      if (!lugn.matches) setTimeout(nasta, FORSTA);
+    }
   }
+  if (!bilder.length || (bilder[0].complete && bilder[0].naturalWidth)) starta();
+  else { bilder[0].addEventListener('load', starta, { once: true }); bilder[0].addEventListener('error', starta, { once: true }); setTimeout(starta, 4000); }
 
   /* ---------- Logga och meny: ljusa på mörka bilder ---------- */
   var huvud = document.querySelector('.huvud');
