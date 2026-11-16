@@ -160,6 +160,29 @@
     }).catch(function () { status.textContent = form.dataset.fel; }).then(function () { knapp.disabled = false; });
   });
 
+  /* ---------- Nyhetsbrevet: anmälan direkt till Mailchimp, utan att lämna sidan ---------- */
+  [].forEach.call(document.querySelectorAll('form[data-mailchimp]'), function (f) {
+    var status = f.querySelector('.nb-status'), knapp = f.querySelector('.nb-skicka');
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var epost = f.EMAIL.value.trim();
+      if (!epost || !f.EMAIL.checkValidity()) { status.textContent = f.dataset.saknas; f.EMAIL.focus(); return; }
+      knapp.disabled = true; status.textContent = '';
+      var namn = 'mcSvar' + Date.now(), skript = document.createElement('script');
+      var data = [].map.call(f.querySelectorAll('input[name]'), function (i) { return encodeURIComponent(i.name) + '=' + encodeURIComponent(i.value.trim()); }).join('&');
+      var klar = function () { delete window[namn]; skript.remove(); knapp.disabled = false; };
+      var tid = setTimeout(function () { klar(); status.textContent = f.dataset.fel; }, 12000);
+      window[namn] = function (svar) {
+        clearTimeout(tid); klar();
+        if (svar && svar.result === 'success') { f.classList.add('skickad'); status.textContent = f.dataset.ok; }
+        else status.textContent = /already subscribed|redan/i.test(svar && svar.msg || '') ? f.dataset.redan : f.dataset.fel;
+      };
+      skript.src = f.action.replace('/subscribe/post?', '/subscribe/post-json?') + '&' + data + '&c=' + namn;
+      skript.onerror = function () { clearTimeout(tid); klar(); status.textContent = f.dataset.fel; };
+      document.body.appendChild(skript);
+    });
+  });
+
   /* ---------- LÄS MER / VISA MINDRE ---------- */
   var TEXT = { sv: ['Läs mer', 'Visa mindre'], en: ['Read more', 'Show less'] };
   var nr = 0;
