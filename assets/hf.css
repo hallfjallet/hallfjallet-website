@@ -4,7 +4,7 @@
 @font-face {
   font-family: "Oregon LDO";
   src: url("/assets/fonts/OregonLDO.woff") format("woff");
-  font-weight: 400; font-style: normal; font-display: swap;
+  font-weight: 400; font-style: normal; font-display: block;  /* BOKA och menyn visas direkt i rätt typsnitt, utan att byta (typsnittet förladdas) */
 }
 @font-face {
   font-family: "Suisse Neue";
@@ -116,6 +116,8 @@ body.meny-oppen { overflow: hidden; }
 /* Rubriken sjunker in: ur oskärpa, ner på plats medan bokstäverna drar ihop sig */
 @keyframes hero-in { 40% { opacity: .55; } to { opacity: 1; filter: blur(0); letter-spacing: .16em; transform: none; } }
 @keyframes hero-pil-in { to { opacity: 1; } }
+/* Rubriken väntar tills första bilden har laddats, så att bara den tonas in (hf.js sätter .redo) */
+.hero:not(.redo) .hero-rubrik, .hero:not(.redo) .hero-pil, .hero:not(.redo) .sprak-under, .hero:not(.redo) .hero-text::before { animation-play-state: paused; }
 /* Svenska · English under rubriken på startsidan; det språk man är på är understruket */
 .sprak-under { margin: 22px 0 0; font-family: var(--rubrik); font-size: 13px; letter-spacing: .16em; text-transform: uppercase; pointer-events: auto; opacity: 0; animation: hero-pil-in 1.4s ease 1.6s forwards; }  /* språkvalet och pilen kommer samtidigt, när rubriken landar */
 .sprak-under a { color: inherit; transition: opacity .3s ease; }
@@ -140,7 +142,7 @@ body.meny-oppen { overflow: hidden; }
   display: flex; align-items: center; justify-content: center;
   padding: 80px 30px;
 }
-.avsnitt .kol { width: 75%; max-width: 1040px; text-align: center; }
+.avsnitt .kol { width: 75%; max-width: 640px; text-align: center; }  /* smal spalt, som en boksida */
 h1, h2 {
   font-family: var(--rubrik); font-weight: 400; text-transform: uppercase;
   font-size: 36px; line-height: 1.2; letter-spacing: .0625em; margin: 0;
@@ -167,6 +169,17 @@ h1, h2 {
 @media (hover: hover) { .knapp:hover { color: var(--papper); background: var(--text); } }
 .knapp svg { width: 16px; height: 16px; flex: none; }
 .kontakt p { margin: 0 0 20px; }
+/* Boka: öppettiderna som en egen rad, länken utan ruta och dämpade kontaktuppgifter */
+.fakta { margin: 6px 0 34px; font-family: var(--rubrik); font-size: 14px; letter-spacing: .14em; text-transform: uppercase; line-height: 2; }
+.fakta p { margin: 0; }
+.fakta i { font-style: normal; margin: 0 .5em; opacity: .5; }
+.knapp.boka-lank-stor { border: 0; border-bottom: 1px solid currentColor; border-radius: 0; padding: 6px 0 4px; margin: 18px 0 34px; gap: 10px;
+  font-family: var(--rubrik); font-size: 16px; letter-spacing: .06em; text-transform: uppercase; }
+@media (hover: hover) { .knapp.boka-lank-stor:hover { background: none; color: inherit; opacity: .6; } }
+a.epost { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+#boka .kontakt, #reservation .kontakt { font-size: 14px; opacity: .8; margin-top: 6px; }
+#boka .kontakt p, #reservation .kontakt p { margin: 0 0 10px; }
+@media (max-width: 800px) { .fakta i { display: block; height: 0; overflow: hidden; margin: 0; } }
 .koordinater { display: inline-flex; align-items: center; gap: 14px; }
 .koordinater svg { width: 24px; height: 24px; }
 .koordinater span { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
