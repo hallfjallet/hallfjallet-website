@@ -206,6 +206,23 @@ a.epost { text-decoration: underline; text-underline-offset: 3px; text-decoratio
 .nyhetsbrev .kort .text p { font-size: 17px; }
 .nyhetsbrev .knapp { color: var(--gra); border: 0; padding: 8px 4px; text-shadow: 0 0 14px rgba(20,18,15,.75); }
 @media (hover: hover) { .nyhetsbrev .knapp:hover { color: var(--gra); background: none; opacity: .65; } }
+/* Anmälan till nyhetsbrevet (skickas direkt till Mailchimp): tunna linjer, ljusgrå text, inga rutor */
+.nb-form { margin: 18px auto 0; max-width: 460px; text-align: left; }
+.nb-rad { display: flex; gap: 24px; }
+.nb-rad .nb-falt { flex: 1; min-width: 0; }
+.nb-falt { display: block; margin: 0 0 18px; }
+.nb-falt span { display: block; font-family: var(--rubrik); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gra); text-shadow: 0 0 12px rgba(20,18,15,.7); opacity: .85; }
+.nb-falt input { width: 100%; box-sizing: border-box; background: transparent; border: 0; border-bottom: 1px solid rgba(207,204,196,.6); border-radius: 0; padding: 8px 0 6px;
+  font: inherit; font-size: 16px; color: var(--gra); outline: none; transition: border-color .3s ease; -webkit-appearance: none; appearance: none; }
+.nb-falt input:focus { border-bottom-color: var(--gra); }
+.nb-falt input:-webkit-autofill { -webkit-text-fill-color: var(--gra); transition: background-color 9999s; }
+.nb-falla { position: absolute; left: -5000px; }
+.nb-form .nb-skicka { display: flex; margin: 8px auto 0; font: inherit; font-size: 16px; }
+.nb-skicka[disabled] { opacity: .5; cursor: default; }
+.nb-status { min-height: 1.4em; margin: 14px 0 0; text-align: center; color: var(--gra); text-shadow: 0 0 12px rgba(20,18,15,.7); }
+.nb-fot { margin: 6px 0 0; text-align: center; font-size: 13px; color: var(--gra); opacity: .7; }
+.nb-form.skickad .nb-rad, .nb-form.skickad > .nb-falt, .nb-form.skickad .nb-skicka { display: none; }
+@media (max-width: 800px) { .nb-rad { gap: 16px; } }
 
 /* ---------- Sidfot ---------- */
 .sidfot { background: var(--papper); text-align: center; padding: 60px 30px 24px; font-size: 16px; }
