@@ -381,3 +381,13 @@ a.epost { text-decoration: underline; text-underline-offset: 3px; text-decoratio
 @media (prefers-reduced-motion: reduce) {
   .bildspel img, .las-mer .lm-more, .las-mer .lm-inner > *, .meny, .logga, .huvud { transition: none !important; }
 }
+
+/* Integritetspolicyn: en lugn textsida, vänsterställd, med små versaler som rubriker */
+.sida-policy .policy { padding-top: 160px; align-items: flex-start; }
+.policy .kol { text-align: left; }
+.policy h1 { text-align: center; margin-bottom: 26px; }
+.policy .ingress { text-align: center; margin-bottom: 36px; }
+.policy h2 { font-size: 14px; letter-spacing: .14em; margin: 32px 0 10px; }
+.policy .uppdaterad { margin-top: 36px; font-size: 13px; opacity: .7; }
+.nb-fot a { color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+@media (max-width: 800px) { .sida-policy .policy { padding-top: 130px; } }
