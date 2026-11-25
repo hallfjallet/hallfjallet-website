@@ -10,8 +10,10 @@
   Hållfjället – nyhetsbrevsmall för Mailchimp ("Code your own" → "Import HTML").
   Samma känsla som hemsidan: beige rakt igenom, Oregon LDO i rubrikerna, Suisse Neue i texten.
   Typsnitten hämtas från hemsidan (visas i Apple Mail på iPhone/Mac; Gmail och Outlook visar Georgia).
-  Redigerbara delar: logga, rubrik, ingress och "Avsnitt" som kan läggas till, flyttas och tas bort
-  (Bild, Text med rubrik, Bokningslänk, Streck).
+  Upplägg (förslag B, hennes val): loggan till vänster och Book till höger, toppbild, liten rad
+  ("Stories from the mountain"), rubrik, ingress, avsnitt som kan läggas till, flyttas och tas bort
+  (Bild, Text med rubrik, Bokningslänk, Streck), personlig hälsning, sista bild och sidfot.
+  Exempelbilderna kommer från hemsidan (webp); byt mot bilder uppladdade i Mailchimp (jpg) inför utskick.
 -->
 <style>
 @font-face { font-family: "Oregon LDO"; src: url("https://website.hallfjallet.workers.dev/assets/fonts/OregonLDO.woff") format("woff"); font-weight: 400; font-style: normal; }
@@ -41,6 +43,14 @@ a { color: #434341; }
   font-size: 16px; letter-spacing: .06em; color: #434341; text-decoration: none;
   border-bottom: 1px solid #434341; padding-bottom: 4px;
 }
+.bokalank-huvud a {
+  font-family: "Oregon LDO", Georgia, "Times New Roman", serif; text-transform: uppercase;
+  font-size: 15px; letter-spacing: .06em; color: #434341; text-decoration: none;
+}
+.radovan {
+  font-family: "Oregon LDO", Georgia, "Times New Roman", serif; text-transform: uppercase;
+  font-size: 13px; letter-spacing: .18em; color: #77766f; text-align: center;
+}
 .fotlankar, .fotlankar a {
   font-family: "Oregon LDO", Georgia, "Times New Roman", serif; text-transform: uppercase;
   font-size: 13px; letter-spacing: .14em; line-height: 2; color: #434341; text-decoration: none;
@@ -65,9 +75,22 @@ a { color: #434341; }
 <tr><td align="center" valign="top">
 <table role="presentation" class="ram" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;background-color:#edebde;">
 
-  <!-- Logga -->
-  <tr><td align="center" style="padding:56px 0 52px;">
-    <a href="https://www.hallfjallet.se/"><img mc:edit="logga" src="https://website.hallfjallet.workers.dev/assets/img/hallfjallet-logo.png" width="110" alt="Hållfjället" style="width:110px;max-width:110px;"></a>
+  <!-- Huvud: loggan till vänster och Book till höger, som på hemsidan -->
+  <tr><td style="padding:30px 28px 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+      <td align="left" valign="middle"><a href="https://www.hallfjallet.se/"><img mc:edit="logga" src="https://website.hallfjallet.workers.dev/assets/img/hallfjallet-logo.png" width="96" alt="Hållfjället" style="width:96px;max-width:96px;"></a></td>
+      <td align="right" valign="middle" class="bokalank-huvud"><a href="https://online.bookvisit.com/package?channelid=b6e866a4-7126-457c-83b1-7e566d886ac0&amp;langid=2">Book</a></td>
+    </tr></table>
+  </td></tr>
+
+  <!-- Toppbild: det första man ser -->
+  <tr><td align="center" style="padding:0;font-size:0;line-height:0;">
+    <img mc:edit="toppbild" class="helbild" src="https://website.hallfjallet.workers.dev/assets/img/lodge-autumn-1280.webp" width="600" alt="Hållfjället in autumn light" style="width:600px;max-width:100%;">
+  </td></tr>
+
+  <!-- Liten rad ovanför rubriken -->
+  <tr><td class="txt" align="center" style="padding:48px 60px 18px;">
+    <div class="radovan" mc:edit="radovan">Stories from the mountain</div>
   </td></tr>
 
   <!-- Rubrik och ingress -->
@@ -80,13 +103,6 @@ a { color: #434341; }
       <p>The last guests have made their way down the trail and the mountains are slowly changing color. After a beautiful season filled with long dinners, wonderful wines and familiar faces returning to visit us, we find ourselves feeling immensely grateful.</p>
     </div>
   </td></tr>
-
-  <!-- Avsnitt: Bild -->
-  <tr mc:repeatable="avsnitt" mc:variant="Bild">
-    <td align="center" style="padding:24px 0 44px;font-size:0;line-height:0;">
-      <img mc:edit="bild" class="helbild" src="https://mcusercontent.com/05536de2f7bf0c58fb6f27705/images/717e0016-1c1d-5d6b-5dd2-cfec5eced463.jpg" width="600" alt="Hands holding freshly pulled beetroot from the garden" style="width:600px;max-width:100%;">
-    </td>
-  </tr>
 
   <!-- Avsnitt: Text med rubrik -->
   <tr mc:repeatable="avsnitt" mc:variant="Text med rubrik">
@@ -124,10 +140,16 @@ a { color: #434341; }
     </td>
   </tr>
 
+  <!-- Personlig hälsning -->
+  <tr><td class="txt" align="center" style="padding:6px 60px 30px;">
+    <div class="brodtext" mc:edit="halsning"><p style="margin:0 0 10px;">With warm wishes,</p></div>
+    <div class="smarubrik" mc:edit="avsandare">All of us at Hållfjället</div>
+  </td></tr>
+
   <!-- Avsnitt: Bild -->
   <tr mc:repeatable="avsnitt" mc:variant="Bild">
     <td align="center" style="padding:24px 0 44px;font-size:0;line-height:0;">
-      <img mc:edit="bild2" class="helbild" src="https://mcusercontent.com/05536de2f7bf0c58fb6f27705/images/5ab50938-d3fb-8856-2cf8-fe30f1fb5f8b.jpg" width="600" alt="Wine being poured at a sunlit table" style="width:600px;max-width:100%;">
+      <img mc:edit="bild2" class="helbild" src="https://website.hallfjallet.workers.dev/assets/img/table-window-1280.webp" width="600" alt="Dinner by the window at Hållfjället" style="width:600px;max-width:100%;">
     </td>
   </tr>
 
