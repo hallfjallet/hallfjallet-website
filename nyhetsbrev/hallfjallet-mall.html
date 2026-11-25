@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex">
+<title>*|MC:SUBJECT|*</title>
+<!--
+  Hållfjället – nyhetsbrevsmall för Mailchimp ("Code your own" → "Import HTML").
+  Samma känsla som hemsidan: beige rakt igenom, Oregon LDO i rubrikerna, Suisse Neue i texten.
+  Typsnitten hämtas från hemsidan (visas i Apple Mail på iPhone/Mac; Gmail och Outlook visar Georgia).
+  Redigerbara delar: logga, rubrik, ingress och "Avsnitt" som kan läggas till, flyttas och tas bort
+  (Bild, Text med rubrik, Bokningslänk, Streck).
+-->
+<style>
+@font-face { font-family: "Oregon LDO"; src: url("https://website.hallfjallet.workers.dev/assets/fonts/OregonLDO.woff") format("woff"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Suisse Neue"; src: url("https://website.hallfjallet.workers.dev/assets/fonts/SuisseNeue-Regular-WebS.woff") format("woff"); font-weight: 400; font-style: normal; }
+
+body, #bodyTable { margin: 0; padding: 0; width: 100% !important; background-color: #edebde; }
+table { border-collapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0; }
+img { border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; display: block; height: auto; }
+p { margin: 0 0 20px; }
+a { color: #434341; }
+
+.huvudrubrik, .huvudrubrik h1 {
+  font-family: "Oregon LDO", Georgia, "Times New Roman", serif; font-weight: 400; text-transform: uppercase;
+  font-size: 26px; line-height: 1.3; letter-spacing: .0625em; color: #434341; text-align: center; margin: 0;
+}
+.brodtext {
+  font-family: "Suisse Neue", Georgia, "Times New Roman", serif; font-size: 16px; line-height: 1.72;
+  letter-spacing: .015em; color: #434341; text-align: center;
+}
+.brodtext a { color: #434341; text-decoration: underline; }
+.smarubrik, .smarubrik h2 {
+  font-family: "Oregon LDO", Georgia, "Times New Roman", serif; font-weight: 400; text-transform: uppercase;
+  font-size: 14px; line-height: 1.6; letter-spacing: .14em; color: #434341; text-align: center; margin: 0;
+}
+.bokalank a {
+  font-family: "Oregon LDO", Georgia, "Times New Roman", serif; font-weight: 400; text-transform: uppercase;
+  font-size: 16px; letter-spacing: .06em; color: #434341; text-decoration: none;
+  border-bottom: 1px solid #434341; padding-bottom: 4px;
+}
+.fotlankar, .fotlankar a {
+  font-family: "Oregon LDO", Georgia, "Times New Roman", serif; text-transform: uppercase;
+  font-size: 13px; letter-spacing: .14em; line-height: 2; color: #434341; text-decoration: none;
+}
+.fottext, .fottext a {
+  font-family: "Suisse Neue", Georgia, "Times New Roman", serif; font-size: 12px; line-height: 1.7; color: #77766f;
+}
+.preheader { display: none !important; visibility: hidden; mso-hide: all; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; }
+
+@media only screen and (max-width: 620px) {
+  .ram { width: 100% !important; }
+  .txt { padding-left: 28px !important; padding-right: 28px !important; }
+  .huvudrubrik, .huvudrubrik h1 { font-size: 22px !important; }
+  .helbild { width: 100% !important; }
+}
+</style>
+</head>
+<body style="margin:0;padding:0;background-color:#edebde;">
+<span class="preheader">*|MC_PREVIEW_TEXT|*</span>
+<center>
+<table role="presentation" id="bodyTable" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#edebde;">
+<tr><td align="center" valign="top">
+<table role="presentation" class="ram" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;background-color:#edebde;">
+
+  <!-- Logga -->
+  <tr><td align="center" style="padding:56px 0 52px;">
+    <a href="https://www.hallfjallet.se/"><img mc:edit="logga" src="https://website.hallfjallet.workers.dev/assets/img/hallfjallet-logo.png" width="110" alt="Hållfjället" style="width:110px;max-width:110px;"></a>
+  </td></tr>
+
+  <!-- Rubrik och ingress -->
+  <tr><td class="txt" align="center" style="padding:0 60px;">
+    <div class="huvudrubrik" mc:edit="rubrik"><h1>The gardens are resting, the cellar is waiting and winter is on it</h1></div>
+  </td></tr>
+  <tr><td class="txt brodtext" align="center" style="padding:30px 60px 0;">
+    <div mc:edit="ingress">
+      <p>There is a particular kind of stillness in the mountains once the season comes to an end.</p>
+      <p>The last guests have made their way down the trail and the mountains are slowly changing color. After a beautiful season filled with long dinners, wonderful wines and familiar faces returning to visit us, we find ourselves feeling immensely grateful.</p>
+    </div>
+  </td></tr>
+
+  <!-- Avsnitt: Bild -->
+  <tr mc:repeatable="avsnitt" mc:variant="Bild">
+    <td align="center" style="padding:24px 0 44px;font-size:0;line-height:0;">
+      <img mc:edit="bild" class="helbild" src="https://mcusercontent.com/05536de2f7bf0c58fb6f27705/images/717e0016-1c1d-5d6b-5dd2-cfec5eced463.jpg" width="600" alt="Hands holding freshly pulled beetroot from the garden" style="width:600px;max-width:100%;">
+    </td>
+  </tr>
+
+  <!-- Avsnitt: Text med rubrik -->
+  <tr mc:repeatable="avsnitt" mc:variant="Text med rubrik">
+    <td class="txt" align="center" style="padding:16px 60px 10px;">
+      <div class="smarubrik" mc:edit="smarubrik"><h2>A season gathered and preserved</h2></div>
+      <div class="brodtext" mc:edit="text" style="padding-top:14px;">
+        <p>It has been a relatively cold summer here in Jämtland, and the gardens have taken their time. But nature has its own rhythm, and we’ve been happy to follow it.</p>
+        <p>For us, this is one of the most beautiful parts of working with the seasons. Nothing quite disappears. It simply takes another form.</p>
+      </div>
+    </td>
+  </tr>
+
+  <!-- Avsnitt: Bokningslänk -->
+  <tr mc:repeatable="avsnitt" mc:variant="Bokningslänk">
+    <td class="txt bokalank" align="center" style="padding:4px 60px 20px;">
+      <div mc:edit="bokalank"><a href="https://online.bookvisit.com/package?channelid=b6e866a4-7126-457c-83b1-7e566d886ac0&amp;langid=2">Book your winter stay&nbsp;&rarr;</a></div>
+    </td>
+  </tr>
+
+  <!-- Avsnitt: Streck -->
+  <tr mc:repeatable="avsnitt" mc:variant="Streck">
+    <td align="center" style="padding:40px 0 34px;">
+      <table role="presentation" width="120" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top:1px solid #c9c6b9;font-size:0;line-height:0;">&nbsp;</td></tr></table>
+    </td>
+  </tr>
+
+  <!-- Avsnitt: Text med rubrik -->
+  <tr mc:repeatable="avsnitt" mc:variant="Text med rubrik">
+    <td class="txt" align="center" style="padding:16px 60px 10px;">
+      <div class="smarubrik" mc:edit="smarubrik2"><h2>Long lunches and winter afternoons</h2></div>
+      <div class="brodtext" mc:edit="text2" style="padding-top:14px;">
+        <p>Keep an eye on our Instagram, <a href="https://instagram.com/hallfjallet_1943">@hallfjallet_1943</a>, where we’ll share dates, invitations and the latest news first.</p>
+        <p>Until then, thank you for another wonderful season.</p>
+      </div>
+    </td>
+  </tr>
+
+  <!-- Avsnitt: Bild -->
+  <tr mc:repeatable="avsnitt" mc:variant="Bild">
+    <td align="center" style="padding:24px 0 44px;font-size:0;line-height:0;">
+      <img mc:edit="bild2" class="helbild" src="https://mcusercontent.com/05536de2f7bf0c58fb6f27705/images/5ab50938-d3fb-8856-2cf8-fe30f1fb5f8b.jpg" width="600" alt="Wine being poured at a sunlit table" style="width:600px;max-width:100%;">
+    </td>
+  </tr>
+
+  <!-- Sidfot -->
+  <tr><td align="center" style="padding:10px 40px 60px;">
+    <img src="https://website.hallfjallet.workers.dev/assets/img/hallfjallet-logo.png" width="64" alt="Hållfjället" style="width:64px;margin:0 auto 26px;opacity:.85;">
+    <div class="fotlankar" mc:edit="fotlankar">
+      <a href="https://www.hallfjallet.se/en/">Website</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://www.hallfjallet.se/sv/">Svenska</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://instagram.com/hallfjallet_1943">Instagram</a>
+    </div>
+    <div class="fottext" style="padding-top:16px;">
+      *|LIST:ADDRESSLINE|*<br>
+      <a href="*|ARCHIVE|*">View in browser</a> · <a href="*|UPDATE_PROFILE|*">Update preferences</a> · <a href="*|UNSUB|*">Unsubscribe</a>
+      *|IF:REWARDS|*<br><br>*|HTML:REWARDS|**|END:IF|*
+    </div>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</center>
+</body>
+</html>
