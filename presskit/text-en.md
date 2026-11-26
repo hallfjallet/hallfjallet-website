@@ -1,7 +1,7 @@
 # HÅLLFJÄLLET
 PRESS KIT 2026/2027
 
-## Find your home in the mountains
+## Your home in the mountains
 
 A small mountain lodge and restaurant dating back to 1943, in the roadless mountains above Ottsjö, Jämtland, Sweden.
 
@@ -237,4 +237,4 @@ Hållfjället
 
 Ottsjö, Jämtland, Sweden
 
-*Find your home in the mountains*
+*Your home in the mountains*

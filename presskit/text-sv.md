@@ -1,7 +1,7 @@
 # HÅLLFJÄLLET
 PRESSMATERIAL 2026/2027
 
-## Hitta ditt hem på fjället
+## Ditt hem på fjället
 
 Ett litet fjällhotell och en restaurang med anor från 1943, i väglöst land ovanför Ottsjö i södra Årefjällen.
 
@@ -237,4 +237,4 @@ Hållfjället
 
 Ottsjö, Jämtland
 
-*Hitta ditt hem på fjället*
+*Ditt hem på fjället*

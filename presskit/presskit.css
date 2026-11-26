@@ -143,3 +143,5 @@ p.slut { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: 
 /* Ingen skugga på avslutningssidan heller (hennes önskan): bilden får vara som den är */
 .kontakt .slöja { display: none; }
 a { color: inherit; text-decoration: none; }
+/* Slutjustering: raden som en diskret inskription strax ovanför bergskammen, ca 18 % mindre */
+.raden.topp blockquote { font-size: 15.5pt; top: 54mm; }
