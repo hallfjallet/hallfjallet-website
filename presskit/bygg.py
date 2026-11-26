@@ -122,7 +122,7 @@ def bygg_html(lang):
         if layout == "omslag":
             hornet = a["h1"][1] if len(a["h1"]) > 1 else ""
             sidor.append(f'''<section class="sida omslag">{bild(b, pos)}<div class="botten"></div>
-  <img class="logga" src="{LOGGA}" alt="Hållfjället"><div class="hornet">{hornet}</div>
+  <img class="logga" src="jpg/logga-ljus.png" alt="Hållfjället"><div class="hornet">{hornet}</div>
   <div class="titel"><h1>{h2}</h1>{stycken(a["delar"], False)}</div></section>''')
         elif layout == "lang":
             sidor.append(f'''<section class="sida lang"><div class="text"><h2>{h2}</h2><div class="spalter">{stycken(a["delar"])}</div></div>
@@ -187,7 +187,7 @@ def bygg_html(lang):
             g = "".join('<div class="grupp">' + "".join(f"<p>{e(p)}</p>" for p in gr) + "</div>" for gr in grupper if gr)
             s = f'<p class="sista">{e(sista[0])}</p>' if sista else ""
             sidor.append(f'''<section class="sida kontakt">{bild(b, pos)}<div class="slöja"></div>
-  <div class="ruta"><img class="logga" src="{LOGGA}" alt="Hållfjället"><h2>{h2}</h2>{intro}{g}{s}</div></section>''')
+  <div class="ruta"><img class="logga" src="jpg/logga-ljus.png" alt="Hållfjället"><h2>{h2}</h2>{intro}{g}{s}</div></section>''')
     titel = "Hållfjället – " + ("Press kit" if lang == "en" else "Pressmaterial")
     return f'''<!DOCTYPE html>
 <html lang="{lang}"><head><meta charset="UTF-8"><meta name="robots" content="noindex"><title>{titel}</title>
@@ -208,6 +208,10 @@ def gor_jpg(namn):
 
 JPG.mkdir(exist_ok=True)
 UT.mkdir(exist_ok=True)
+# Ljus logga som färdig bild (i stället för CSS-filter, som vissa PDF-läsare visar fel)
+_l = Image.open(ROT / "assets/img/hallfjallet-logo.png").convert("RGBA")
+_ljus = Image.new("RGBA", _l.size, (207, 204, 196, 0)); _ljus.putalpha(_l.getchannel("A"))
+_ljus.save(JPG / "logga-ljus.png")
 jobb = []
 for lang, cfg in SPRAK.items():
     sida = MAPP / f"presskit-{lang}.html"

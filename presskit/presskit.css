@@ -134,3 +134,8 @@ p.slut { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: 
 .omslag .titel { top: 52mm; }
 /* Raden lite längre ner och till vänster, i himlen ovanför de avlägsna fjällen (hennes önskan) */
 .raden.topp blockquote { top: 46mm; left: 20mm; right: auto; max-width: 150mm; text-align: left; }
+
+/* Inga skuggor eller filter i PDF:en: vissa PDF-läsare (t.ex. Förhandsvisning på Mac) ritar dem fel.
+   Loggan är i stället en färdig ljus bild (jpg/logga-ljus.png, görs av bygg.py). */
+* { text-shadow: none !important; }
+.logga { filter: none !important; }
