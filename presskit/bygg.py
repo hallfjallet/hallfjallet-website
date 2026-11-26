@@ -50,15 +50,15 @@ BILDOVERSIKT = ["hero-skidakare", "lodge-autumn", "hero-frusen-sjo", "dagar-skot
 
 # (layout, bild, beskärning) per avsnitt, i samma ordning som i textfilerna
 SIDOR = [
-    ("omslag", "hero-skidakare", "50% 62%"),
+    ("omslag", "hero-fjallet-vinter-drom", "50% 40%"),
     ("lang", "hiker-ridge", "50% 50%"),
-    ("raden", "hero-frusen-sjo", "50% 55%"),
+    ("raden topp", "lodge-autumn", "50% 70%"),
     ("uppslag", "vaningssang", "50% 50%"),
     ("uppslag vand", "cabbage-dark", "50% 50%"),
     ("uppslag", "hero-majrova", "50% 60%"),
     ("uppslag vand", "hero-vinkallare", "46% 50%"),
     ("folk", "laget", "50% 30%"),
-    ("arstider", ["hero-fjallet-vinter-drom", "wildflowers", "lodge-autumn"], ["50% 50%", "50% 50%", "50% 50%"]),
+    ("arstider", ["hero-frusen-sjo", "wildflowers", "beetroot-hands"], ["35% 50%", "50% 50%", "45% 50%"]),
     ("uppslag", "hero-dukat-bord", "50% 55%"),
     ("pris", "champagne-window", "50% 50%"),
     ("fakta", "karta", "50% 50%"),
@@ -122,16 +122,16 @@ def bygg_html(lang):
         h2 = e(a["h2"] or "")
         if layout == "omslag":
             hornet = a["h1"][1].replace(" 20", "<br>20", 1) if len(a["h1"]) > 1 else ""
-            sidor.append(f'''<section class="sida omslag">{bild(b, pos)}
+            sidor.append(f'''<section class="sida omslag">{bild(b, pos)}<div class="botten"></div>
   <img class="logga" src="{LOGGA}" alt="Hållfjället"><div class="hornet">{hornet}</div>
   <div class="titel"><h1>{h2}</h1>{stycken(a["delar"], False)}</div></section>''')
         elif layout == "lang":
             sidor.append(f'''<section class="sida lang"><div class="text"><h2>{h2}</h2><div class="spalter">{stycken(a["delar"])}</div></div>
   <div class="bildyta">{bild(b, pos)}</div>{folio(n, "v", cfg["folio"])}</section>''')
-        elif layout == "raden":
+        elif layout.startswith("raden"):
             rad = [t for k, t in a["delar"] if k == "kursiv"][0]
             spans = e(rad)
-            sidor.append(f'''<section class="sida raden">{bild(b, pos)}<div class="slöja"></div><blockquote>{spans}</blockquote></section>''')
+            sidor.append(f'''<section class="sida {layout}">{bild(b, pos)}<div class="slöja"></div><blockquote>{spans}</blockquote></section>''')
         elif layout.startswith("uppslag"):
             sida = "h" if "vand" in layout else "v"
             sidor.append(f'''<section class="sida {layout}"><div class="text"><h2>{h2}</h2>{stycken(a["delar"])}</div>

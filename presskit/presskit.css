@@ -103,3 +103,12 @@ p.slut { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: 
 .kontakt p { font-size: 11.5pt; line-height: 1.7; margin: 0; }
 .kontakt .grupp { margin-bottom: 5mm; }
 .kontakt .sista { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: .1em; font-size: 13pt; margin-top: 9mm; }
+
+/* Raden i himlen över huset (ljus himmel: mörk text, ingen mörk slöja) */
+.raden.topp .slöja { background: linear-gradient(180deg, rgba(237,235,222,.35), rgba(237,235,222,0) 45%); }
+.raden.topp blockquote { top: 22mm; bottom: auto; color: var(--text); text-shadow: 0 0 20px rgba(237,235,222,.7); }
+
+/* Omslaget med vinterbilden på huset: ljus logga mot skogen, mjuk ljus ton längst ner under rubriken */
+.omslag .logga { filter: brightness(0) invert(.88) sepia(.1) drop-shadow(0 0 6px rgba(0,0,0,.35)); }
+.omslag .hornet { color: var(--text); }
+.omslag .botten { position: absolute; left: 0; right: 0; bottom: 0; height: 30%; background: linear-gradient(180deg, rgba(237,235,222,0), rgba(237,235,222,.78) 62%, rgba(237,235,222,.9)); }
