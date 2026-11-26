@@ -157,3 +157,7 @@ a { color: inherit; text-decoration: none; }
 .aktiviteter h3 { font-size: 8pt; letter-spacing: .16em; margin-bottom: 2mm; }
 .aktiviteter .fyra p { font-size: 8.4pt; line-height: 1.52; margin: 0; }
 .aktiviteter .efter { margin: 7mm 0 0; font-size: 8.7pt; line-height: 1.55; max-width: 175mm; }
+/* Aktivitetstexterna är längre: lägre bilder så att texten får plats i samma storlek (hennes önskan) */
+.aktiviteter .bildyta { height: 44mm; margin-bottom: 4mm; }
+.aktiviteter .intro { margin-bottom: 5mm; }
+.aktiviteter .efter { margin-top: 5mm; }

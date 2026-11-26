@@ -137,24 +137,23 @@ All stays are booked in advance. Snowmobile transport can be arranged during the
 
 > With just ten bedrooms, Hållfjället remains a small and intimate place.
 
-### Skiing to Hållfjället
+### On skis to Hållfjället
 
-We can’t think of a better way to reach Hållfjället than on skis. Through old mountain forests, across frozen marshes and along winding trails that eventually lead us up to the lodge.
+We can think of few better ways to arrive at Hållfjället than on skis. Setting out from Ottsjö, Edsåsdalen or Trillevallen, we travel through old mountain forests, across snow-covered marshes and along trails with sweeping views of the southern Åre mountains. Accompanied by a guide, there is time to discover the landscape and pause for coffee brewed over an open fire.
 
 ### Ice fishing in the mountains
 
-Out on the ice of a little mountain lake, with the snow all around us and a small hole leading down into the dark water, we wait for the day’s catch.
+On one of the small mountain lakes surrounding Hållfjället, we spend a few hours with a fishing rod in hand, snow all around us and a hole leading down to the dark waters beneath the ice. We light a fire, brew coffee and hope to make the acquaintance of one of the mountain lakes’ Arctic char.
 
-### Through winter by dog sled
+### By dog sled through winter
 
-First come the eager barks of the dogs, their paws dancing impatiently in the snow. Then we’re off.
+First comes the eager barking of the dogs and the sound of restless paws in the snow. Then we set off through mountain forests and open winter landscapes in the southern Åre mountains. A rather special way to travel, close to both the animals and the natural world. Along the way, we pause for coffee and something good to eat.
 
-### Hunting beyond the roads
+### Ptarmigan hunting in roadless country
 
-An early morning, long before the mountains have properly woken. The dogs are eager, the equipment is packed and ahead lies a day in country where few people ever venture.
+An early morning, long before the mountains have quite awakened. The dogs are eager, the equipment is packed, and ahead lies a day in remote country where few people venture. Together with experienced dog handlers, and with the option of helicopter transport, we offer ptarmigan hunting on private hunting grounds.
 
-*These are just a few of our days in the mountains. We are happy to arrange other experiences to suit the season and your wishes, so do tell us what you have in mind.*
-
+*These are some of the ways to get to know the landscape surrounding Hållfjället. Other mountain experiences can also be arranged, guided by the seasons and the interests of our guests.*
 ---
 
 ## Recognition

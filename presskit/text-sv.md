@@ -139,22 +139,21 @@ Alla vistelser förbokas. Vintertid kan även skotertransport ordnas.
 
 ### På skidor till Hållfjället
 
-Vi vet egentligen inget bättre sätt att komma till Hållfjället än på skidor. Genom gammal fjällskog, över myrar och längs de gamla lederna som så småningom tar oss upp till Hållfjället.
+Vi vet egentligen inget bättre sätt att komma till Hållfjället än på skidor. Från Ottsjö, Edsåsdalen eller Trillevallen färdas vi genom gammal fjällskog, över snötäckta myrar och längs leder med vidsträckta vyer över södra Årefjällen. Tillsammans med en guide finns tid att upptäcka landskapet, stanna till och dricka kaffe över öppen eld.
 
 ### Pimpelfiske på fjället
 
-På en liten frusen fjällsjö sitter vi med pimpelspöet i handen, snön omkring oss och ett hål ner till det mörka vattnet.
+På någon av de små fjällsjöarna i landskapet kring Hållfjället tillbringar vi några timmar med pimpelspöet i handen, snön omkring oss och ett hål ner till det mörka vattnet. Vi gör upp eld, kokar kaffe och hoppas på att få stifta bekantskap med någon av fjällets rödingar.
 
 ### Med hundspann genom vintern
 
-Först hörs hundarnas ivriga skall och tassar som trampar otåligt i snön. Sedan bär det av.
+Först hörs hundarnas ivriga skall och tassar som trampar otåligt i snön. Sedan bär det av genom fjällskog och öppna vinterlandskap i södra Årefjällen. Ett alldeles särskilt sätt att färdas genom landskapet, nära både djuren och naturen. Längs vägen stannar vi till för kaffe och något gott att äta.
 
-### Jakt i väglöst land
+### Ripjakt i väglöst land
 
-En tidig morgon, långt innan fjället riktigt har vaknat. Hundarna är ivriga, utrustningen packad och framför oss väntar en dag på marker där få människor vanligtvis rör sig.
+En tidig morgon, långt innan fjället riktigt har vaknat. Hundarna är ivriga, utrustningen packad och framför oss väntar en dag på marker där få människor vanligtvis rör sig. Tillsammans med erfarna hundförare och med möjlighet till helikoptertransport erbjuder vi ripjakt på privata jaktmarker.
 
-*Det här är bara några av dagarna på fjället. Vi ordnar gärna fler upplevelser efter årstid och önskemål, så berätta vad ni drömmer om.*
-
+*Det här är några av de sätt på vilka man kan lära känna landskapet kring Hållfjället. Vi arrangerar även andra upplevelser i fjällen, med utgångspunkt i årstiden och våra gästers intressen.*
 ---
 
 ## Utmärkelser och omnämnanden
