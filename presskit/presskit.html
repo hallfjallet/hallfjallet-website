@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<title>Hållfjället – Press kit</title>
+<!-- Källan till presskittets PDF. Bygg om med:  python3 presskit/bygg.py
+     Bilderna hämtas från assets/img och görs om till jpg i presskit/jpg/ (som inte checkas in). -->
+<style>
+@font-face { font-family: "Oregon LDO"; src: url("../assets/fonts/OregonLDO.woff") format("woff"); font-display: block; }
+@font-face { font-family: "Suisse Neue"; src: url("../assets/fonts/SuisseNeue-Regular-WebS.woff") format("woff"); font-display: block; }
+@page { size: 297mm 210mm; margin: 0; }
+:root {
+  --papper: #edebde; --ljus: #f6f4ec; --text: #434341; --gra: #cfccc4; --mork: #1f1e1b;
+  --rubrik: "Oregon LDO", Optima, sans-serif; --brod: "Suisse Neue", Georgia, serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: var(--brod); color: var(--text); font-size: 9.6pt; line-height: 1.6; letter-spacing: .01em;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.sida { width: 297mm; height: 210mm; position: relative; overflow: hidden; background: var(--papper); page-break-after: always; break-after: page; }
+.sida:last-child { page-break-after: auto; break-after: auto; }
+img { display: block; }
+.fyll { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+h1, h2, h3, .etikett, .folio, .rubrikrad { font-family: var(--rubrik); font-weight: 400; text-transform: uppercase; }
+h2 { font-size: 21pt; letter-spacing: .07em; line-height: 1.15; margin: 0 0 6mm; }
+p { margin: 0 0 3.2mm; }
+.etikett { font-size: 7.4pt; letter-spacing: .24em; margin: 0 0 5mm; }
+.streck { width: 14mm; height: 0; border-top: .5pt solid currentColor; margin: 0 0 6mm; opacity: .7; }
+.folio { position: absolute; bottom: 9mm; font-size: 6.6pt; letter-spacing: .24em; }
+.folio.v { left: 16mm; } .folio.h { right: 16mm; } .folio b { font-weight: 400; margin-right: 4mm; }
+.ljust { color: var(--gra); }
+
+/* Omslag */
+.omslag .logga { position: absolute; top: 14mm; left: 16mm; width: 34mm; height: auto; }
+.omslag .titel { position: absolute; left: 16mm; bottom: 15mm; color: var(--text); }
+.omslag .titel h1 { font-size: 34pt; letter-spacing: .08em; line-height: 1.05; margin: 0 0 4mm; }
+.omslag .titel p { font-size: 10pt; margin: 0; max-width: 120mm; }
+.omslag .hornet { position: absolute; top: 16mm; right: 16mm; text-align: right; font-family: var(--rubrik); font-size: 7.4pt; letter-spacing: .24em; text-transform: uppercase; line-height: 1.9; }
+
+/* Pressmeddelande */
+.pm { padding: 20mm 16mm 20mm; display: grid; align-content: start; grid-template-rows: auto 1fr; grid-template-columns: 1fr 1fr 78mm; column-gap: 9mm; }
+.pm .huvudrad { grid-column: 1 / 3; }
+.pm h2 { font-size: 22pt; margin-bottom: 4mm; }
+.pm .ingress { font-size: 11.2pt; line-height: 1.5; margin: 0 0 6mm; }
+.pm .spalter { grid-column: 1 / 3; column-count: 2; column-gap: 9mm; font-size: 9.3pt; line-height: 1.6; }
+.pm .spalter p { margin: 0 0 2.6mm; }
+.pm .citat { grid-column: 3; grid-row: 1 / 3; border-left: .5pt solid rgba(67,67,65,.45); padding-left: 8mm; display: flex; flex-direction: column; justify-content: center; gap: 9mm; }
+.citat blockquote { margin: 0; font-size: 9.6pt; line-height: 1.55; }
+.citat blockquote p { margin: 0 0 2.5mm; }
+.citat blockquote p:first-child::before { content: "“"; } .citat blockquote p:last-of-type::after { content: "”"; }
+.citat cite { display: block; font-style: normal; font-family: var(--rubrik); font-size: 7pt; letter-spacing: .2em; text-transform: uppercase; margin-top: 3mm; }
+.slutrad { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: .08em; font-size: 9.4pt; }
+
+/* Den bärande raden */
+.raden .slöja { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,18,15,.05) 30%, rgba(20,18,15,.55)); }
+.raden blockquote { position: absolute; left: 0; right: 0; bottom: 30mm; margin: 0; text-align: center; color: var(--gra);
+  font-family: var(--rubrik); text-transform: uppercase; font-size: 40pt; line-height: 1.12; letter-spacing: .07em;
+  text-shadow: 0 0 18px rgba(20,18,15,.6); }
+.raden blockquote span { display: block; }
+
+/* Fakta */
+.fakta { display: grid; grid-template-columns: 1fr 104mm; }
+.fakta .text { padding: 18mm 14mm 18mm 16mm; }
+.fakta .bildyta { position: relative; }
+.fakta dl { margin: 0; display: grid; grid-template-columns: 34mm 1fr; column-gap: 6mm; row-gap: 2.6mm; font-size: 8.6pt; line-height: 1.5; }
+.fakta dt { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: .16em; font-size: 6.9pt; padding-top: .8mm; }
+.fakta dd { margin: 0; padding-bottom: 2.6mm; border-bottom: .4pt solid rgba(67,67,65,.22); }
+.fakta dd:last-of-type { border-bottom: 0; }
+
+/* Uppslag: text mot helsidesbild */
+.uppslag { display: grid; grid-template-columns: 1fr 1fr; }
+.uppslag.vand .bildyta { order: -1; }
+.uppslag .bildyta { position: relative; }
+.uppslag .text { padding: 0 20mm; display: flex; flex-direction: column; justify-content: center; }
+.uppslag .text p { font-size: 10pt; line-height: 1.66; }
+.uppslag .text p.lyft { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: .06em; font-size: 10.4pt; line-height: 1.5; margin-top: 3mm; }
+.bildtext { position: absolute; bottom: 8mm; left: 10mm; right: 10mm; font-size: 6.8pt; letter-spacing: .04em; color: var(--gra); text-shadow: 0 0 6px rgba(0,0,0,.6); }
+
+/* Människorna: bred bild överst */
+.folk { display: grid; grid-template-rows: 112mm 1fr; }
+.folk .bildyta { position: relative; }
+.folk .text { padding: 11mm 16mm 0; display: grid; grid-template-columns: 70mm 1fr 1fr; column-gap: 9mm; }
+.folk .text p { font-size: 9.2pt; line-height: 1.58; }
+.folk h2 { margin-bottom: 4mm; }
+
+/* Utmärkelser */
+.pris { display: grid; grid-template-columns: 92mm 1fr; }
+.pris .bildyta { position: relative; }
+.pris .text { padding: 0 22mm; display: flex; flex-direction: column; justify-content: center; }
+.pris ul { list-style: none; margin: 0; padding: 0; }
+.pris li { padding: 6mm 0; border-top: .5pt solid rgba(67,67,65,.3); display: grid; grid-template-columns: 62mm 1fr; column-gap: 8mm; align-items: baseline; }
+.pris li:last-child { border-bottom: .5pt solid rgba(67,67,65,.3); }
+.pris .vem { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: .14em; font-size: 8pt; line-height: 1.5; }
+.pris .vad { font-size: 12.5pt; line-height: 1.4; }
+.pris .vad small { display: block; font-size: 8.6pt; opacity: .8; margin-top: 1mm; }
+
+/* Bildöversikt */
+.oversikt { padding: 15mm 16mm 0; }
+.oversikt .huvudrad { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6mm; }
+.oversikt .huvudrad h2 { margin: 0; }
+.oversikt .huvudrad p { margin: 0; font-size: 8.2pt; text-align: right; max-width: 118mm; }
+.rutnat { display: grid; grid-template-columns: repeat(6, 1fr); column-gap: 5mm; row-gap: 4mm; }
+.rutnat figure { margin: 0; }
+.rutnat img { width: 100%; height: 38mm; object-fit: cover; }
+.rutnat figcaption { font-size: 6.5pt; line-height: 1.4; margin-top: 1.6mm; }
+.rutnat figcaption b { font-weight: 400; font-family: var(--rubrik); letter-spacing: .1em; font-size: 5.8pt; display: block; margin-bottom: .6mm; }
+
+/* Kontakt */
+.kontakt .slöja { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(20,18,15,.72), rgba(20,18,15,.4)); }
+.kontakt .ruta { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--gra); text-shadow: 0 0 12px rgba(20,18,15,.6); }
+.kontakt .logga { width: 30mm; height: auto; margin-bottom: 10mm; filter: brightness(0) invert(.84) sepia(.12); }
+.kontakt h2 { font-size: 15pt; margin-bottom: 6mm; }
+.kontakt p { font-size: 12pt; line-height: 1.75; margin: 0; }
+.kontakt .liten { font-size: 8.2pt; margin-top: 9mm; letter-spacing: .03em; }
+.kontakt a { color: inherit; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- 1. Omslag -->
+<section class="sida omslag">
+  <img class="fyll" src="jpg/hero-skidakare.jpg" alt="" style="object-position:50% 62%">
+  <img class="logga" src="../assets/img/hallfjallet-logo.png" alt="Hållfjället">
+  <div class="hornet">Press kit<br>2026</div>
+  <div class="titel">
+    <h1>Dinner at the<br>end of the trail</h1>
+    <p>A restaurant with rooms in a 1943 mountain station, nearly eight kilometres from the road. Above Ottsjö, Åre, Sweden.</p>
+  </div>
+</section>
+
+<!-- 2. Pressmeddelande -->
+<section class="sida pm">
+  <div class="huvudrad">
+    <p class="etikett">Press release · Årefjällen, Sweden</p>
+    <h2>A serious restaurant with no road</h2>
+    <p class="ingress">Hållfjället, a 1943 mountain station above Ottsjö in the southern Åre mountains, can only be reached on foot or on skis. The walk or ski up is the reservation, and dinner is cooked for the 24 guests who have made the climb.</p>
+  </div>
+  <div class="spalter">
+    <p>The trail to Hållfjället runs for nearly eight kilometres, winding up from Ottsjö through open fell. Guests walk it in summer and ski it in winter. There is no car park outside and no taxi home after dinner. Once guests arrive, they stay.</p>
+    <p>The house opened officially in winter 2025 as a restaurant with ten rooms, a wood-fired sauna and the mountains just outside the door. It is run by Linda and Rodrigo Pérez, who come from restaurants rather than from the mountains or the hotel trade, and who have kept a restaurant’s ambitions in a place where the weather decides when the deliveries come.</p>
+    <p>In winter, supplies come up by snowmobile and sled. In summer, a few trips are made by quad bike; the rest is carried up by e-bike and in large rucksacks. A clear morning can become a storm within hours, and what is available today may not be there tomorrow.</p>
+    <p>Rather than trying to remove those uncertainties, Hållfjället lets them shape the place. Vegetables, herbs and flowers grown in the valley below are dried, fermented and pickled for the winter, and berries, mushrooms and game come from the land around. The cellar runs from grower Champagne and Burgundy to the Jura and Savoie.</p>
+    <p>In 2026, Hållfjället was named Best Newcomer in Sweden by Star Wine List and Best Culinary Hideaway by Falstaff. It is a story about hospitality under conditions rather than another mountain retreat.</p>
+    <p class="slutrad">The mountain always has the final say.</p>
+  </div>
+  <div class="citat">
+    <blockquote>
+      <p>Hållfjället is the wild and the carefully tended, side by side. Up here you learn to listen to nature and to accept that you don’t always decide.</p>
+      <p>But limitations don’t have to be the opposite of possibilities. Sometimes they are exactly what allows something beautiful to happen.</p>
+      <cite>Linda Pérez, sommelier</cite>
+    </blockquote>
+    <blockquote>
+      <p>Dinner here begins long before anyone sits down. It begins in our garden down in Ottsjö, months earlier. We preserve the harvest so there is always something good to bring out, even when the mountain lies deep under snow.</p>
+      <p>A simple dish can have a whole summer behind it. Nothing really disappears up here. It just takes another form.</p>
+      <cite>Rodrigo Pérez, chef</cite>
+    </blockquote>
+  </div>
+  <div class="folio v"><b>2</b>Hållfjället · Press kit 2026</div>
+</section>
+
+<!-- 3. Den bärande raden -->
+<section class="sida raden">
+  <img class="fyll" src="jpg/hero-frusen-sjo.jpg" alt="" style="object-position:50% 55%">
+  <div class="slöja"></div>
+  <blockquote><span>The mountain</span><span>always has</span><span>the final say.</span></blockquote>
+</section>
+
+<!-- 4. Fakta -->
+<section class="sida fakta">
+  <div class="text">
+    <p class="etikett">Facts</p>
+    <h2>Hållfjället in brief</h2>
+    <dl>
+      <dt>Where</dt><dd>Above the village of Ottsjö in the southern Åre mountains, Jämtland, Sweden. 63°15′N 12°58′E.</dd>
+      <dt>The house</dt><dd>A mountain station built in 1943, officially opened in its new form in winter 2025. Ten rooms, 24 beds, a wood-fired oven, a converted loft and a sauna overlooking the mountains.</dd>
+      <dt>Getting here</dt><dd>Nearly eight kilometres, winding up from Ottsjö through open fell, around 300 metres of climb. No road. On foot in summer, on skis in winter; snowmobile transport can be arranged in winter.</dd>
+      <dt>Deliveries</dt><dd>By snowmobile and sled in winter. In summer, a few trips by quad bike; the rest by e-bike and in large rucksacks.</dd>
+      <dt>The stay</dt><dd>Dinner, a night in the house, breakfast and the wood-fired sauna, booked as one.</dd>
+      <dt>Kitchen</dt><dd>Led by Rodrigo Pérez. Seasonal, built on what is grown in the valley, gathered nearby and preserved through the year.</dd>
+      <dt>Cellar</dt><dd>Built by sommelier Linda Pérez in the old boiler room. Small growers, and wines from marginal and mountainous places.</dd>
+      <dt>Season</dt><dd>Winter 6 January – 10 April. Summer from 9 July. Open Thursday to Sunday, also Wednesdays in March and April. The whole house can be booked for private groups.</dd>
+      <dt>Nearest</dt><dd>Ottsjö is 20 minutes by car from Undersåker station and 30 minutes from Åre. Östersund Airport is just over an hour away.</dd>
+    </dl>
+  </div>
+  <div class="bildyta"><img class="fyll" src="jpg/dagar-skoter.jpg" alt="" style="object-position:58% 50%"></div>
+  <div class="folio v"><b>4</b>Hållfjället · Press kit 2026</div>
+</section>
+
+<!-- 5. Köket -->
+<section class="sida uppslag">
+  <div class="text">
+    <p class="etikett">The kitchen</p>
+    <h2>From the valley to the table</h2>
+    <p>The menu begins long before the kitchen. In the short, intense northern summer, vegetables, herbs and flowers are grown in the valley below Hållfjället, and much of what will be cooked in winter has to be harvested within a few weeks. What cannot be used at once is preserved. Herbs and flowers hang from the ceilings to dry, vegetables are fermented and pickled, berries and mushrooms are gathered from the fell, and game comes from the region. By winter, much of summer has found its way into jars, bottles and drying rooms. Rodrigo Pérez’s kitchen, built around a wood-fired oven, starts from what the place can give rather than from a fixed idea of mountain food.</p>
+    <p class="lyft">Some ingredients travel only a few kilometres. Others have been waiting for months.</p>
+  </div>
+  <div class="bildyta"><img class="fyll" src="jpg/hero-majrova.jpg" alt="" style="object-position:50% 60%"></div>
+  <div class="folio v"><b>5</b>Hållfjället · Press kit 2026</div>
+</section>
+
+<!-- 6. Källaren -->
+<section class="sida uppslag vand">
+  <div class="text">
+    <p class="etikett">The cellar</p>
+    <h2>Wine as another way of talking about place</h2>
+    <p>A remote mountain restaurant does not need a remote approach to wine. The cellar, in what was once the boiler room, reflects Linda Pérez’s years as a sommelier and wine writer. The list moves between grower Champagne and Burgundy, the Loire, Jura and Savoie, northern Italy, Germany and Spain. Producers are chosen less for prestige than for character: growers who work closely with their vineyards, and wines with something to say about where they come from. There is a particular affection for marginal and mountainous places, where altitude and hard growing conditions become part of the wine. Some bottles arrive in tiny quantities; others are left to rest. The list changes constantly.</p>
+  </div>
+  <div class="bildyta"><img class="fyll" src="jpg/hero-vinkallare.jpg" alt="" style="object-position:46% 50%"></div>
+  <div class="folio h">Hållfjället · Press kit 2026<b style="margin:0 0 0 4mm">6</b></div>
+</section>
+
+<!-- 7. Människorna -->
+<section class="sida folk">
+  <div class="bildyta"><img class="fyll" src="jpg/laget.jpg" alt="" style="object-position:50% 30%"></div>
+  <div class="text">
+    <div>
+      <p class="etikett">The people</p>
+      <h2>Restaurant people on a mountain</h2>
+    </div>
+    <div>
+      <p>Hållfjället is run by Linda and Rodrigo Pérez with a small team who live and work close to the mountain. Rodrigo is a competition chef who has been part of the team at the Bocuse d’Or and was head chef at Esperanto and Ekstedt, both holding one Michelin star. Linda is a sommelier, a wine writer for Svenska Dagbladet and a member of the Swedish Drinks Academy, named Best Sommelier – North Sweden by Falstaff in 2026.</p>
+    </div>
+    <div>
+      <p>Up here, the lines between restaurant, hotel and landscape blur. The person who cooks your dinner may have spent the afternoon unloading a delivery, heating the sauna or helping someone through bad weather.</p>
+      <p class="slutrad">Hospitality begins well before a guest sits down at the table. And sometimes several kilometres before they reach it.</p>
+    </div>
+  </div>
+  <div class="folio h">Hållfjället · Press kit 2026<b style="margin:0 0 0 4mm">7</b></div>
+</section>
+
+<!-- 8. Huset genom årstiderna -->
+<section class="sida uppslag">
+  <div class="text">
+    <p class="etikett">The house through the seasons</p>
+    <h2>A new chapter in an old house</h2>
+    <p>Hållfjället was built in 1943 as a mountain station, and it is still unmistakably one. The new chapter builds on that history rather than erasing it: a kitchen around a wood-fired oven, a converted loft and a sauna looking out over the mountains. Vintage finds and design classics sit beside contemporary pieces and things made by hand. The rooms stay simple; the luxury lies elsewhere.</p>
+    <p>And the year changes everything. In winter, guests ski in and come back from the trail to a hot sauna and dinner. Summer swaps ski tracks for footpaths, and the long northern days start the growing season. Late summer and autumn turn towards the months ahead: harvesting, gathering, fermenting, drying. No season is made to resemble another.</p>
+  </div>
+  <div class="bildyta"><img class="fyll" src="jpg/vaningssang.jpg" alt="" style="object-position:50% 50%"></div>
+  <div class="folio v"><b>8</b>Hållfjället · Press kit 2026</div>
+</section>
+
+<!-- 9. Utmärkelser -->
+<section class="sida pris">
+  <div class="bildyta"><img class="fyll" src="jpg/champagne-window.jpg" alt="" style="object-position:50% 50%"></div>
+  <div class="text">
+    <p class="etikett">Recognition</p>
+    <h2>Awards 2026</h2>
+    <ul>
+      <li><span class="vem">Star Wine List</span><span class="vad">Best Newcomer, Sweden<small>and a Silver Star at the international final</small></span></li>
+      <li><span class="vem">Falstaff</span><span class="vad">Best Culinary Hideaway<small>and a place on Falstaff’s Top 100 in Sweden</small></span></li>
+      <li><span class="vem">Falstaff Nordic<br>Sommelier Awards</span><span class="vad">Best Sommelier – North Sweden<small>Linda Pérez</small></span></li>
+    </ul>
+  </div>
+  <div class="folio h">Hållfjället · Press kit 2026<b style="margin:0 0 0 4mm">9</b></div>
+</section>
+
+<!-- 10. Bildöversikt -->
+<section class="sida oversikt">
+  <div class="huvudrad">
+    <div><p class="etikett">Images</p><h2>Photographs</h2></div>
+    <p>Free for editorial use. High-resolution files with captions: www.hallfjallet.se/en/press</p>
+  </div>
+  <div class="rutnat">
+    <figure><img src="jpg/hero-skidakare.jpg" alt=""><figcaption><b>01 · The trail</b>Skiing up to Hållfjället through snow-covered mountain birch, pulling a sled.</figcaption></figure>
+    <figure><img src="jpg/lodge-autumn.jpg" alt=""><figcaption><b>02 · The house</b>Hållfjället in autumn light, above Ottsjö in the southern Åre mountains.</figcaption></figure>
+    <figure><img src="jpg/hero-frusen-sjo.jpg" alt=""><figcaption><b>03 · Winter</b>A frozen lake and snow-laden forest below the fell.</figcaption></figure>
+    <figure><img src="jpg/dagar-skoter.jpg" alt=""><figcaption><b>04 · The way up</b>Winter on the fell above Ottsjö, seen from a snowmobile.</figcaption></figure>
+    <figure><img src="jpg/beetroot-hands.jpg" alt=""><figcaption><b>05 · The garden</b>Beetroot pulled from the kitchen garden in the valley.</figcaption></figure>
+    <figure><img src="jpg/hero-majrova.jpg" alt=""><figcaption><b>06 · The table</b>A dish from the kitchen, with wine poured at the table.</figcaption></figure>
+    <figure><img src="jpg/hero-vedugn.jpg" alt=""><figcaption><b>07 · The kitchen</b>The wood-fired oven at the heart of the kitchen.</figcaption></figure>
+    <figure><img src="jpg/hero-vinkallare.jpg" alt=""><figcaption><b>08 · The cellar</b>The wine cellar in the old boiler room.</figcaption></figure>
+    <figure><img src="jpg/hero-matsal.jpg" alt=""><figcaption><b>09 · The dining room</b>Tables set for the evening, daylight through the window.</figcaption></figure>
+    <figure><img src="jpg/vaningssang.jpg" alt=""><figcaption><b>10 · The rooms</b>A bunk bed with a hand-painted garland, as in the 1940s.</figcaption></figure>
+    <figure><img src="jpg/hero-sallskapsrum.jpg" alt=""><figcaption><b>11 · The sitting room</b>Armchairs, a chess set and a book by the window.</figcaption></figure>
+    <figure><img src="jpg/laget.jpg" alt=""><figcaption><b>12 · The people</b>The Hållfjället team around the kitchen counter.</figcaption></figure>
+  </div>
+  <div class="folio v"><b>10</b>Hållfjället · Press kit 2026</div>
+</section>
+
+<!-- 11. Kontakt -->
+<section class="sida kontakt">
+  <img class="fyll" src="jpg/hero-sallskapsrum.jpg" alt="" style="object-position:50% 50%">
+  <div class="slöja"></div>
+  <div class="ruta">
+    <img class="logga" src="../assets/img/hallfjallet-logo.png" alt="Hållfjället">
+    <h2>Press enquiries</h2>
+    <p>Linda Pérez</p>
+    <p><a href="mailto:info@hallfjallet.se">info@hallfjallet.se</a></p>
+    <p><a href="https://www.hallfjallet.se/en/press/">hallfjallet.se</a> · <a href="https://instagram.com/hallfjallet_1943">@hallfjallet_1943</a></p>
+    <p class="liten">Hållfjället · Ottsjö, Årefjällen, Sweden<br>Images free for editorial use · www.hallfjallet.se/en/press</p>
+  </div>
+</section>
+
+</body>
+</html>
