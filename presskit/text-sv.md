@@ -15,7 +15,7 @@ Hit tar sig gästerna till fots, på skidor eller med snöskoter. Utanför föns
 
 Hållfjället som det är i dag har vuxit fram ur en gemensam vision hos ägarna Carl Hörberg och Maria Elgaard och krögarparet Linda och Rodrigo Pérez. En vilja att ta vara på husets historia och samtidigt skapa något som inte riktigt skulle kunna finnas någon annanstans.
 
-Nere i byn Ottsjö odlar vi våra egna grönsaker, örter och blommor. Fisk, vilt, vilda bär och svampar finner sin väg in i köket, medan vinkällaren för samman vinodlare och landskap från andra delar av världen.
+Nere i byn Ottsjö odlar vi våra egna grönsaker, örter och blommor. Fisk, vilt, bär och svamp finner sin väg in i köket, medan vinkällaren för samman vinodlare och landskap från andra delar av världen.
 
 Livet här formas av årstiderna. Av sommarens långa, ljusa dagar, höstens första frost och snön som så småningom bäddar in huset. Att arbeta i väglöst land kräver uppfinningsrikedom, noggrann planering och en förmåga att anpassa sig.
 
@@ -183,7 +183,7 @@ Uppfördes som fjällstation 1943.
 
 Tio små rum med ursprungliga våningssängar. Gemensamma duschar och toaletter.
 
-**Hit tar du dig**
+**Hitta hit**
 
 Knappt åtta kilometer från Ottsjö, med omkring 300 meters stigning. Till fots sommartid och på skidor vintertid. Skotertransport kan ordnas.
 
