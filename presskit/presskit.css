@@ -132,3 +132,5 @@ p.slut { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: 
 .omslag .hornet { top: 44mm; left: 16mm; right: auto; text-align: left; font-size: 7.4pt; }
 .omslag .hornet br { display: none; } .omslag .hornet { word-spacing: .3em; }
 .omslag .titel { top: 52mm; }
+/* Raden lite längre ner och till vänster, i himlen ovanför de avlägsna fjällen (hennes önskan) */
+.raden.topp blockquote { top: 46mm; left: 20mm; right: auto; max-width: 150mm; text-align: left; }
