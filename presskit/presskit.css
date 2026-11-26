@@ -68,7 +68,7 @@ p.slut { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: 
 .pris .text { padding: 0 22mm; display: flex; flex-direction: column; justify-content: center; }
 .pris .ar { font-family: var(--rubrik); letter-spacing: .2em; font-size: 9pt; margin: -3mm 0 6mm; }
 .pris ul { list-style: none; margin: 0; padding: 0; }
-.pris li { padding: 5.5mm 0; border-top: .5pt solid rgba(67,67,65,.3); display: grid; grid-template-columns: 62mm 1fr; column-gap: 8mm; align-items: baseline; }
+.pris li { padding: 4.5mm 0; border-top: .5pt solid rgba(67,67,65,.3); display: grid; grid-template-columns: 62mm 1fr; column-gap: 8mm; align-items: baseline; }
 .pris li:last-child { border-bottom: .5pt solid rgba(67,67,65,.3); }
 .pris .vem { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: .14em; font-size: 8pt; line-height: 1.5; }
 .pris .vad span { display: block; font-size: 12pt; line-height: 1.45; }
@@ -114,3 +114,10 @@ p.slut { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: 
 .omslag .botten { position: absolute; left: 0; right: 0; bottom: 0; height: 30%; background: linear-gradient(180deg, rgba(237,235,222,0), rgba(237,235,222,.78) 62%, rgba(237,235,222,.9)); }
 
 .kontakt .intro { font-size: 9.5pt; letter-spacing: .03em; margin-bottom: 5mm; opacity: .9; }
+
+/* Omslaget: logga, rubrik och hörntext i samma ljusa ton, samlade uppe till vänster mot den mörka skogen */
+.omslag .botten { display: none; }
+.omslag .titel { top: 50mm; bottom: auto; color: var(--gra); text-shadow: 0 0 14px rgba(20,18,15,.55), 0 0 2px rgba(20,18,15,.35); }
+.omslag .titel p { max-width: 110mm; }
+.omslag .hornet { color: var(--gra); text-shadow: 0 0 10px rgba(20,18,15,.7), 0 0 2px rgba(20,18,15,.5); }
+.omslag .botten { display: block; top: 0; bottom: auto; height: 46%; background: linear-gradient(180deg, rgba(20,18,15,.42), rgba(20,18,15,.18) 55%, rgba(20,18,15,0)); }

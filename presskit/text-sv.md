@@ -163,6 +163,12 @@ Best Sommelier – North Sweden
 
 Linda Pérez
 
+### Di Weekend (Dagens industri)
+
+23/25 – Restaurangtest, september 2026
+
+Mat 13/15 · Service 5/5 · Miljö 5/5
+
 ---
 
 ## Hållfjället i korthet
