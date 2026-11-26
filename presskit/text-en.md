@@ -1,31 +1,31 @@
 # HÅLLFJÄLLET
 PRESS KIT 2026/2027
 
-## Your home in the wild
+## Find your home in the mountains
 
 A small mountain lodge and restaurant dating back to 1943, in the roadless mountains above Ottsjö, Jämtland, Sweden.
 
 ---
 
-## A place shaped by nature
+## Where the road ends
 
-Nearly eight kilometres from the nearest road, in the southern Åre mountains of Jämtland, stands Hållfjället. Built in 1943, this small mountain lodge has entered a new chapter, bringing together hospitality, gastronomy and a deep affection for the surrounding landscape.
+Nearly eight kilometres from the nearest road, in the southern Åre mountains of Jämtland, stands Hållfjället. Built in 1943, this small mountain lodge has been given new life, bringing together hospitality, gastronomy and a deep affection for the surrounding landscape.
 
 Guests arrive on foot, on skis or by snowmobile. Beyond the windows, the mountains stretch out in every direction. Inside, the table is laid, the sauna is warm and much of the character of the old house remains.
 
-Hållfjället's new chapter has grown out of a shared vision between Carl and Maria, and restaurateurs Linda and Rodrigo Pérez. An ambition to care for the history of the house while creating something that could not quite exist anywhere else.
+Hållfjället as it is today has grown out of a shared vision between its owners, Carl Hörberg and Maria Elgaard, and restaurateurs Linda and Rodrigo Pérez. An ambition to care for the history of the house while creating something that could not quite exist anywhere else.
 
-Down in the village of Ottsjö, the team grows its own vegetables, herbs and flowers. Fish, game, wild berries and mushrooms find their way into the kitchen, while the wine cellar brings together growers and landscapes from other parts of the world.
+Down in the village of Ottsjö, we grow our own vegetables, herbs and flowers. Fish, game, wild berries and mushrooms find their way into the kitchen, while the wine cellar brings together growers and landscapes from other parts of the world.
 
 Life here is shaped by the seasons. By the long, light summer days, the first autumn frost and the snow that eventually settles around the house. Working in roadless country calls for ingenuity, careful planning and an ability to adapt.
 
 At the heart of Hållfjället lies the contrast between the wild and the carefully tended. Between the vastness of the mountains and the intimacy of a small dining room. Between what nature gives us and what human hands can make of it.
 
-A place to spend time, rather than simply pass through.
+> A place to spend time, rather than simply pass through.
 
 ---
 
-*Nature always has the final say*
+*A small house in a vast landscape*
 
 ---
 
@@ -33,7 +33,7 @@ A place to spend time, rather than simply pass through.
 
 Hållfjället was built in 1943, and much of its original character remains. The small bedrooms, hand-painted woodwork, old bunk beds and creaking wooden floors all carry something of the house's history.
 
-Its new chapter has been approached with care and curiosity. Old furniture, design classics, contemporary craftsmanship and objects collected over time sit comfortably alongside one another.
+The house has been gently renewed, with care for its history and curiosity about what it might become. Old furniture, design classics, contemporary craftsmanship and objects collected over time sit comfortably alongside one another.
 
 The former boiler room now houses the wine cellar. The loft has become a place for conversation, reading, a game of chess or something to drink before dinner. In the sauna, the view stretches out across the mountains.
 
@@ -47,9 +47,9 @@ The house is still very much a mountain lodge. And that is precisely how we wish
 
 Down in the village of Ottsjö, at the foot of the mountains, lies Hållfjället's kitchen garden.
 
-Here, the team grows its own vegetables, herbs and flowers. The northern growing season is short but generous, with long hours of daylight and cool nights. Each year brings new discoveries about what can be grown in this part of the world, and how far the season can be extended.
+Here, we grow our own vegetables, herbs and flowers. The northern growing season is short but generous, with long hours of daylight and cool nights. Each year brings new discoveries about what can be grown in this part of the world, and how far the season can be extended.
 
-Even in late November, with snow covering the ground and temperatures falling to minus sixteen, there is spinach, kale, winter cress and Brussels sprouts to harvest. Beneath the snow, thyme retains its fragrance, while carrots rest in the frozen soil.
+Even in late November 2026, with snow covering the ground and temperatures falling to minus sixteen degrees Celsius, there was spinach, kale, winter cress and Brussels sprouts to harvest. Beneath the snow, thyme retains its fragrance, while carrots rest in the frozen soil.
 
 Much of the summer harvest is carefully preserved for the months ahead. Drying, fermenting, pickling and storing are as much a part of the work as sowing and harvesting.
 
@@ -57,7 +57,7 @@ The garden is not something separate from the restaurant. It is where much of th
 
 ---
 
-## From soil to table
+## A kitchen in tune with the seasons
 
 Dinner at Hållfjället begins long before anyone sits down at the table.
 
@@ -69,7 +69,7 @@ The cooking is rooted in the place, but curiosity and inspiration are allowed to
 
 In winter, the pantry holds memories of summer. Berries, herbs, fermented vegetables and carefully preserved ingredients bring other seasons to the table.
 
-A seemingly simple dish may have an entire summer behind it.
+> A seemingly simple dish may have an entire summer behind it.
 
 ---
 
@@ -81,13 +81,13 @@ Curated by sommelier and wine writer Linda Pérez, the collection has its heart 
 
 Wine is, of course, a matter of taste. But it is also agriculture, craftsmanship, cultural history and an expression of the relationship between people and their surroundings.
 
-The cellar brings together growers with a deep knowledge of their vineyards, families who have tended the same land for generations, and those who are finding new ways to care for old traditions.
+The cellar brings together wines from growers with a deep knowledge of their vineyards, from families who have tended the same land for generations, and from those who are finding new ways to care for old traditions.
 
 Some bottles arrive in small quantities. Others are given time to mature.
 
 At Hållfjället, one landscape is allowed to meet another. A wine from the French Alps may find its place beside a vegetable grown at the foot of the Swedish mountains.
 
-There is something rather beautiful in that meeting.
+> There is something rather beautiful in that meeting.
 
 ---
 
@@ -99,13 +99,11 @@ Restaurateurs Linda and Rodrigo Pérez both have backgrounds in Stockholm's rest
 
 Linda studied restaurant and culinary arts at Grythyttan and has worked at Mathias Dahlgren and Esperanto. Alongside her work as a sommelier and restaurateur, she is a longstanding wine writer for Svenska Dagbladet and secretary of the Swedish Drinks Academy.
 
-Together with Carl and Maria, and a small team of people with different skills and experiences, they are shaping the next chapter of Hållfjället.
+Together with Carl and Maria, and a small team of people with different skills and experiences, they carry the story of Hållfjället forward.
 
 Working here means that the boundaries between the garden, kitchen, dining room and mountain are rarely fixed. The person preparing dinner may have spent the morning harvesting vegetables or bringing supplies up the mountain.
 
 Everyone has a particular craft, but everyone is also part of something larger.
-
-Hospitality begins long before a guest sits down at the table.
 
 ---
 
@@ -137,7 +135,7 @@ For those wishing to explore the surrounding landscape, guided ski tours, ice fi
 
 All stays are booked in advance. Snowmobile transport can be arranged during the winter.
 
-With just ten bedrooms, Hållfjället remains a small and intimate place.
+> With just ten bedrooms, Hållfjället remains a small and intimate place.
 
 ---
 
@@ -205,7 +203,7 @@ Curated by sommelier Linda Pérez, with a focus on small growers, craftsmanship 
 
 6 January – 10 April.
 
-Open Thursday to Sunday, with additional Wednesday openings in March and April.
+Open Thursday to Sunday in January and February, and Wednesday to Sunday in March and April.
 
 **Summer and autumn season 2027**
 
@@ -239,4 +237,4 @@ Hållfjället
 
 Ottsjö, Jämtland, Sweden
 
-*Find your place in the mountains*
+*Find your home in the mountains*

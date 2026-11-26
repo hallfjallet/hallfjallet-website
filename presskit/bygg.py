@@ -62,7 +62,7 @@ SIDOR = [
     ("uppslag", "hero-dukat-bord", "50% 55%"),
     ("pris", "champagne-window", "50% 50%"),
     ("fakta", "karta", "50% 50%"),
-    ("kontakt", "hero-sallskapsrum", "50% 50%"),
+    ("kontakt", "hero-sallskapsrum-mork", "50% 50%"),
 ]
 LOGGA = "../assets/img/hallfjallet-logo.png"
 
@@ -84,6 +84,8 @@ def avsnitt(text):
             ut["h2"] = r[3:]
         elif r.startswith("**") and r.endswith("**"):
             ut["delar"].append(("dt", r[2:-2]))
+        elif r.startswith("> "):
+            ut["delar"].append(("p", "\x00" + r[2:]))
         elif r.startswith("*") and r.endswith("*"):
             ut["delar"].append(("kursiv", r[1:-1]))
         else:
@@ -91,13 +93,24 @@ def avsnitt(text):
     return ut
 
 
+def lank(t):
+    """Gör e-post, webbadress och Instagram klickbara i PDF:en."""
+    t = re.sub(r"\b([\w.+-]+@[\w-]+\.[\w.]+)", r'<a href="mailto:\1">\1</a>', t)
+    t = re.sub(r"(?<![/@\w])(www\.[\w.-]+\.[a-z]{2,}(?:/[\w/-]*)?)", r'<a href="https://\1">\1</a>', t)
+    t = re.sub(r"(?<![\w])@(hallfjallet_1943)", r'<a href="https://instagram.com/\1">@\1</a>', t)
+    return t
+
+
 def stycken(delar, slutrad=True):
-    """Stycken som html; det sista korta stycket blir en rad i versaler (som en avslutning)."""
-    ps = [t for k, t in delar if k == "p"]
+    """Stycken som html. Stycken som börjar med "> " i textfilen blir en avslutande rad i versaler."""
     out = []
-    for i, t in enumerate(ps):
-        sista = slutrad and i == len(ps) - 1 and len(t) < 90
-        out.append(f'<p class="slut">{e(t)}</p>' if sista else f"<p>{e(t)}</p>")
+    for k, t in delar:
+        if k != "p":
+            continue
+        if t.startswith("\x00"):
+            out.append(f'<p class="slut">{e(t[1:])}</p>' if slutrad else f"<p>{e(t[1:])}</p>")
+        else:
+            out.append(f"<p>{e(t)}</p>")
     return "\n".join(out)
 
 
@@ -167,7 +180,7 @@ def bygg_html(lang):
                     aktuell = [t, []]; dl.append(aktuell)
                 elif aktuell:
                     aktuell[1].append(t)
-            rader = "".join(f"<dt>{e(t)}</dt><dd>" + "".join(f"<p>{e(p)}</p>" for p in ps) + "</dd>" for t, ps in dl)
+            rader = "".join(f"<dt>{e(t)}</dt><dd>" + "".join(f"<p>{lank(e(p))}</p>" for p in ps) + "</dd>" for t, ps in dl)
             sidor.append(f'''<section class="sida fakta"><div class="text"><h2>{h2}</h2><dl>{rader}</dl></div>
   <div class="bildyta">{bild(b, pos)}</div>{folio(n, "v", cfg["folio"])}</section>''')
         elif layout == "oversikt":
@@ -184,7 +197,7 @@ def bygg_html(lang):
             if ps and ps[0].endswith(":"):
                 intro = f'<p class="intro">{e(ps[0])}</p>'; ps = ps[1:]
             grupper = [ps[0:2], ps[2:4], ps[4:]]
-            g = "".join('<div class="grupp">' + "".join(f"<p>{e(p)}</p>" for p in gr) + "</div>" for gr in grupper if gr)
+            g = "".join('<div class="grupp">' + "".join(f"<p>{lank(e(p))}</p>" for p in gr) + "</div>" for gr in grupper if gr)
             s = f'<p class="sista">{e(sista[0])}</p>' if sista else ""
             sidor.append(f'''<section class="sida kontakt">{bild(b, pos)}<div class="slöja"></div>
   <div class="ruta"><img class="logga" src="jpg/logga-ljus.png" alt="Hållfjället"><h2>{h2}</h2>{intro}{g}{s}</div></section>''')
@@ -202,8 +215,8 @@ def gor_jpg(namn):
         return
     storlekar = sorted(ROT.glob(f"assets/img/{namn}-*.webp"), key=lambda p: Image.open(p).width)
     im = Image.open(storlekar[-1]).convert("RGB")
-    im.thumbnail((2000, 2000), Image.LANCZOS)
-    im.save(mal, quality=80, optimize=True, progressive=True)
+    im.thumbnail((2400, 2400), Image.LANCZOS)
+    im.save(mal, quality=84, optimize=True, progressive=True)
 
 
 JPG.mkdir(exist_ok=True)
@@ -212,6 +225,10 @@ UT.mkdir(exist_ok=True)
 _l = Image.open(ROT / "assets/img/hallfjallet-logo.png").convert("RGBA")
 _ljus = Image.new("RGBA", _l.size, (207, 204, 196, 0)); _ljus.putalpha(_l.getchannel("A"))
 _ljus.save(JPG / "logga-ljus.png")
+# Avslutningssidan: bilden jämnt mörkare (som en mörkare exponering, ingen skugga eller vinjett), så att texten syns mot fönstret
+from PIL import ImageEnhance
+_k = Image.open(ROT / "assets/img/hero-sallskapsrum-1920.webp").convert("RGB")
+ImageEnhance.Brightness(_k).enhance(0.5).save(JPG / "hero-sallskapsrum-mork.jpg", quality=84, optimize=True, progressive=True)
 jobb = []
 for lang, cfg in SPRAK.items():
     sida = MAPP / f"presskit-{lang}.html"
