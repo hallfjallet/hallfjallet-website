@@ -406,6 +406,10 @@ a.epost { text-decoration: underline; text-underline-offset: 3px; text-decoratio
 @keyframes press-in { 40% { opacity: .55; } to { opacity: 1; filter: blur(0); letter-spacing: .18em; transform: none; } }
 @keyframes press-ut { from { opacity: 1; filter: blur(0); letter-spacing: .18em; transform: none; } to { opacity: 0; filter: blur(0); letter-spacing: .18em; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .press-topp .press-rad, .press-topp .press-rad.borta { animation: none; opacity: 1; filter: none; transform: none; letter-spacing: .18em; } }
+/* Lägre toppbild på pressidan (hennes önskan): rubriken och början av texten syns direkt, så att man förstår att man ska skrolla */
+.bild.press-topp { height: 68vh; min-height: 420px; }
+.press-intro { min-height: 0; padding-top: 70px; }
+@media (max-width: 800px) { .bild.press-topp { height: 58vh; min-height: 340px; } .press-intro { padding-top: 50px; } }
 .press-ingress { font-size: 18px; line-height: 1.6; }
 .press-ner { display: flex; flex-direction: column; align-items: center; gap: 2px; margin-top: 10px; }
 .press-intro .knapp.boka-lank-stor { margin: 6px 0; }
