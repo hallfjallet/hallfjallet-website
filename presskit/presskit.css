@@ -145,3 +145,14 @@ p.slut { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: 
 a { color: inherit; text-decoration: none; }
 /* Slutjustering: raden som en diskret inskription strax ovanför bergskammen, ca 18 % mindre */
 .raden.topp blockquote { font-size: 15.5pt; top: 54mm; }
+
+/* Att vistas på fjället: texten överst i två spalter, sedan fyra aktiviteter med var sin bild (som Genom årstiderna) */
+.aktiviteter { padding: 16mm 16mm 0; }
+.aktiviteter h2 { margin-bottom: 5mm; }
+.aktiviteter .intro { column-count: 2; column-gap: 9mm; font-size: 8.7pt; line-height: 1.55; margin-bottom: 6mm; }
+.aktiviteter .intro p { break-inside: avoid; margin-bottom: 2.4mm; }
+.aktiviteter .intro p.slut { font-size: 8.8pt; margin-top: 1mm; }
+.aktiviteter .fyra { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 7mm; }
+.aktiviteter .bildyta { height: 62mm; margin-bottom: 4.5mm; }
+.aktiviteter h3 { font-size: 8pt; letter-spacing: .16em; margin-bottom: 2mm; }
+.aktiviteter .fyra p { font-size: 8.4pt; line-height: 1.52; margin: 0; }

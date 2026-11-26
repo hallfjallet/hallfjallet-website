@@ -59,7 +59,7 @@ SIDOR = [
     ("uppslag vand", "hero-vinkallare", "46% 50%"),
     ("folk", "laget", "50% 30%"),
     ("arstider", ["hero-frusen-sjo", "wildflowers", "beetroot-hands"], ["35% 50%", "50% 50%", "45% 50%"]),
-    ("uppslag", "hero-dukat-bord", "50% 55%"),
+    ("aktiviteter", ["hero-skidakare", "dagar-pimpelfiske", "dagar-hundspann-fjall", "dagar-jakt"], ["62% 55%", "50% 50%", "50% 50%", "50% 40%"]),
     ("pris", "champagne-window", "50% 50%"),
     ("fakta", "karta", "50% 50%"),
     ("kontakt", "hero-sallskapsrum-mork", "50% 50%"),
@@ -151,6 +151,19 @@ def bygg_html(lang):
         elif layout == "folk":
             sidor.append(f'''<section class="sida folk"><div class="bildyta">{bild(b, pos)}</div>
   <div class="text"><div><h2>{h2}</h2></div><div class="spalter">{stycken(a["delar"])}</div></div>{folio(n, "h", cfg["folio"])}</section>''')
+        elif layout == "aktiviteter":
+            # Text överst i två spalter, sedan aktiviteterna med var sin bild (som Genom årstiderna)
+            intro, kol, aktuell = [], [], None
+            for k, t in a["delar"]:
+                if k == "h3":
+                    aktuell = [t, []]; kol.append(aktuell)
+                elif aktuell:
+                    aktuell[1].append(t)
+                else:
+                    intro.append((k, t))
+            fyra = "".join(f'<div><div class="bildyta">{bild(b[i], pos[i])}</div><h3>{e(t)}</h3>' + "".join(f"<p>{e(p)}</p>" for p in ps) + "</div>"
+                           for i, (t, ps) in enumerate(kol))
+            sidor.append(f'''<section class="sida aktiviteter"><h2>{h2}</h2><div class="intro">{stycken(intro)}</div><div class="fyra">{fyra}</div>{folio(n, "v", cfg["folio"])}</section>''')
         elif layout == "arstider":
             kol, aktuell = [], None
             for k, t in a["delar"]:

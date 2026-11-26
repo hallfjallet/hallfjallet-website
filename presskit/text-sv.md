@@ -137,6 +137,22 @@ Alla vistelser förbokas. Vintertid kan även skotertransport ordnas.
 
 > Med sina tio rum är Hållfjället en liten och intim plats.
 
+### På skidor till Hållfjället
+
+Vi vet egentligen inget bättre sätt att komma till Hållfjället än på skidor. Genom gammal fjällskog, över myrar och längs de gamla lederna som så småningom tar oss upp till Hållfjället.
+
+### Pimpelfiske på fjället
+
+På en liten frusen fjällsjö sitter vi med pimpelspöet i handen, snön omkring oss och ett hål ner till det mörka vattnet.
+
+### Med hundspann genom vintern
+
+Först hörs hundarnas ivriga skall och tassar som trampar otåligt i snön. Sedan bär det av.
+
+### Jakt i väglöst land
+
+En tidig morgon, långt innan fjället riktigt har vaknat. Hundarna är ivriga, utrustningen packad och framför oss väntar en dag på marker där få människor vanligtvis rör sig.
+
 ---
 
 ## Utmärkelser och omnämnanden

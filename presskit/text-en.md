@@ -137,6 +137,22 @@ All stays are booked in advance. Snowmobile transport can be arranged during the
 
 > With just ten bedrooms, Hållfjället remains a small and intimate place.
 
+### Skiing to Hållfjället
+
+We can’t think of a better way to reach Hållfjället than on skis. Through old mountain forests, across frozen marshes and along winding trails that eventually lead us up to the lodge.
+
+### Ice fishing in the mountains
+
+Out on the ice of a little mountain lake, with the snow all around us and a small hole leading down into the dark water, we wait for the day’s catch.
+
+### Through winter by dog sled
+
+First come the eager barks of the dogs, their paws dancing impatiently in the snow. Then we’re off.
+
+### Hunting beyond the roads
+
+An early morning, long before the mountains have properly woken. The dogs are eager, the equipment is packed and ahead lies a day in country where few people ever venture.
+
 ---
 
 ## Recognition
