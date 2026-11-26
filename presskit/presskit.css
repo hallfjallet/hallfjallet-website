@@ -1,0 +1,168 @@
+/* Presskittets utseende (PDF, liggande A4). Byggs av bygg.py. */
+@font-face { font-family: "Oregon LDO"; src: url("../assets/fonts/OregonLDO.woff") format("woff"); font-display: block; }
+@font-face { font-family: "Suisse Neue"; src: url("../assets/fonts/SuisseNeue-Regular-WebS.woff") format("woff"); font-display: block; }
+@page { size: 297mm 210mm; margin: 0; }
+:root {
+  --papper: #edebde; --text: #434341; --gra: #cfccc4;
+  --rubrik: "Oregon LDO", Optima, sans-serif; --brod: "Suisse Neue", Georgia, serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: var(--brod); color: var(--text); font-size: 9.4pt; line-height: 1.62; letter-spacing: .01em;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.sida { width: 297mm; height: 210mm; position: relative; overflow: hidden; background: var(--papper); break-after: page; }
+.sida:last-child { break-after: auto; }
+img { display: block; }
+.fyll { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.bildyta { position: relative; overflow: hidden; }
+h1, h2, h3, .etikett, .folio { font-family: var(--rubrik); font-weight: 400; text-transform: uppercase; }
+h2 { font-size: 15pt; letter-spacing: .1em; line-height: 1.25; margin: 0 0 7mm; }
+h3 { font-size: 9pt; letter-spacing: .2em; margin: 0 0 2.5mm; }
+p { margin: 0 0 3mm; }
+.etikett { font-size: 7pt; letter-spacing: .26em; margin: 0 0 5mm; opacity: .8; }
+p.slut { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: .07em; font-size: 9.6pt; line-height: 1.5; margin-top: 4mm; }
+.folio { position: absolute; bottom: 9mm; font-size: 6.4pt; letter-spacing: .24em; }
+.folio.v { left: 16mm; } .folio.h { right: 16mm; }
+.folio b { font-weight: 400; margin-right: 4mm; } .folio.h b { margin: 0 0 0 4mm; }
+
+/* Omslag */
+.omslag .logga { position: absolute; top: 14mm; left: 16mm; width: 34mm; height: auto; }
+.omslag .hornet { position: absolute; top: 16mm; right: 16mm; text-align: right; font-family: var(--rubrik); font-size: 7.4pt; letter-spacing: .26em; text-transform: uppercase; line-height: 1.9; }
+.omslag .titel { position: absolute; left: 16mm; bottom: 15mm; }
+.omslag h1 { font-size: 26pt; letter-spacing: .12em; line-height: 1.05; margin: 0 0 4mm; }
+.omslag .titel p { font-size: 10pt; margin: 0; max-width: 125mm; }
+
+/* Lång text i två spalter bredvid en smal bild */
+.lang { display: grid; grid-template-columns: 1fr 96mm; }
+.lang .text { padding: 20mm 14mm 20mm 16mm; }
+.lang .spalter { column-count: 2; column-gap: 9mm; font-size: 9pt; line-height: 1.6; }
+.lang .spalter p { break-inside: avoid; }
+
+/* Den bärande raden över en helsidesbild */
+.raden .slöja, .kontakt .slöja { position: absolute; inset: 0; }
+.raden .slöja { background: linear-gradient(180deg, rgba(20,18,15,.05) 30%, rgba(20,18,15,.55)); }
+.raden blockquote { position: absolute; left: 0; right: 0; bottom: 30mm; margin: 0; text-align: center; color: var(--gra);
+  font-family: var(--rubrik); text-transform: uppercase; font-size: 19pt; line-height: 1.3; letter-spacing: .16em; text-shadow: 0 0 18px rgba(20,18,15,.6); }
+.raden blockquote { margin: 0 auto; max-width: 150mm; text-wrap: balance; }
+
+/* Uppslag: text mot helsidesbild */
+.uppslag { display: grid; grid-template-columns: 1fr 1fr; }
+.uppslag.vand .bildyta { order: -1; }
+.uppslag .text { padding: 0 18mm; display: flex; flex-direction: column; justify-content: center; }
+.uppslag .text p { font-size: 9.4pt; line-height: 1.62; }
+
+/* Människorna: bred bild överst, text i spalter under */
+.folk { display: grid; grid-template-rows: 92mm 1fr; }
+.folk .text { padding: 10mm 16mm 0; display: grid; grid-template-columns: 62mm 1fr; column-gap: 10mm; }
+.folk .spalter { column-count: 2; column-gap: 9mm; font-size: 8.8pt; line-height: 1.56; }
+.folk .spalter p { break-inside: avoid; }
+
+/* Årstiderna: tre spalter med var sin bild */
+.arstider { padding: 16mm 16mm 0; }
+.arstider .tre { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 9mm; }
+.arstider .bildyta { height: 92mm; margin-bottom: 6mm; }
+.arstider p { font-size: 9pt; line-height: 1.58; }
+
+/* Utmärkelser */
+.pris { display: grid; grid-template-columns: 92mm 1fr; }
+.pris .text { padding: 0 22mm; display: flex; flex-direction: column; justify-content: center; }
+.pris .ar { font-family: var(--rubrik); letter-spacing: .2em; font-size: 9pt; margin: -3mm 0 6mm; }
+.pris ul { list-style: none; margin: 0; padding: 0; }
+.pris li { padding: 4.5mm 0; border-top: .5pt solid rgba(67,67,65,.3); display: grid; grid-template-columns: 62mm 1fr; column-gap: 8mm; align-items: baseline; }
+.pris li:last-child { border-bottom: .5pt solid rgba(67,67,65,.3); }
+.pris .vem { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: .14em; font-size: 8pt; line-height: 1.5; }
+.pris .vad span { display: block; font-size: 12pt; line-height: 1.45; }
+
+/* I korthet */
+.fakta { display: grid; grid-template-columns: 1fr 96mm; }
+.fakta .text { padding: 16mm 14mm 16mm 16mm; }
+.fakta h2 { margin-bottom: 5mm; }
+.fakta dl { margin: 0; display: grid; grid-template-columns: 42mm 1fr; column-gap: 6mm; font-size: 8.2pt; line-height: 1.45; }
+.fakta dt { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: .14em; font-size: 6.6pt; padding: 2.2mm 0; border-bottom: .4pt solid rgba(67,67,65,.22); }
+.fakta dd { margin: 0; padding: 2mm 0; border-bottom: .4pt solid rgba(67,67,65,.22); }
+.fakta dd p { margin: 0; }
+.fakta dt:last-of-type, .fakta dd:last-of-type { border-bottom: 0; }
+
+/* Bildöversikt */
+.oversikt { padding: 15mm 16mm 0; }
+.oversikt .huvudrad { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6mm; gap: 12mm; }
+.oversikt .huvudrad h2 { margin: 0; }
+.oversikt .huvudrad .info { font-size: 8.2pt; text-align: right; max-width: 130mm; }
+.oversikt .huvudrad .info p { margin: 0 0 1mm; }
+.rutnat { display: grid; grid-template-columns: repeat(6, 1fr); column-gap: 5mm; row-gap: 4mm; }
+.rutnat figure { margin: 0; }
+.rutnat img { width: 100%; height: 38mm; object-fit: cover; }
+.rutnat figcaption { font-size: 6.4pt; line-height: 1.4; margin-top: 1.6mm; }
+.rutnat figcaption b { font-weight: 400; font-family: var(--rubrik); letter-spacing: .1em; font-size: 5.8pt; display: block; margin-bottom: .6mm; text-transform: uppercase; }
+
+/* Kontakt */
+.kontakt .slöja { background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(20,18,15,.72), rgba(20,18,15,.4)); }
+.kontakt .ruta { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--gra); text-shadow: 0 0 12px rgba(20,18,15,.6); }
+.kontakt .logga { width: 30mm; height: auto; margin-bottom: 10mm; filter: brightness(0) invert(.84) sepia(.12); }
+.kontakt h2 { font-size: 15pt; margin-bottom: 6mm; }
+.kontakt p { font-size: 11.5pt; line-height: 1.7; margin: 0; }
+.kontakt .grupp { margin-bottom: 5mm; }
+.kontakt .sista { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: .1em; font-size: 13pt; margin-top: 9mm; }
+
+/* Raden i himlen över huset (ljus himmel: mörk text, ingen mörk slöja) */
+.raden.topp .slöja { background: linear-gradient(180deg, rgba(237,235,222,.35), rgba(237,235,222,0) 45%); }
+.raden.topp blockquote { top: 22mm; bottom: auto; color: var(--text); text-shadow: 0 0 20px rgba(237,235,222,.7); }
+
+/* Omslaget med vinterbilden på huset: ljus logga mot skogen, mjuk ljus ton längst ner under rubriken */
+.omslag .logga { filter: brightness(0) invert(.88) sepia(.1) drop-shadow(0 0 6px rgba(0,0,0,.35)); }
+.omslag .hornet { color: var(--text); font-size: 8pt; text-shadow: 0 0 10px rgba(237,235,222,.95), 0 0 3px rgba(237,235,222,.95); }
+.omslag .botten { position: absolute; left: 0; right: 0; bottom: 0; height: 30%; background: linear-gradient(180deg, rgba(237,235,222,0), rgba(237,235,222,.78) 62%, rgba(237,235,222,.9)); }
+
+.kontakt .intro { font-size: 9.5pt; letter-spacing: .03em; margin-bottom: 5mm; opacity: .9; }
+
+/* Omslaget: logga, rubrik och hörntext i samma ljusa ton, samlade uppe till vänster mot den mörka skogen */
+.omslag .botten { display: none; }
+.omslag .titel { top: 50mm; bottom: auto; color: var(--gra); text-shadow: 0 0 14px rgba(20,18,15,.55), 0 0 2px rgba(20,18,15,.35); }
+.omslag .titel p { max-width: 110mm; }
+.omslag .hornet { color: var(--gra); text-shadow: 0 0 10px rgba(20,18,15,.7), 0 0 2px rgba(20,18,15,.5); }
+.omslag .botten { display: block; top: 0; bottom: auto; height: 46%; background: linear-gradient(180deg, rgba(20,18,15,.42), rgba(20,18,15,.18) 55%, rgba(20,18,15,0)); }
+
+/* Ingen ton på himlen (hennes önskan): bara en mjuk skugga runt texten */
+.omslag .botten { display: none !important; }
+.omslag .logga { filter: brightness(0) invert(.88) sepia(.1) drop-shadow(0 0 5px rgba(20,18,15,.55)) drop-shadow(0 0 1px rgba(20,18,15,.4)); }
+.omslag .hornet { text-shadow: 0 0 8px rgba(20,18,15,.85), 0 0 2px rgba(20,18,15,.7); }
+.raden.topp .slöja { display: none; }
+.raden.topp blockquote { text-shadow: 0 0 14px rgba(237,235,222,.55); }
+/* Hörntexten flyttad till raden ovanför rubriken, mot skogen, så att den läses lika tydligt som loggan */
+.omslag .hornet { top: 44mm; left: 16mm; right: auto; text-align: left; font-size: 7.4pt; }
+.omslag .hornet br { display: none; } .omslag .hornet { word-spacing: .3em; }
+.omslag .titel { top: 52mm; }
+/* Raden lite längre ner och till vänster, i himlen ovanför de avlägsna fjällen (hennes önskan) */
+.raden.topp blockquote { top: 46mm; left: 20mm; right: auto; max-width: 150mm; text-align: left; }
+
+/* Inga skuggor eller filter i PDF:en: vissa PDF-läsare (t.ex. Förhandsvisning på Mac) ritar dem fel.
+   Loggan är i stället en färdig ljus bild (jpg/logga-ljus.png, görs av bygg.py). */
+* { text-shadow: none !important; }
+.logga { filter: none !important; }
+
+/* Ingen skugga på avslutningssidan heller (hennes önskan): bilden får vara som den är */
+.kontakt .slöja { display: none; }
+a { color: inherit; text-decoration: none; }
+/* Slutjustering: raden som en diskret inskription strax ovanför bergskammen, ca 18 % mindre */
+.raden.topp blockquote { font-size: 15.5pt; top: 54mm; }
+
+/* Att vistas på fjället: texten överst i två spalter, sedan fyra aktiviteter med var sin bild (som Genom årstiderna) */
+.aktiviteter { padding: 16mm 16mm 0; }
+.aktiviteter h2 { margin-bottom: 5mm; }
+.aktiviteter .intro { column-count: 2; column-gap: 9mm; font-size: 8.7pt; line-height: 1.55; margin-bottom: 6mm; }
+.aktiviteter .intro p { break-inside: avoid; margin-bottom: 2.4mm; }
+.aktiviteter .intro p.slut { font-size: 8.8pt; margin-top: 1mm; }
+.aktiviteter .fyra { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 7mm; }
+.aktiviteter .bildyta { height: 62mm; margin-bottom: 4.5mm; }
+.aktiviteter h3 { font-size: 8pt; letter-spacing: .16em; margin-bottom: 2mm; }
+.aktiviteter .fyra p { font-size: 8.4pt; line-height: 1.52; margin: 0; }
+.aktiviteter .efter { margin: 7mm 0 0; font-size: 8.7pt; line-height: 1.55; max-width: 175mm; }
+/* Aktivitetstexterna är längre: lägre bilder så att texten får plats i samma storlek (hennes önskan) */
+.aktiviteter .bildyta { height: 44mm; margin-bottom: 4mm; }
+.aktiviteter .intro { margin-bottom: 5mm; }
+.aktiviteter .efter { margin-top: 5mm; }
+/* Översta texten på aktivitetssidan centrerad, med rubriken (hennes önskan) */
+.aktiviteter h2 { text-align: center; }
+.aktiviteter .intro { column-count: 1; text-align: center; max-width: 205mm; margin-left: auto; margin-right: auto; }
+.aktiviteter .intro p.slut { margin-top: 2.5mm; }
+.aktiviteter .efter { text-align: center; margin-left: auto; margin-right: auto; }

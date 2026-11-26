@@ -248,4 +248,21 @@
   var lasMer = [].slice.call(document.querySelectorAll('.las-mer'));
   lasMer.forEach(bygg);
   smal.addEventListener('change', function () { lasMer.forEach(synka); farg(); });
+
+  /* ---------- Pressidan: raden på översta bilden tonas in som rubriken på startsidan och försvinner efter några sekunder ---------- */
+  var pressTopp = document.querySelector('.press-topp');
+  if (pressTopp) {
+    var pressRad = pressTopp.querySelector('.press-rad'), pressBild = pressTopp.querySelector('img'), pressIgang = false;
+    var gomPress = function () { if (pressRad && pressIgang) pressRad.classList.add('borta'); };
+    var startaPress = function () {
+      if (pressIgang) return; pressIgang = true;
+      pressTopp.classList.add('redo');
+      setTimeout(gomPress, FORSTA + 2 * TEMPO - 200);  // samma tid som rubriken på startsidan
+    };
+    if (pressBild && !(pressBild.complete && pressBild.naturalWidth)) {
+      pressBild.addEventListener('load', startaPress, { once: true });
+      pressBild.addEventListener('error', startaPress, { once: true });
+    } else startaPress();
+    window.addEventListener('scroll', function () { if (window.scrollY > 40) gomPress(); }, { passive: true });
+  }
 })();
