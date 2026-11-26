@@ -29,7 +29,7 @@ I hjärtat av Hållfjället finns kontrasten mellan det vilda och det omsorgsful
 
 ---
 
-## Ett nytt kapitel i ett gammalt hus
+## Sedan 1943
 
 Hållfjället byggdes 1943 och mycket av husets ursprungliga karaktär finns kvar. De små rummen, de handmålade snickerierna, de gamla våningssängarna och de knarrande trägolven bär alla på en del av husets historia.
 
@@ -57,7 +57,7 @@ Odlingen är inte någonting vid sidan av restaurangen. Det är här en stor del
 
 ---
 
-## Ett kök i takt med årstiderna
+## I köket
 
 Middagen på Hållfjället börjar långt innan någon sätter sig till bords.
 
@@ -73,7 +73,7 @@ Vintertid bär skafferiet på minnen av sommaren. Bär, örter, syrade grönsake
 
 ---
 
-## Ett möte mellan landskap
+## När landskap möts
 
 I Hållfjällets gamla pannrum finns en vinkällare som vuxit fram ur många års nyfikenhet på vinet, människorna bakom och dess ursprung.
 
@@ -123,7 +123,7 @@ Fjällbjörkarna skiftar i guld, skogarna fylls av svamp och bär och luften bli
 
 ---
 
-## En vistelse på fjället
+## Att vistas på fjället
 
 Vägen till Hållfjället är en del av upplevelsen. Knappt åtta kilometer fjällstig skiljer huset från byn Ottsjö.
 

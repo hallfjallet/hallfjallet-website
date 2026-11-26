@@ -29,7 +29,7 @@ At the heart of Hållfjället lies the contrast between the wild and the careful
 
 ---
 
-## A new chapter in an old house
+## Since 1943
 
 Hållfjället was built in 1943, and much of its original character remains. The small bedrooms, hand-painted woodwork, old bunk beds and creaking wooden floors all carry something of the house's history.
 
@@ -57,7 +57,7 @@ The garden is not something separate from the restaurant. It is where much of th
 
 ---
 
-## A kitchen in tune with the seasons
+## In the kitchen
 
 Dinner at Hållfjället begins long before anyone sits down at the table.
 
@@ -73,7 +73,7 @@ In winter, the pantry holds memories of summer. Berries, herbs, fermented vegeta
 
 ---
 
-## A meeting of landscapes
+## Where landscapes meet
 
 In the old boiler room of Hållfjället lies a wine cellar shaped by years of curiosity about wine, its people and its origins.
 
@@ -123,7 +123,7 @@ The mountain birches turn golden, the forests fill with mushrooms and berries, a
 
 ---
 
-## A stay in the mountains
+## Staying in the mountains
 
 The journey to Hållfjället is part of the experience. Nearly eight kilometres of mountain trails separate the house from the village of Ottsjö.
 
