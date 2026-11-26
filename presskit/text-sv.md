@@ -25,7 +25,7 @@ En plats att vistas på, snarare än att bara passera.
 
 ---
 
-*Fjället har alltid sista ordet.*
+*Naturen har alltid sista ordet.*
 
 ---
 

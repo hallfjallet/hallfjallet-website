@@ -25,7 +25,7 @@ A place to spend time, rather than simply pass through.
 
 ---
 
-*The mountain always has the final say.*
+*Nature always has the final say.*
 
 ---
 
