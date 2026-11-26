@@ -163,9 +163,13 @@ def bygg_html(lang):
                     aktuell[1].append(t)
                 else:
                     intro.append((k, t))
+            # Översta texten centrerad som ett sammanhållet stycke (hennes önskan), avslutningsraden för sig
+            vanliga = [t for k, t in intro if k == "p" and not t.startswith("\x00")]
+            slutrad = [t[1:] for k, t in intro if k == "p" and t.startswith("\x00")]
+            intro_html = f"<p>{e(' '.join(vanliga))}</p>" + "".join(f'<p class="slut">{e(t)}</p>' for t in slutrad)
             fyra = "".join(f'<div><div class="bildyta">{bild(b[i], pos[i])}</div><h3>{e(t)}</h3>' + "".join(f"<p>{e(p)}</p>" for p in ps) + "</div>"
                            for i, (t, ps) in enumerate(kol))
-            sidor.append(f'''<section class="sida aktiviteter"><h2>{h2}</h2><div class="intro">{stycken(intro)}</div><div class="fyra">{fyra}</div>{efter}{folio(n, "v", cfg["folio"])}</section>''')
+            sidor.append(f'''<section class="sida aktiviteter"><h2>{h2}</h2><div class="intro">{intro_html}</div><div class="fyra">{fyra}</div>{efter}{folio(n, "v", cfg["folio"])}</section>''')
         elif layout == "arstider":
             kol, aktuell = [], None
             for k, t in a["delar"]:

@@ -161,3 +161,8 @@ a { color: inherit; text-decoration: none; }
 .aktiviteter .bildyta { height: 44mm; margin-bottom: 4mm; }
 .aktiviteter .intro { margin-bottom: 5mm; }
 .aktiviteter .efter { margin-top: 5mm; }
+/* Översta texten på aktivitetssidan centrerad, med rubriken (hennes önskan) */
+.aktiviteter h2 { text-align: center; }
+.aktiviteter .intro { column-count: 1; text-align: center; max-width: 205mm; margin-left: auto; margin-right: auto; }
+.aktiviteter .intro p.slut { margin-top: 2.5mm; }
+.aktiviteter .efter { text-align: center; margin-left: auto; margin-right: auto; }
