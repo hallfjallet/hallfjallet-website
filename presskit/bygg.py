@@ -153,9 +153,11 @@ def bygg_html(lang):
   <div class="text"><div><h2>{h2}</h2></div><div class="spalter">{stycken(a["delar"])}</div></div>{folio(n, "h", cfg["folio"])}</section>''')
         elif layout == "aktiviteter":
             # Text överst i två spalter, sedan aktiviteterna med var sin bild (som Genom årstiderna)
-            intro, kol, aktuell = [], [], None
+            intro, kol, aktuell, efter = [], [], None, ""
             for k, t in a["delar"]:
-                if k == "h3":
+                if k == "kursiv":
+                    efter = f'<p class="efter">{e(t)}</p>'
+                elif k == "h3":
                     aktuell = [t, []]; kol.append(aktuell)
                 elif aktuell:
                     aktuell[1].append(t)
@@ -163,7 +165,7 @@ def bygg_html(lang):
                     intro.append((k, t))
             fyra = "".join(f'<div><div class="bildyta">{bild(b[i], pos[i])}</div><h3>{e(t)}</h3>' + "".join(f"<p>{e(p)}</p>" for p in ps) + "</div>"
                            for i, (t, ps) in enumerate(kol))
-            sidor.append(f'''<section class="sida aktiviteter"><h2>{h2}</h2><div class="intro">{stycken(intro)}</div><div class="fyra">{fyra}</div>{folio(n, "v", cfg["folio"])}</section>''')
+            sidor.append(f'''<section class="sida aktiviteter"><h2>{h2}</h2><div class="intro">{stycken(intro)}</div><div class="fyra">{fyra}</div>{efter}{folio(n, "v", cfg["folio"])}</section>''')
         elif layout == "arstider":
             kol, aktuell = [], None
             for k, t in a["delar"]:

@@ -153,6 +153,8 @@ First come the eager barks of the dogs, their paws dancing impatiently in the sn
 
 An early morning, long before the mountains have properly woken. The dogs are eager, the equipment is packed and ahead lies a day in country where few people ever venture.
 
+*These are just a few of our days in the mountains. We are happy to arrange other experiences to suit the season and your wishes, so do tell us what you have in mind.*
+
 ---
 
 ## Recognition

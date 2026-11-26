@@ -153,6 +153,8 @@ Först hörs hundarnas ivriga skall och tassar som trampar otåligt i snön. Sed
 
 En tidig morgon, långt innan fjället riktigt har vaknat. Hundarna är ivriga, utrustningen packad och framför oss väntar en dag på marker där få människor vanligtvis rör sig.
 
+*Det här är bara några av dagarna på fjället. Vi ordnar gärna fler upplevelser efter årstid och önskemål, så berätta vad ni drömmer om.*
+
 ---
 
 ## Utmärkelser och omnämnanden
