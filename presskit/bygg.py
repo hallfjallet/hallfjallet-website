@@ -120,7 +120,7 @@ def bygg_html(lang):
         a = avsnitt(txt)
         h2 = e(a["h2"] or "")
         if layout == "omslag":
-            hornet = a["h1"][1].replace(" 20", "<br>20", 1) if len(a["h1"]) > 1 else ""
+            hornet = a["h1"][1] if len(a["h1"]) > 1 else ""
             sidor.append(f'''<section class="sida omslag">{bild(b, pos)}<div class="botten"></div>
   <img class="logga" src="{LOGGA}" alt="Hållfjället"><div class="hornet">{hornet}</div>
   <div class="titel"><h1>{h2}</h1>{stycken(a["delar"], False)}</div></section>''')

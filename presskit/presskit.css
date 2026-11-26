@@ -121,3 +121,14 @@ p.slut { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: 
 .omslag .titel p { max-width: 110mm; }
 .omslag .hornet { color: var(--gra); text-shadow: 0 0 10px rgba(20,18,15,.7), 0 0 2px rgba(20,18,15,.5); }
 .omslag .botten { display: block; top: 0; bottom: auto; height: 46%; background: linear-gradient(180deg, rgba(20,18,15,.42), rgba(20,18,15,.18) 55%, rgba(20,18,15,0)); }
+
+/* Ingen ton på himlen (hennes önskan): bara en mjuk skugga runt texten */
+.omslag .botten { display: none !important; }
+.omslag .logga { filter: brightness(0) invert(.88) sepia(.1) drop-shadow(0 0 5px rgba(20,18,15,.55)) drop-shadow(0 0 1px rgba(20,18,15,.4)); }
+.omslag .hornet { text-shadow: 0 0 8px rgba(20,18,15,.85), 0 0 2px rgba(20,18,15,.7); }
+.raden.topp .slöja { display: none; }
+.raden.topp blockquote { text-shadow: 0 0 14px rgba(237,235,222,.55); }
+/* Hörntexten flyttad till raden ovanför rubriken, mot skogen, så att den läses lika tydligt som loggan */
+.omslag .hornet { top: 44mm; left: 16mm; right: auto; text-align: left; font-size: 7.4pt; }
+.omslag .hornet br { display: none; } .omslag .hornet { word-spacing: .3em; }
+.omslag .titel { top: 52mm; }

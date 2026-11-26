@@ -25,7 +25,7 @@ En plats att vistas på, snarare än att bara passera.
 
 ---
 
-*Naturen har alltid sista ordet.*
+*Naturen har alltid sista ordet*
 
 ---
 
@@ -165,7 +165,7 @@ Linda Pérez
 
 ### Di Weekend (Dagens industri)
 
-23/25 – Restaurangtest, september 2026
+23/25 – Krogtest, september 2026
 
 Mat 13/15 · Service 5/5 · Miljö 5/5
 
@@ -239,4 +239,4 @@ Hållfjället
 
 Ottsjö, Jämtland
 
-*Hitta din plats på fjället.*
+*Hitta din plats på fjället*

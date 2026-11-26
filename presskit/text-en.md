@@ -25,7 +25,7 @@ A place to spend time, rather than simply pass through.
 
 ---
 
-*Nature always has the final say.*
+*Nature always has the final say*
 
 ---
 
@@ -239,4 +239,4 @@ Hållfjället
 
 Ottsjö, Jämtland, Sweden
 
-*Find your place in the mountains.*
+*Find your place in the mountains*

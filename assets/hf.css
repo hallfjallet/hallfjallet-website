@@ -397,8 +397,7 @@ a.epost { text-decoration: underline; text-underline-offset: 3px; text-decoratio
 .press-topp .press-rad { position: absolute; left: 0; right: 0; top: 50%; margin: 0; padding: 0 30px; text-align: center; color: var(--gra); z-index: 1;
   font-family: var(--rubrik); text-transform: uppercase; font-size: clamp(17px, 1.9vw, 26px); line-height: 1.4; letter-spacing: .18em; text-wrap: balance;
   text-shadow: 0 0 18px rgba(20,18,15,.6), 0 0 3px rgba(20,18,15,.35); }
-.press-topp::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 42%; pointer-events: none;
-  background: linear-gradient(180deg, rgba(20,18,15,.45), rgba(20,18,15,.15) 55%, rgba(20,18,15,0)); }
+.press-etikett { font-family: var(--rubrik); font-size: 13px; letter-spacing: .26em; text-transform: uppercase; opacity: .7; margin: 0 0 14px; }
 .press-ingress { font-size: 18px; line-height: 1.6; }
 .press-ner { display: flex; flex-direction: column; align-items: center; gap: 2px; margin-top: 10px; }
 .press-intro .knapp.boka-lank-stor { margin: 6px 0; }
