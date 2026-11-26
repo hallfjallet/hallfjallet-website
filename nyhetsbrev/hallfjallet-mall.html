@@ -12,8 +12,8 @@
   Typsnitten hämtas från hemsidan (visas i Apple Mail på iPhone/Mac; Gmail och Outlook visar Georgia).
   Upplägg (förslag B, hennes val): loggan i mitten och Book till höger, toppbild, liten rad
   ("Stories from the mountain"), rubrik, ingress, avsnitt som kan läggas till, flyttas och tas bort
-  (Bild, Text med rubrik, Bokningslänk, Streck), personlig hälsning, en sista bild och sidfot
-  (tre bilder i varje brev: toppbild, bild efter ingressen och sista bild).
+  (Bild, Text med rubrik, Bokningslänk, Streck), personlig hälsning, tre bilder bredvid varandra på slutet
+  ("Tre bilder", i stället för ett bildspel) och sidfot.
   Exempelbilderna (jpg) ligger i nyhetsbrev/ på hemsidan; byt mot bilder uppladdade i Mailchimp inför utskick.
 -->
 <style>
@@ -60,6 +60,7 @@ a { color: #434341; }
   font-family: "Suisse Neue", Georgia, "Times New Roman", serif; font-size: 12px; line-height: 1.7; color: #77766f;
 }
 .bildcell img { width: 100% !important; max-width: 600px !important; height: auto !important; display: block; }
+.tredjecell img { width: 100% !important; max-width: 200px !important; height: auto !important; display: block; }
 .halvcell img { width: 100% !important; max-width: 300px !important; height: auto !important; display: block; }
 .preheader { display: none !important; visibility: hidden; mso-hide: all; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; }
 
@@ -157,10 +158,14 @@ a { color: #434341; }
     <div class="smarubrik" mc:edit="avsandare">All of us at Hållfjället</div>
   </td></tr>
 
-  <!-- Avslutning: en sista bild (tre bilder i brevet: toppbild, efter ingressen och här, hennes val) -->
-  <tr mc:repeatable="slut" mc:variant="Bild">
-    <td class="bildcell" align="center" style="padding:24px 0 44px;font-size:0;line-height:0;">
-      <img mc:edit="slutbild" class="helbild" src="https://website.hallfjallet.workers.dev/nyhetsbrev/exempel-bord.jpg" width="600" alt="Dinner by the window at Hållfjället" style="width:600px;max-width:100%;">
+  <!-- Avslutning: tre bilder bredvid varandra (hennes val i stället för ett bildspel) -->
+  <tr mc:repeatable="slut" mc:variant="Tre bilder">
+    <td style="padding:24px 0 44px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+        <td class="tredjecell" width="33%" valign="top" style="font-size:0;line-height:0;padding-right:6px;"><img mc:edit="slutbild1" src="https://website.hallfjallet.workers.dev/nyhetsbrev/exempel-tre-1.jpg" width="196" alt="Dinner by the window at Hållfjället" style="width:196px;max-width:100%;"></td>
+        <td class="tredjecell" width="33%" valign="top" style="font-size:0;line-height:0;padding:0 3px;"><img mc:edit="slutbild2" src="https://website.hallfjallet.workers.dev/nyhetsbrev/exempel-tre-2.jpg" width="196" alt="Champagne in the window" style="width:196px;max-width:100%;"></td>
+        <td class="tredjecell" width="33%" valign="top" style="font-size:0;line-height:0;padding-left:6px;"><img mc:edit="slutbild3" src="https://website.hallfjallet.workers.dev/nyhetsbrev/exempel-tre-3.jpg" width="196" alt="A made-up bunk bed in one of the rooms" style="width:196px;max-width:100%;"></td>
+      </tr></table>
     </td>
   </tr>
 
