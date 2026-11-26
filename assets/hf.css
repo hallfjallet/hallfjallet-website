@@ -398,6 +398,14 @@ a.epost { text-decoration: underline; text-underline-offset: 3px; text-decoratio
   font-family: var(--rubrik); text-transform: uppercase; font-size: clamp(17px, 1.9vw, 26px); line-height: 1.4; letter-spacing: .18em; text-wrap: balance;
   text-shadow: 0 0 18px rgba(20,18,15,.6), 0 0 3px rgba(20,18,15,.35); }
 .press-etikett { font-family: var(--rubrik); font-size: 13px; letter-spacing: .26em; text-transform: uppercase; opacity: .7; margin: 0 0 14px; }
+/* Raden tonas in ur oskärpa som rubriken på startsidan (hf.js sätter .redo när bilden laddats, och .borta efter några sekunder) */
+.press-topp .press-rad { opacity: 0; filter: blur(14px); letter-spacing: .32em; transform: translateY(-14px) scale(1.04);
+  animation: press-in 2.3s cubic-bezier(.16, .7, .2, 1) .2s forwards; }
+.press-topp:not(.redo) .press-rad { animation-play-state: paused; }
+.press-topp .press-rad.borta { animation: press-ut 1.8s ease forwards; }
+@keyframes press-in { 40% { opacity: .55; } to { opacity: 1; filter: blur(0); letter-spacing: .18em; transform: none; } }
+@keyframes press-ut { from { opacity: 1; filter: blur(0); letter-spacing: .18em; transform: none; } to { opacity: 0; filter: blur(0); letter-spacing: .18em; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .press-topp .press-rad, .press-topp .press-rad.borta { animation: none; opacity: 1; filter: none; transform: none; letter-spacing: .18em; } }
 .press-ingress { font-size: 18px; line-height: 1.6; }
 .press-ner { display: flex; flex-direction: column; align-items: center; gap: 2px; margin-top: 10px; }
 .press-intro .knapp.boka-lank-stor { margin: 6px 0; }
