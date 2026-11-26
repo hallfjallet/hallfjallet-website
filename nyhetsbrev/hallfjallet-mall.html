@@ -12,7 +12,8 @@
   Typsnitten hämtas från hemsidan (visas i Apple Mail på iPhone/Mac; Gmail och Outlook visar Georgia).
   Upplägg (förslag B, hennes val): loggan i mitten och Book till höger, toppbild, liten rad
   ("Stories from the mountain"), rubrik, ingress, avsnitt som kan läggas till, flyttas och tas bort
-  (Bild, Text med rubrik, Bokningslänk, Streck), personlig hälsning, sista bild och sidfot.
+  (Bild, Text med rubrik, Bokningslänk, Streck), personlig hälsning, två avslutande bilder
+  bredvid varandra ("Två bilder") och sidfot.
   Exempelbilderna (jpg) ligger i nyhetsbrev/ på hemsidan; byt mot bilder uppladdade i Mailchimp inför utskick.
 -->
 <style>
@@ -58,6 +59,8 @@ a { color: #434341; }
 .fottext, .fottext a {
   font-family: "Suisse Neue", Georgia, "Times New Roman", serif; font-size: 12px; line-height: 1.7; color: #77766f;
 }
+.bildcell img { width: 100% !important; max-width: 600px !important; height: auto !important; display: block; }
+.halvcell img { width: 100% !important; max-width: 300px !important; height: auto !important; display: block; }
 .preheader { display: none !important; visibility: hidden; mso-hide: all; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; }
 
 @media only screen and (max-width: 620px) {
@@ -85,7 +88,7 @@ a { color: #434341; }
   </td></tr>
 
   <!-- Toppbild: det första man ser -->
-  <tr><td align="center" style="padding:0;font-size:0;line-height:0;">
+  <tr><td class="bildcell" align="center" style="padding:0;font-size:0;line-height:0;">
     <img mc:edit="toppbild" class="helbild" src="https://website.hallfjallet.workers.dev/nyhetsbrev/exempel-vinter.jpg" width="600" alt="Hållfjället in winter, snow on the mountain" style="width:600px;max-width:100%;">
   </td></tr>
 
@@ -104,6 +107,13 @@ a { color: #434341; }
       <p>The last guests have made their way down the trail and the mountains are slowly changing color. After a beautiful season filled with long dinners, wonderful wines and familiar faces returning to visit us, we find ourselves feeling immensely grateful.</p>
     </div>
   </td></tr>
+
+  <!-- Avsnitt: Bild (efter ingressen, i varje brev) -->
+  <tr mc:repeatable="avsnitt" mc:variant="Bild">
+    <td class="bildcell" align="center" style="padding:44px 0 8px;font-size:0;line-height:0;">
+      <img mc:edit="bild" class="helbild" src="https://website.hallfjallet.workers.dev/nyhetsbrev/exempel-mitt.jpg" width="600" alt="The wine cellar at Hållfjället" style="width:600px;max-width:100%;">
+    </td>
+  </tr>
 
   <!-- Avsnitt: Text med rubrik -->
   <tr mc:repeatable="avsnitt" mc:variant="Text med rubrik">
@@ -147,13 +157,16 @@ a { color: #434341; }
     <div class="smarubrik" mc:edit="avsandare">All of us at Hållfjället</div>
   </td></tr>
 
-  <!-- Avsnitt: Bild -->
-  <tr mc:repeatable="avsnitt" mc:variant="Bild">
-    <td align="center" style="padding:24px 0 44px;font-size:0;line-height:0;">
-      <img mc:edit="bild2" class="helbild" src="https://website.hallfjallet.workers.dev/nyhetsbrev/exempel-bord.jpg" width="600" alt="Dinner by the window at Hållfjället" style="width:600px;max-width:100%;">
+  <!-- Avslutning: två bilder bredvid varandra, som ett uppslag (på hemsidan: .bild.dubbel) -->
+  <tr mc:repeatable="slut" mc:variant="Två bilder">
+    <td style="padding:24px 0 44px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+        <td class="halvcell" width="50%" valign="top" style="font-size:0;line-height:0;"><img mc:edit="slutbild1" src="https://website.hallfjallet.workers.dev/nyhetsbrev/exempel-bord.jpg" width="300" alt="Dinner by the window at Hållfjället" style="width:300px;max-width:100%;"></td>
+        <td class="halvcell" width="50%" valign="top" style="font-size:0;line-height:0;"><img mc:edit="slutbild2" src="https://website.hallfjallet.workers.dev/nyhetsbrev/exempel-champagne.jpg" width="300" alt="Champagne in the window at Hållfjället" style="width:300px;max-width:100%;"></td>
+      </tr></table>
     </td>
   </tr>
-
+ 
   <!-- Sidfot -->
   <tr><td align="center" style="padding:10px 40px 60px;">
     <img src="https://website.hallfjallet.workers.dev/assets/img/hallfjallet-logo.png" width="64" alt="Hållfjället" style="width:64px;margin:0 auto 26px;opacity:.85;">
