@@ -62,7 +62,6 @@ SIDOR = [
     ("uppslag", "hero-dukat-bord", "50% 55%"),
     ("pris", "champagne-window", "50% 50%"),
     ("fakta", "karta", "50% 50%"),
-    ("oversikt", None, None),
     ("kontakt", "hero-sallskapsrum", "50% 50%"),
 ]
 LOGGA = "../assets/img/hallfjallet-logo.png"
@@ -181,11 +180,14 @@ def bygg_html(lang):
             ps = [t for k, t in a["delar"] if k == "p"]
             sista = [t for k, t in a["delar"] if k == "kursiv"]
             # Grupper: namn+e-post, webb+instagram, adress
+            intro = ""
+            if ps and ps[0].endswith(":"):
+                intro = f'<p class="intro">{e(ps[0])}</p>'; ps = ps[1:]
             grupper = [ps[0:2], ps[2:4], ps[4:]]
             g = "".join('<div class="grupp">' + "".join(f"<p>{e(p)}</p>" for p in gr) + "</div>" for gr in grupper if gr)
             s = f'<p class="sista">{e(sista[0])}</p>' if sista else ""
             sidor.append(f'''<section class="sida kontakt">{bild(b, pos)}<div class="slöja"></div>
-  <div class="ruta"><img class="logga" src="{LOGGA}" alt="Hållfjället"><h2>{h2}</h2>{g}{s}</div></section>''')
+  <div class="ruta"><img class="logga" src="{LOGGA}" alt="Hållfjället"><h2>{h2}</h2>{intro}{g}{s}</div></section>''')
     titel = "Hållfjället – " + ("Press kit" if lang == "en" else "Pressmaterial")
     return f'''<!DOCTYPE html>
 <html lang="{lang}"><head><meta charset="UTF-8"><meta name="robots" content="noindex"><title>{titel}</title>

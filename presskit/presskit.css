@@ -16,7 +16,7 @@ img { display: block; }
 .fyll { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .bildyta { position: relative; overflow: hidden; }
 h1, h2, h3, .etikett, .folio { font-family: var(--rubrik); font-weight: 400; text-transform: uppercase; }
-h2 { font-size: 19pt; letter-spacing: .07em; line-height: 1.18; margin: 0 0 7mm; }
+h2 { font-size: 15pt; letter-spacing: .1em; line-height: 1.25; margin: 0 0 7mm; }
 h3 { font-size: 9pt; letter-spacing: .2em; margin: 0 0 2.5mm; }
 p { margin: 0 0 3mm; }
 .etikett { font-size: 7pt; letter-spacing: .26em; margin: 0 0 5mm; opacity: .8; }
@@ -29,7 +29,7 @@ p.slut { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: 
 .omslag .logga { position: absolute; top: 14mm; left: 16mm; width: 34mm; height: auto; }
 .omslag .hornet { position: absolute; top: 16mm; right: 16mm; text-align: right; font-family: var(--rubrik); font-size: 7.4pt; letter-spacing: .26em; text-transform: uppercase; line-height: 1.9; }
 .omslag .titel { position: absolute; left: 16mm; bottom: 15mm; }
-.omslag h1 { font-size: 36pt; letter-spacing: .08em; line-height: 1.05; margin: 0 0 4mm; }
+.omslag h1 { font-size: 26pt; letter-spacing: .12em; line-height: 1.05; margin: 0 0 4mm; }
 .omslag .titel p { font-size: 10pt; margin: 0; max-width: 125mm; }
 
 /* Lång text i två spalter bredvid en smal bild */
@@ -42,8 +42,8 @@ p.slut { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: 
 .raden .slöja, .kontakt .slöja { position: absolute; inset: 0; }
 .raden .slöja { background: linear-gradient(180deg, rgba(20,18,15,.05) 30%, rgba(20,18,15,.55)); }
 .raden blockquote { position: absolute; left: 0; right: 0; bottom: 30mm; margin: 0; text-align: center; color: var(--gra);
-  font-family: var(--rubrik); text-transform: uppercase; font-size: 40pt; line-height: 1.12; letter-spacing: .07em; text-shadow: 0 0 18px rgba(20,18,15,.6); }
-.raden blockquote { margin: 0 auto; max-width: 190mm; text-wrap: balance; }
+  font-family: var(--rubrik); text-transform: uppercase; font-size: 19pt; line-height: 1.3; letter-spacing: .16em; text-shadow: 0 0 18px rgba(20,18,15,.6); }
+.raden blockquote { margin: 0 auto; max-width: 150mm; text-wrap: balance; }
 
 /* Uppslag: text mot helsidesbild */
 .uppslag { display: grid; grid-template-columns: 1fr 1fr; }
@@ -112,3 +112,5 @@ p.slut { font-family: var(--rubrik); text-transform: uppercase; letter-spacing: 
 .omslag .logga { filter: brightness(0) invert(.88) sepia(.1) drop-shadow(0 0 6px rgba(0,0,0,.35)); }
 .omslag .hornet { color: var(--text); font-size: 8pt; text-shadow: 0 0 10px rgba(237,235,222,.95), 0 0 3px rgba(237,235,222,.95); }
 .omslag .botten { position: absolute; left: 0; right: 0; bottom: 0; height: 30%; background: linear-gradient(180deg, rgba(237,235,222,0), rgba(237,235,222,.78) 62%, rgba(237,235,222,.9)); }
+
+.kontakt .intro { font-size: 9.5pt; letter-spacing: .03em; margin-bottom: 5mm; opacity: .9; }

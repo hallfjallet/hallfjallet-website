@@ -129,7 +129,7 @@ The mountain birches turn golden, the forests fill with mushrooms and berries, a
 
 The journey to Hållfjället is part of the experience. Nearly eight kilometres of mountain trails separate the house from the village of Ottsjö.
 
-Once here, there is time to settle in, warm up in the sauna, read a book or find a place by the window. In the evening, guests gather in the dining room for a four-course dinner shaped by the season.
+Once here, there is time to settle in, warm up in the sauna, read a book or find a place by the window. In the evening, guests gather in the dining room for a five-course dinner shaped by the season.
 
 After a night in one of the house's small bedrooms, breakfast is served before another day in the mountains.
 
@@ -177,7 +177,7 @@ Originally built as a mountain lodge in 1943.
 
 **Accommodation**
 
-Ten bedrooms with original bunk beds, accommodating up to 24 guests. Shared showers and toilets.
+Ten small bedrooms with original bunk beds. Shared showers and toilets.
 
 **Getting here**
 
@@ -185,7 +185,7 @@ Nearly eight kilometres from Ottsjö, with approximately 300 metres of elevation
 
 **The stay**
 
-Overnight accommodation, four-course dinner, breakfast and sauna.
+Overnight accommodation, five-course dinner, breakfast and sauna.
 
 **The kitchen**
 
@@ -217,17 +217,9 @@ info@hallfjallet.se
 
 ---
 
-## Hållfjället in pictures
-
-High-resolution photographs, captions and photographer credits are available in our press library.
-
-For editorial use. Please credit the photographer when publishing.
-
-www.hallfjallet.se/en/press
-
----
-
 ## Press enquiries
+
+For further information and high-resolution photographs, please contact:
 
 Linda Pérez
 

@@ -129,7 +129,7 @@ Fjällbjörkarna skiftar i guld, skogarna fylls av svamp och bär och luften bli
 
 Vägen till Hållfjället är en del av upplevelsen. Knappt åtta kilometer fjällstig skiljer huset från byn Ottsjö.
 
-Väl framme finns tid att komma till ro, värma sig i bastun, läsa en bok eller finna en plats vid fönstret. På kvällen samlas gästerna i matsalen kring en fyrarättersmiddag formad av årstiden.
+Väl framme finns tid att komma till ro, värma sig i bastun, läsa en bok eller finna en plats vid fönstret. På kvällen samlas gästerna i matsalen kring en femrättersmiddag formad av årstiden.
 
 Efter en natt i något av husets små rum väntar frukost och en ny dag på fjället.
 
@@ -177,7 +177,7 @@ Uppfördes som fjällstation 1943.
 
 **Boende**
 
-Tio rum med ursprungliga våningssängar och plats för upp till 24 gäster. Gemensamma duschar och toaletter.
+Tio små rum med ursprungliga våningssängar. Gemensamma duschar och toaletter.
 
 **Hit tar du dig**
 
@@ -185,7 +185,7 @@ Knappt åtta kilometer från Ottsjö, med omkring 300 meters stigning. Till fots
 
 **Fjällvistelsen**
 
-Övernattning, fyrarättersmiddag, frukost och bastu.
+Övernattning, femrättersmiddag, frukost och bastu.
 
 **Köket**
 
@@ -217,17 +217,9 @@ info@hallfjallet.se
 
 ---
 
-## Hållfjället i bilder
-
-Högupplösta fotografier, bildtexter och fotografnamn finns i vårt pressbildsarkiv.
-
-Bilderna får användas i redaktionella sammanhang. Vänligen ange fotografens namn vid publicering.
-
-www.hallfjallet.se/press
-
----
-
 ## Presskontakt
+
+För mer information och högupplösta bilder, kontakta:
 
 Linda Pérez
 
